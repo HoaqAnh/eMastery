@@ -1,0 +1,23 @@
+{
+  "greeting": "Hello, {{name}}",
+  "userProfile": {
+    "title": "User Profile",
+    "viewProfile": "View Profile"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "notifications": "Notifications",
+    "themeSettings": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome to our home page!",
+    "explore": "Feel free to explore!"
+  }
+}

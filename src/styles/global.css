@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --background: #f1fcfc;
+    --foreground: #082844;
+    --card: #ffffff;
+    --card-foreground: #082844;
+    --popover: #ffffff;
+    --popover-foreground: #082844;
+    --primary: #063760;
+    --primary-foreground: #fafafa;
+    --secondary: #397bb1;
+    --secondary-foreground: #e9f9fc;
+    --muted: #e3e6e8;
+    --muted-foreground: #03045e;
+    --accent: #dee6ed;
+    --accent-foreground: #1b86e4;
+    --destructive: #ef4343;
+    --destructive-foreground: #fafafa;
+    --border: #c9f0f8;
+    --input: #e0e6eb;
+    --ring: #0077b8;
+}
+
+html.dark-theme {
+    --background: #1f2929;
+    --foreground: #fafafa;
+    --card: #171a1c;
+    --card-foreground: #fafafa;
+    --popover: #171a1c;
+    --popover-foreground: #fafafa;
+    --primary: #122e45;
+    --primary-foreground: #fafafa;
+    --secondary: #2d4153;
+    --secondary-foreground: #fafafa;
+    --muted: #2d4153;
+    --muted-foreground: #859aad;
+    --accent: #2d4153;
+    --accent-foreground: #fafafa;
+    --destructive: #7c1d1d;
+    --destructive-foreground: #fafafa;
+    --border: #33414d;
+    --input: #33414d;
+    --ring: #1f89e5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    background-color: var(--background);
+    transition: background-color 0.3s;
+}

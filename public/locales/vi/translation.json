@@ -1,0 +1,24 @@
+{
+  "greeting": "Xin chào, {{name}}",
+
+  "userProfile": {
+    "title": "Hồ sơ người dùng",
+    "viewProfile": "Xem hồ sơ"
+  },
+  "settings": {
+    "title": "Cai đặt",
+    "theme": "Chủ đề",
+    "language": "Ngôn ngữ",
+    "notifications": "Thông báo",
+    "themeSettings": {
+      "light": "Sáng",
+      "dark": "Tối",
+      "system": "Hệ thống"
+    }
+  },
+  "home": {
+    "title": "Trang chủ",
+    "welcome": "Chào mừng bạn đến với trang chủ của chúng tôi!",
+    "explore": "Hãy thoải mái khám phá!"
+  }
+}
