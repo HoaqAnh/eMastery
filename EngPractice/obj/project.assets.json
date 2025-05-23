@@ -4230,6 +4230,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.Extensions.Configuration.Json >= 9.0.5",
       "Microsoft.Extensions.Logging.Console >= 8.0.8",
+      "Newtonsoft.Json >= 13.0.3",
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.2",
       "Serilog.AspNetCore >= 8.0.8",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -4303,6 +4304,10 @@
           "Microsoft.Extensions.Logging.Console": {
             "target": "Package",
             "version": "[8.0.8, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
