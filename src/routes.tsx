@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Home from './pages/home/user-home';
-import NotFoundPage from './layouts/NotFoundPage';
-import MainLayout from './layouts/main-layout';
+import Home from '@/pages/Home';
+import NotFoundPage from '@layouts/NotFoundPage';
+import MainLayout from '@layouts/MainLayout';
 
 const AppRoutes: React.FC = () => {
     return (

@@ -40,7 +40,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     if (themeSetting === 'system') {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      console.log('System theme detected:', mediaQuery.matches ? 'dark' : 'light');
       const handleSystemThemeChange = (e: MediaQueryListEvent) => {
         applyTheme(e.matches ? 'dark' : 'light');
       };

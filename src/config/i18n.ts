@@ -14,7 +14,7 @@ i18n
         backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
-        debug: import.meta.env.DEV,
+        // debug: import.meta.env.DEV,
     });
 
 export default i18n;

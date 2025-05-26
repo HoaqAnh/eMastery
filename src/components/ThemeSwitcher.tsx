@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '@context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
 const ThemeSwitcher: React.FC = () => {

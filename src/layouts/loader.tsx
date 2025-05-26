@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import "../styles/layouts/loader.css";
+import "@styles/layouts/Loader.css";
 
 const Loader = (): JSX.Element => {
     return (

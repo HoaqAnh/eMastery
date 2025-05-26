@@ -1,9 +1,8 @@
 import { type JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Outlet } from "react-router-dom";
-import logo from "../assets/react.svg"
-import ThemeSwitcher from "../components/ThemeSwitcher";
-import "../styles/layouts/main-layout.css";
+import ThemeSwitcher from '@components/ThemeSwitcher';
+import '@styles/layouts/MainLayout.css';
 
 const MainLayout = (): JSX.Element => {
     const { t, i18n } = useTranslation();
@@ -17,10 +16,7 @@ const MainLayout = (): JSX.Element => {
                 <div className="nav-background" />
                 <nav>
                     <div className="logo">
-                        <a href="/">
-                            <img src={logo} alt="Logo" />
-                        </a>
-                        <h1>EngPractice</h1>
+                        <h1>E-Mastery</h1>
                     </div>
                     <div className="menu">
                         ACTION
