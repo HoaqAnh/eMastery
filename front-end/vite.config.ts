@@ -18,10 +18,12 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@assets': path.resolve(__dirname, './src/assets'),
       '@context': path.resolve(__dirname, './src/context'),
-      '@layouts': path.resolve(__dirname, './src/layouts'),
+      '@layouts': path.resolve(__dirname, './src/components/layouts'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@types': path.resolve(__dirname, './src/types'),
       '@api': path.resolve(__dirname, './src/api'),
+      '@routers': path.resolve(__dirname, './src/routers'),
+      '@features': path.resolve(__dirname, './src/features'),
     },
   },
 })

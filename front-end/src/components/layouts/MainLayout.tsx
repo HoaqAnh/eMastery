@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 import NavActions from "@/components/NavActions";
 import { useTranslation } from "react-i18next";
 import "@styles/layouts/MainLayout.css";
-import Button from "@components/Button";
+import Button from "@/components/common/Button";
 
 const MainLayout = (): JSX.Element => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleChatBotClick = () => {
     console.log("Chatbot button clicked");
