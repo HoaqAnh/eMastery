@@ -74,7 +74,7 @@ nav {
     filter: drop-shadow(0 0 23px var(--animation-color))
 }
 
-nav .menu {
+.nav-menu {
     display: flex;
     align-items: center;
     justify-content: center;

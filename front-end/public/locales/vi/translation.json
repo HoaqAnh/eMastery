@@ -1,12 +1,11 @@
 {
   "greeting": "Xin chào, {{name}}",
-
   "userProfile": {
     "title": "Hồ sơ người dùng",
     "viewProfile": "Xem hồ sơ"
   },
   "settings": {
-    "title": "Cai đặt",
+    "title": "Cài đặt",
     "languageSettings": {
       "title": "Ngôn ngữ",
       "vi": "VI",
@@ -24,5 +23,11 @@
     "title": "Trang chủ",
     "welcome": "Chào mừng bạn đến với trang chủ của chúng tôi!",
     "explore": "Hãy thoải mái khám phá!"
+  },
+  "navMenu": {
+    "writingPractice": "Luyện viết",
+    "puzzleSolving": "Giải đố",
+    "features": "Chức năng",
+    "aiAssistant": "Trợ lý AI"
   }
 }

@@ -6,7 +6,6 @@
   },
   "settings": {
     "title": "Settings",
-    "theme": "Theme",
     "languageSettings": {
       "title": "Language",
       "vi": "VI",
@@ -22,7 +21,13 @@
   },
   "home": {
     "title": "Home",
-    "welcome": "Welcome to our home page!",
+    "welcome": "Welcome to our homepage!",
     "explore": "Feel free to explore!"
+  },
+  "navMenu": {
+    "writingPractice": "Writing Practice",
+    "puzzleSolving": "Puzzle Solving",
+    "features": "Features",
+    "aiAssistant": "AI Assistant"
   }
 }
