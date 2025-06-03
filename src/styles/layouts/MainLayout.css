@@ -13,7 +13,6 @@ header {
     flex-direction: row;
     width: 100%;
     height: fit-content;
-    box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.1);
 }
 
 .nav-background {
@@ -37,28 +36,54 @@ nav {
     padding: 15px 20px;
 }
 
-nav .logo {
-    display: flex;
-    align-items: center;
+.logo {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
-nav .logo img {
-    height: 40px;
-    margin-right: 10px;
+.logo {
+    --border-right: 4px;
+    --animation-color: #37FF8B;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: 1em;
+    position: relative;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px var(--card-foreground);
+}
+
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.logo:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav .nav-actions {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-nav .nav-actions button {
-    padding: 5px 10px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    color: var(--foreground)
 }
 
 .container {

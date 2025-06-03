@@ -1,14 +1,15 @@
 import { type JSX, type ReactNode } from "react";
+import '@styles/components/Button.css';
 
 interface ButtonMenuProps {
     IconComponent?: ReactNode;
-    BtnMenuText: string;
+    BtnMenuText?: string;
     onClick?: () => void;
     className?: string;
     disabled?: boolean;
 }
 
-const ButtonMenu = ({ IconComponent, BtnMenuText, onClick, className = '', disabled = false }: ButtonMenuProps): JSX.Element => {
+const ButtonMenu = ({ IconComponent, BtnMenuText = '', onClick, className = '', disabled = false }: ButtonMenuProps): JSX.Element => {
     const combinedClassName = `${className}`.trim();
     return (
         <button className={combinedClassName} onClick={onClick} disabled={disabled}>
