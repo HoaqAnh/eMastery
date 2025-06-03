@@ -7,10 +7,14 @@
   },
   "settings": {
     "title": "Cai đặt",
-    "theme": "Chủ đề",
-    "language": "Ngôn ngữ",
+    "languageSettings": {
+      "title": "Ngôn ngữ",
+      "vi": "VI",
+      "en": "EN"
+    },
     "notifications": "Thông báo",
     "themeSettings": {
+      "title": "Giao diện",
       "light": "Sáng",
       "dark": "Tối",
       "system": "Hệ thống"

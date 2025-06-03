@@ -7,9 +7,14 @@
   "settings": {
     "title": "Settings",
     "theme": "Theme",
-    "language": "Language",
+    "languageSettings": {
+      "title": "Language",
+      "vi": "VI",
+      "en": "EN"
+    },
     "notifications": "Notifications",
     "themeSettings": {
+      "title": "Theme",
       "light": "Light",
       "dark": "Dark",
       "system": "System"
