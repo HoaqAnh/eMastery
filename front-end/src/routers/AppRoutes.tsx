@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from '@/pages/Home';
-import NotFoundPage from '@/components/layouts/NotFoundPage';
-import MainLayout from '@/components/layouts/MainLayout';
+import NotFoundPage from '@layouts/NotFoundPage';
+import MainLayout from '@layouts/Main/MainLayout';
 
 const AppRoutes: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import { Outlet } from "react-router-dom";
-import NavActions from "@/components/NavActions";
+import NavActions from "./NavActions";
 import { useTranslation } from "react-i18next";
 import "@styles/layouts/MainLayout.css";
 import Button from "@/components/common/Button";

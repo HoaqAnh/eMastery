@@ -1,7 +1,7 @@
 import { type JSX } from "react";
-import "@styles/layouts/Loader.css";
+import "@styles/layouts/Loading.css";
 
-const Loader = (): JSX.Element => {
+const Loading = (): JSX.Element => {
     return (
         <div className="loader">
             <div className="box"></div>
@@ -17,4 +17,4 @@ const Loader = (): JSX.Element => {
     );
 }
 
-export default Loader;
+export default Loading;
