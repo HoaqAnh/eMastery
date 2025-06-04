@@ -1,33 +1,35 @@
 import { type JSX } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "@styles/layouts/MainLayout.css";
 import NavActions from "./NavActions";
 import NavMenu from "./NavMenu";
 
-const MainLayout = (): JSX.Element => (
-  <div className="main-layout">
-    <header>
-      <nav>
-        <div className="nav-logo">
-          <button className="logo" data-text="Awesome">
-            <span className="actual-text">&nbsp;eMastery&nbsp;</span>
-            <span aria-hidden="true" className="hover-text">
-              &nbsp;eMastery&nbsp;
-            </span>
-          </button>
-        </div>
-        <div className="nav-menus">
-          <NavMenu /> 
-        </div>
-        <div className="nav-actions">
-          <NavActions />
-        </div>
-      </nav>
-    </header>
-    <div className="container">
-      <Outlet />
+const MainLayout = (): JSX.Element => {
+  const navigator = useNavigate();
+  return (
+    <div className="main-layout">
+      <header>
+        <nav>
+          <div className="nav-logo">
+            <button className="logo" onClick={() => navigator("/welcome")}>
+              <span className="actual-text">&nbsp;eMastery&nbsp;</span>
+              <span aria-hidden="true" className="hover-text">
+                &nbsp;eMastery&nbsp;
+              </span>
+            </button>
+          </div>
+          <div className="nav-menus">
+            <NavMenu />
+          </div>
+          <div className="nav-actions">
+            <NavActions />
+          </div>
+        </nav>
+      </header>
+      <div className="container">
+        <Outlet />
+      </div>
     </div>
-  </div>
-);
-
+  );
+};
 export default MainLayout;

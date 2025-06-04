@@ -8,8 +8,10 @@ import {
   LightIcon,
   SystemIcon,
 } from "@components/common/Icons";
+import { useNavigate } from "react-router-dom";
 
 const NavActions = (): JSX.Element => {
+  const navigator = useNavigate();
   const { themeSetting, setThemeSetting } = useTheme();
   const { t, i18n } = useTranslation();
 
@@ -23,11 +25,12 @@ const NavActions = (): JSX.Element => {
       <div className="nav_guest-actions__subscribe">
         <button
           className={`nav_guest-actions__subscribe-button`}
-          title={t("greeting.subscribe")}
+          title={t("subscribe.title")}
           type="button"
+          onClick={() => navigator("subscribe")}
         >
           {GoogleIcon}
-          <span>{t("greeting.subscribe")}</span>
+          <span>{t("subscribe.title")}</span>
         </button>
       </div>
 

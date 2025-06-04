@@ -1,7 +1,12 @@
 {
   "greeting": {
-    "helloUser": "Xin chào, {{name}}",
-    "subscribe": "Đăng ký ngay"
+    "helloUser": "Xin chào, {{name}}"
+  },
+  "subscribe": {
+    "title": "Đăng ký",
+    "content": "Đầu tiên, bạn cần có Gemini API Key. Bạn có thể lấy API Key từ aistudio.google.com/app/apikey hoặc nhấn vào nút 'Key' bên dưới.",
+    "getKey": "Key",
+    "placeholder": "Khóa API Gemini của bạn"
   },
   "userProfile": {
     "title": "Hồ sơ",

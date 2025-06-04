@@ -1,0 +1,132 @@
+.subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: transparent;
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  width: 260px;
+  height: 320px;
+  padding: 0 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--card-foreground);
+}
+
+.card__content {
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: var(--card-foreground);
+}
+
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-form_input-key {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card__form input {
+  width: 100%;
+  outline: 0;
+  background: var(--input);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em 50px 0.6em 0.6em;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  box-sizing: border-box;
+}
+
+.getKey-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: 0;
+  background: var(--primary-foreground);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.4em 0.6em;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 14px;
+  height: auto;
+}
+
+.getKey-btn:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.subscribe-btn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  color: var(--card-foreground);
+  z-index: 1;
+  background: var(--primary-foreground);
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.subscribe-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0;
+  width: 0;
+  border-radius: 15px;
+  background-color: var(--primary);
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.subscribe-btn:hover {
+  color: var(--primary-foreground);
+}
+
+.subscribe-btn:hover::before {
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.subscribe-btn:active {
+  transform: scale(80%);
+}

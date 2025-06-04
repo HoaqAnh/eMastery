@@ -11,7 +11,7 @@ const UserHome = (): JSX.Element => {
     return (
         <div className="home">
             <h1>{t('home.title')}</h1>
-            <p>{t('greeting', { name: userInfo.name })}</p>
+            <p>{t('greeting.helloUser', { name: userInfo.name })}</p>
             <p>{t('home.welcome')}</p>
             <p>{t('home.explore')}</p>
         </div>

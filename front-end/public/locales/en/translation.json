@@ -1,7 +1,12 @@
 {
   "greeting": {
-    "helloUser": "Hello, {{name}}",
-    "subscribe": "Signup now"
+    "helloUser": "Hello, {{name}}"
+  },
+  "subscribe": {
+    "title": "Subscribe",
+    "content": "First, you need a Gemini API Key. You can get the API Key from aistudio.google.com/app/apikey or click the 'Key' button below.",
+    "getKey": "Key",
+    "placeholder": "Your Gemini API key"
   },
   "userProfile": {
     "title": "Profile",
