@@ -1,5 +1,8 @@
 {
-  "greeting": "Xin chào, {{name}}",
+  "greeting": {
+    "helloUser": "Xin chào, {{name}}",
+    "subscribe": "Đăng ký ngay"
+  },
   "userProfile": {
     "title": "Hồ sơ",
     "viewProfile": "Xem hồ sơ"
@@ -32,6 +35,7 @@
     "writingPractice": "Luyện viết",
     "puzzleSolving": "Giải đố",
     "features": "Chức năng",
-    "aiAssistant": "Trợ lý AI"
+    "aiAssistant": "Trợ lý AI",
+    "dictionary": "Từ điển"
   }
 }

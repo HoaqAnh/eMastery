@@ -1,5 +1,8 @@
 {
-  "greeting": "Hello, {{name}}",
+  "greeting": {
+    "helloUser": "Hello, {{name}}",
+    "subscribe": "Signup now"
+  },
   "userProfile": {
     "title": "Profile",
     "viewProfile": "View Profile"
@@ -32,6 +35,7 @@
     "writingPractice": "Writing Practice",
     "puzzleSolving": "Puzzle Solving",
     "features": "Features",
-    "aiAssistant": "AI Assistant"
+    "aiAssistant": "AI Assistant",
+    "dictionary": "Dictionary"
   }
 }

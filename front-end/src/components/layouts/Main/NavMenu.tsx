@@ -7,7 +7,8 @@ import {
   QuizIcon,
   ChatBotIcon,
   MailIcon,
-} from "./Icons";
+  LibraryBooksIcon,
+} from "@components/common/Icons";
 
 const NavMenu = (): JSX.Element => {
   const { t } = useTranslation();
@@ -48,6 +49,14 @@ const NavMenu = (): JSX.Element => {
                 {t("navMenu.features", "Features")}
               </h3>
               <div className="nav-menu__dropdown-group">
+                <button
+                  className="nav-menu__dropdown-item"
+                  title={t("navMenu.dictionary")}
+                  type="button"
+                >
+                  {LibraryBooksIcon}
+                  <span>{t("navMenu.dictionary")}</span>
+                </button>
                 <button
                   className="nav-menu__dropdown-item active"
                   title={t("navMenu.writingPractice")}
@@ -97,6 +106,14 @@ const NavMenu = (): JSX.Element => {
 
       {/* Desktop Features */}
       <div className="nav-menu__features">
+        <button
+          className={`nav-menu-item`}
+          title={t("navMenu.dictionary")}
+          type="button"
+        >
+          {LibraryBooksIcon}
+          <span>{t("navMenu.dictionary")}</span>
+        </button>
         <button
           className={`nav-menu-item active`}
           title={t("navMenu.writingPractice")}

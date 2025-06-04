@@ -2,31 +2,20 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
   background-color: transparent;
   color: var(--foreground);
   transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: fit-content;
 }
 
-.nav-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  background-color: transparent;
-  z-index: 0;
-}
-
 nav {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -92,7 +81,6 @@ nav {
 nav .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .container {
@@ -101,9 +89,8 @@ nav .nav-actions {
   padding: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 780px) {
-}
-
-@media (max-width: 480px) {
+@media (max-width: 430px) {
+  .nav-logo {
+    display: none;
+  }
 }

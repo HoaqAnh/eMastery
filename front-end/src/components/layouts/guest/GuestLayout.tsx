@@ -1,11 +1,10 @@
 import { type JSX } from "react";
 import { Outlet } from "react-router-dom";
-import "@styles/layouts/MainLayout.css";
+import "@styles/layouts/GuestLayout.css";
 import NavActions from "./NavActions";
-import NavMenu from "./NavMenu";
 
-const MainLayout = (): JSX.Element => (
-  <div className="main-layout">
+const GuestLayout = (): JSX.Element => (
+  <div className="guest-layout">
     <header>
       <nav>
         <div className="nav-logo">
@@ -15,9 +14,6 @@ const MainLayout = (): JSX.Element => (
               &nbsp;eMastery&nbsp;
             </span>
           </button>
-        </div>
-        <div className="nav-menus">
-          <NavMenu /> 
         </div>
         <div className="nav-actions">
           <NavActions />
@@ -30,4 +26,4 @@ const MainLayout = (): JSX.Element => (
   </div>
 );
 
-export default MainLayout;
+export default GuestLayout;

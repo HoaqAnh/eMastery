@@ -3,7 +3,12 @@ import { useTheme } from "@context/ThemeContext";
 import { useTranslation } from "react-i18next";
 import useClickOutside from "@/hooks/useClickOutside";
 import "@styles/components/NavActions.css";
-import { DarkIcon, LightIcon, SystemIcon, UserIcon } from "./Icons";
+import {
+  DarkIcon,
+  LightIcon,
+  SystemIcon,
+  UserIcon,
+} from "@components/common/Icons";
 
 type ThemeSetting = "light" | "dark" | "system";
 
@@ -28,6 +33,74 @@ const NavActions = (): JSX.Element => {
 
   return (
     <div className="nav-actions">
+      {/* Theme Switcher */}
+      <div className="nav-actions__theme-switcher">
+        {/* Light theme */}
+        <button
+          className={`nav-actions__button nav-actions__theme-button${
+            themeSetting === "light" ? " active" : ""
+          }`}
+          aria-pressed={themeSetting === "light"}
+          onClick={() => setThemeSetting("light")}
+          title={t("settings.themeSettings.light")}
+          type="button"
+        >
+          {LightIcon}
+        </button>
+
+        {/* System theme */}
+        <button
+          className={`nav-actions__button nav-actions__theme-button${
+            themeSetting === "system" ? " active" : ""
+          }`}
+          aria-pressed={themeSetting === "system"}
+          onClick={() => setThemeSetting("system")}
+          title={t("settings.themeSettings.system")}
+          type="button"
+        >
+          {SystemIcon}
+        </button>
+
+        {/* Dark theme */}
+        <button
+          className={`nav-actions__button nav-actions__theme-button${
+            themeSetting === "dark" ? " active" : ""
+          }`}
+          aria-pressed={themeSetting === "dark"}
+          onClick={() => setThemeSetting("dark")}
+          title={t("settings.themeSettings.dark")}
+          type="button"
+        >
+          {DarkIcon}
+        </button>
+      </div>
+
+      {/* Language Switcher */}
+      <div className="nav-actions__language-switcher">
+        <button
+          className={`nav-actions__button nav-actions__language-button${
+            i18n.language === "en" ? " active" : ""
+          }`}
+          onClick={() => changeLanguage("en")}
+          disabled={i18n.language === "en"}
+          title="Switch to English"
+          type="button"
+        >
+          {t("settings.languageSettings.en", "Language")}
+        </button>
+        <button
+          className={`nav-actions__button nav-actions__language-button${
+            i18n.language === "vi" ? " active" : ""
+          }`}
+          onClick={() => changeLanguage("vi")}
+          disabled={i18n.language === "vi"}
+          title="Chuyển sang Tiếng Việt"
+          type="button"
+        >
+          {t("settings.languageSettings.vi", "Language")}
+        </button>
+      </div>
+
       {/* User Settings*/}
       <div className="nav-actions__user-settings" ref={dropdownRef}>
         <button
@@ -123,74 +196,6 @@ const NavActions = (): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Theme Switcher */}
-      <div className="nav-actions__theme-switcher">
-        {/* Light theme */}
-        <button
-          className={`nav-actions__button nav-actions__theme-button${
-            themeSetting === "light" ? " active" : ""
-          }`}
-          aria-pressed={themeSetting === "light"}
-          onClick={() => setThemeSetting("light")}
-          title={t("settings.themeSettings.light")}
-          type="button"
-        >
-          {LightIcon}
-        </button>
-
-        {/* System theme */}
-        <button
-          className={`nav-actions__button nav-actions__theme-button${
-            themeSetting === "system" ? " active" : ""
-          }`}
-          aria-pressed={themeSetting === "system"}
-          onClick={() => setThemeSetting("system")}
-          title={t("settings.themeSettings.system")}
-          type="button"
-        >
-          {SystemIcon}
-        </button>
-
-        {/* Dark theme */}
-        <button
-          className={`nav-actions__button nav-actions__theme-button${
-            themeSetting === "dark" ? " active" : ""
-          }`}
-          aria-pressed={themeSetting === "dark"}
-          onClick={() => setThemeSetting("dark")}
-          title={t("settings.themeSettings.dark")}
-          type="button"
-        >
-          {DarkIcon}
-        </button>
-      </div>
-
-      {/* Language Switcher */}
-      <div className="nav-actions__language-switcher">
-        <button
-          className={`nav-actions__button nav-actions__language-button${
-            i18n.language === "en" ? " active" : ""
-          }`}
-          onClick={() => changeLanguage("en")}
-          disabled={i18n.language === "en"}
-          title="Switch to English"
-          type="button"
-        >
-          {t("settings.languageSettings.en", "Language")}
-        </button>
-        <button
-          className={`nav-actions__button nav-actions__language-button${
-            i18n.language === "vi" ? " active" : ""
-          }`}
-          onClick={() => changeLanguage("vi")}
-          disabled={i18n.language === "vi"}
-          title="Chuyển sang Tiếng Việt"
-          type="button"
-        >
-          {t("settings.languageSettings.vi", "Language")}
-        </button>
       </div>
     </div>
   );
