@@ -1,6 +1,7 @@
 ﻿using EngPractice.Domain;
 using Newtonsoft.Json;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace EngPractice.Service
 {
@@ -70,30 +71,53 @@ namespace EngPractice.Service
             response.EnsureSuccessStatusCode();
 
             var responseBody = await response.Content.ReadAsStringAsync();
-            var geminiResponse = JsonConvert.DeserializeObject<dynamic>(responseBody);
+            Console.WriteLine($"Gemini response: {responseBody}");
+            Console.WriteLine($"User question: {conversation.Question}");
 
+            var geminiResponse = JsonConvert.DeserializeObject<dynamic>(responseBody);
             string message = geminiResponse.candidates[0].content.parts[0].text;
 
-            // Nếu Gemini trả về Markdown có chứa JSON như ```json\n{...}\n```
+            Console.WriteLine($"Message before processing: {message}");
+
+            // Xử lý Markdown nếu có
             if (message.StartsWith("```json"))
             {
-                // Loại bỏ ```json và ```
-                int startIndex = message.IndexOf('{');
-                int endIndex = message.LastIndexOf('}');
-                if (startIndex >= 0 && endIndex > startIndex)
+                var jsonMatch = Regex.Match(message, @"```json\n([\s\S]*?)\n```");
+                if (jsonMatch.Success)
                 {
-                    string extractedJson = message.Substring(startIndex, endIndex - startIndex + 1);
-                    message = extractedJson;
+                    message = jsonMatch.Groups[1].Value;
+                    Console.WriteLine($"Extracted JSON: {message}");
+                }
+                else
+                {
+                    throw new Exception($"Không thể trích xuất JSON từ Markdown: {message}");
                 }
             }
 
-            ChatResponse chatResponse = JsonConvert.DeserializeObject<ChatResponse>(message);
-
-
+            // Thử deserialize JSON
+            ChatResponse chatResponse;
+            try
+            {
+                chatResponse = JsonConvert.DeserializeObject<ChatResponse>(message);
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"JSON deserialization error: {jsonEx.Message}");
+                // Xử lý như văn bản thuần túy nếu không phải JSON
+                chatResponse = new ChatResponse
+                {
+                    MessageInMarkdown = message,
+                    Suggestions = new List<string>
+                    {
+                        "Bạn muốn học từ vựng về chủ đề nào?",
+                        "Chúng ta có thể luyện ngữ pháp cơ bản không?"
+                    }
+                };
+            }
 
             if (enableSearching)
             {
-                // Xử lý nguồn và gợi ý tìm kiếm nếu cần (theo mã gốc)
+                // Xử lý nguồn và gợi ý tìm kiếm nếu cần
             }
 
             return chatResponse;
