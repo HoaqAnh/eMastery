@@ -39,9 +39,7 @@ namespace EngPractice.Controllers
                     request.Gender,
                     request.Age,
                     request.EnglishLevel,
-                    request.GeminiApiKey,
-                    request.EnableReasoning,
-                    request.EnableSearching);
+                    request.GeminiApiKey);
 
                 return Ok(response);
             }
@@ -60,7 +58,6 @@ namespace EngPractice.Controllers
         public int Age { get; set; }
         public EnglishLevel EnglishLevel { get; set; }
         public string GeminiApiKey { get; set; } 
-        public bool EnableReasoning { get; set; }
-        public bool EnableSearching { get; set; }
+
     }
 }

@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddScoped<AuthService>();
-
+builder.Services.AddScoped<ReadingService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
