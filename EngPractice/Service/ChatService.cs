@@ -24,6 +24,11 @@ namespace EngPractice.Service
             bool enableSearching)
         {
             // Kiểm tra API key
+            if (!await HealthcheckService.Healthcheck(apiKey))
+            {
+                throw new Exception("API Key không hợp lệ.");
+            }
+
             if (string.IsNullOrEmpty(apiKey))
             {
                 throw new Exception("API Key không được để trống.");

@@ -6,7 +6,6 @@ namespace EngPractice.Service
     {
         public async Task<LoginResponse> LoginAsync(LoginRequest request)
         {
-            // Kiểm tra các trường bắt buộc
             if (string.IsNullOrEmpty(request.Username) ||
                 string.IsNullOrEmpty(request.Gender) ||
                 request.Age <= 0 ||
@@ -19,7 +18,6 @@ namespace EngPractice.Service
                 };
             }
 
-            // Kiểm tra tính hợp lệ của Gemini API Key
             var isValidApiKey = await HealthcheckService.Healthcheck(request.GeminiApiKey);
             if (!isValidApiKey)
             {
@@ -30,7 +28,6 @@ namespace EngPractice.Service
                 };
             }
 
-            // Trả về thông tin người dùng để client lưu vào localStorage
             return new LoginResponse
             {
                 Success = true,
@@ -40,6 +37,7 @@ namespace EngPractice.Service
                     FullName = request.Username,
                     Gender = request.Gender,
                     Age = request.Age,
+                    englishLevel=request.englishLevel,
                     GeminiApiKey = request.GeminiApiKey
                 }
             };
@@ -58,6 +56,7 @@ namespace EngPractice.Service
         public string FullName { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
+        public EnglishLevel englishLevel { get; set; }
         public string GeminiApiKey { get; set; }
     }
 }

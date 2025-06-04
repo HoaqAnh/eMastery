@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ChatService>();
-
+builder.Services.AddScoped<AuthService>();
 
 var app = builder.Build();
 
