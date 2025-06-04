@@ -1,7 +1,7 @@
 {
   "greeting": "Xin chào, {{name}}",
   "userProfile": {
-    "title": "Hồ sơ người dùng",
+    "title": "Hồ sơ",
     "viewProfile": "Xem hồ sơ"
   },
   "settings": {
@@ -25,6 +25,10 @@
     "explore": "Hãy thoải mái khám phá!"
   },
   "navMenu": {
+    "contact": {
+      "title": "Liên hệ",
+      "mail": "eMastery@gmail.com"
+    },
     "writingPractice": "Luyện viết",
     "puzzleSolving": "Giải đố",
     "features": "Chức năng",

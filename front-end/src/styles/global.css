@@ -1,60 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
-    --background: #f1fcfc;
-    --foreground: #082844;
-    --card: #ffffff;
-    --card-foreground: #082844;
-    --popover: #ffffff;
-    --popover-foreground: #082844;
-    --primary: #063760;
-    --primary-foreground: #fafafa;
-    --secondary: #397bb1;
-    --secondary-foreground: #e9f9fc;
-    --muted: #e3e6e8;
-    --muted-foreground: #03045e;
-    --accent: #dee6ed;
-    --accent-foreground: #1b86e4;
-    --destructive: #ef4343;
-    --destructive-foreground: #fafafa;
-    --border: #c9f0f8;
-    --input: #e0e6eb;
-    --ring: #0077b8;
+  --background: #f1fcfc;
+  --foreground: #082844;
+  --card: #ffffff;
+  --card-foreground: #082844;
+  --popover: #ffffff;
+  --popover-foreground: #082844;
+  --primary: #063760;
+  --primary-foreground: #fafafa;
+  --secondary: #397bb1;
+  --secondary-foreground: #e9f9fc;
+  --muted: #e3e6e8;
+  --muted-foreground: #03045e;
+  --accent: #dee6ed;
+  --accent-foreground: #1b86e4;
+  --destructive: #ef4343;
+  --destructive-foreground: #fafafa;
+  --border: #c9f0f8;
+  --input: #e0e6eb;
+  --ring: #0077b8;
 }
 
 html.dark-theme {
-    --background: #141414;
-    --foreground: #f2f2f2;
-    --card: #1a1a1a;
-    --card-foreground: #f2f2f2;
-    --popover: #1b1818;
-    --popover-foreground: #fafafa;
-    --primary: #f2f2f2;
-    --primary-foreground: #141414;
-    --secondary: #262626;
-    --secondary-foreground: #f2f2f2;
-    --muted: #262626;
-    --muted-foreground: #a6a6a6;
-    --accent: #262626;
-    --accent-foreground: #f2f2f2;
-    --destructive: #7c1d1d;
-    --destructive-foreground: #fafafa;
-    --border: #333333;
-    --input: #333333;
-    --ring: #333333;
+  --background: #141414;
+  --foreground: #f2f2f2;
+  --card: #1a1a1a;
+  --card-foreground: #f2f2f2;
+  --popover: #1b1818;
+  --popover-foreground: #fafafa;
+  --primary: #f2f2f2;
+  --primary-foreground: #141414;
+  --secondary: #262626;
+  --secondary-foreground: #f2f2f2;
+  --muted: #262626;
+  --muted-foreground: #a6a6a6;
+  --accent: #262626;
+  --accent-foreground: #f2f2f2;
+  --destructive: #7c1d1d;
+  --destructive-foreground: #fafafa;
+  --border: #333333;
+  --input: #333333;
+  --ring: #333333;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 16px;
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
 }
 
 main {
-    padding: 0;
-    margin: 0;
-    background-color: var(--background);
-    transition: background-color 0.3s;
+  background-color: var(--background);
+  transition: background-color 0.3s;
 }

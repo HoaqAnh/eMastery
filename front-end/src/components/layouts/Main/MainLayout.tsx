@@ -9,13 +9,17 @@ const MainLayout = (): JSX.Element => (
     <header>
       <div className="nav-background" />
       <nav>
-        <button className="logo" data-text="Awesome">
-          <span className="actual-text">&nbsp;eMastery&nbsp;</span>
-          <span aria-hidden="true" className="hover-text">
-            &nbsp;eMastery&nbsp;
-          </span>
-        </button>
-        <NavMenu />
+        <div className="nav-logo">
+          <button className="logo" data-text="Awesome">
+            <span className="actual-text">&nbsp;eMastery&nbsp;</span>
+            <span aria-hidden="true" className="hover-text">
+              &nbsp;eMastery&nbsp;
+            </span>
+          </button>
+        </div>
+        <div className="nav-menus">
+          <NavMenu /> 
+        </div>
         <div className="nav-actions">
           <NavActions />
         </div>
