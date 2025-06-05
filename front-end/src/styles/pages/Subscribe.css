@@ -11,30 +11,33 @@
 
 .card {
   width: 260px;
-  height: 320px;
-  padding: 0 15px;
+  height: fit-content;
+  padding: 20px;
   text-align: center;
   display: flex;
+  gap: 1em;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap: 12px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 20px;
+  transition: all 0.3s;
 }
 
 .card__title {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--card-foreground);
+  transition: all 0.3s;
 }
 
 .card__content {
+  margin-top: 0.5em;
   font-size: 0.85rem;
   line-height: 1.5rem;
   text-align: center;
   color: var(--card-foreground);
+  transition: all 0.3s;
 }
 
 .card__form {
@@ -45,7 +48,6 @@
 
 .card-form_input-key {
   position: relative;
-  margin-top: 10px;
   display: flex;
   align-items: center;
 }
@@ -53,15 +55,18 @@
 .card__form input {
   width: 100%;
   outline: 0;
+  font-size: 0.9rem;
+  color: var(--card-foreground);
   background: var(--input);
   box-shadow: transparent 0px 0px 0px 1px inset;
-  padding: 0.6em 50px 0.6em 0.6em;
+  padding: 1em 50px 1em 0.6em;
   border-radius: 14px;
   border: 1px solid var(--border);
-  color: var(--foreground);
   box-sizing: border-box;
+  transition: all 0.3s;
 }
 
+.google-btn,
 .getKey-btn {
   cursor: pointer;
   position: absolute;
@@ -69,32 +74,43 @@
   top: 50%;
   transform: translateY(-50%);
   outline: 0;
-  background: var(--primary-foreground);
+  background-color: var(--primary-foreground);
   box-shadow: transparent 0px 0px 0px 1px inset;
   padding: 0.4em 0.6em;
   border-radius: 10px;
   border: 1px solid var(--border);
   color: var(--foreground);
-  font-size: 14px;
   height: auto;
+  transition: all 0.3s;
 }
 
 .getKey-btn:hover {
-  background: var(--primary);
+  background-color: var(--primary);
   color: var(--primary-foreground);
+}
+
+.google-btn {
+  background: transparent;
+  border: none;
+}
+
+.google-btn:hover {
+  background-color: var(--primary);
+  padding: 0.4em;
+  padding-bottom: 0.2em;
 }
 
 .subscribe-btn {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 12px 24px;
   border: 1px solid var(--border);
   border-radius: 15px;
   color: var(--card-foreground);
   z-index: 1;
   background: var(--primary-foreground);
   position: relative;
-  font-weight: 1000;
-  font-size: 17px;
+  font-weight: bold;
+  font-size: 1.2rem;
   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
@@ -129,4 +145,49 @@
 
 .subscribe-btn:active {
   transform: scale(80%);
+}
+
+.card__form-select {
+  width: 100%;
+  outline: 0;
+  color: var(--card-foreground);
+  background: var(--input);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.card__form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); /* Icon mũi tên tùy chỉnh */
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  padding-right: 2em;
+}
+
+.card__form input {
+  padding-right: 0.6em;
+}
+
+.card__form-select option[value=""][disabled] {
+  color: var(--muted-foreground, #a1a1aa);
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.card__form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.card__form input[type="number"]::-webkit-outer-spin-button,
+.card__form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

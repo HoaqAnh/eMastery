@@ -4,9 +4,38 @@
   },
   "subscribe": {
     "title": "Subscribe",
-    "content": "First, you need a Gemini API Key. You can get the API Key from aistudio.google.com/app/apikey or click the 'Key' button below.",
-    "getKey": "Key",
-    "placeholder": "Your Gemini API key"
+    "next": "Next step",
+    "confirm": "Confirm subscribe",
+    "api": {
+      "content": "First, you need a Gemini API Key. You can get a free API Key from 'aistudio.google.com/app/apikey' or click the 'Key' button below.",
+      "getKey": "Key",
+      "placeholder": "Your Gemini API key"
+    },
+    "google": {
+      "buttonTitle": "Google",
+      "content": "Please enter your username or you can link it to your Google account.",
+      "placeholder": "Your name"
+    },
+    "profile": {
+      "content": "We commit to not using or storing any of your information outside of the eMastery application. Your data solely serves in-app experience.",
+      "fullname": "Your name",
+      "age": "Your age",
+      "sex": {
+        "title": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "unsex": "Other"
+      },
+      "level": {
+        "title": "Level",
+        "beginner": "Beginner",
+        "elementary": "Elementary",
+        "intermediate": "Intermediate",
+        "upperIntermediate": "Upper Intermediate",
+        "advanced": "Advanced",
+        "proficient": "Proficient"
+      }
+    }
   },
   "userProfile": {
     "title": "Profile",

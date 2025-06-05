@@ -4,9 +4,38 @@
   },
   "subscribe": {
     "title": "Đăng ký",
-    "content": "Đầu tiên, bạn cần có Gemini API Key. Bạn có thể lấy API Key từ aistudio.google.com/app/apikey hoặc nhấn vào nút 'Key' bên dưới.",
-    "getKey": "Key",
-    "placeholder": "Khóa API Gemini của bạn"
+    "next": "Bước tiếp theo",
+    "confirm": "Xác nhận đăng ký",
+    "api": {
+      "content": "Đầu tiên, bạn cần có Gemini API Key. Bạn có thể lấy API Key miễn phí từ 'aistudio.google.com' hoặc nhấn vào nút 'Key' bên dưới.",
+      "getKey": "Key",
+      "placeholder": "Nhập API key của bạn"
+    },
+    "google": {
+      "buttonTitle": "Liên kết Google",
+      "content": "Hãy đặt tên người dùng của bạn hoặc bạn có thể liên kết với tài khoản Google của mình.",
+      "placeholder": "Tên gọi của bạn"
+    },
+    "profile": {
+      "content": "Chúng tôi cam kết không sử dụng hoặc lưu trữ bất kỳ thông tin nào của bạn bên ngoài ứng dụng eMastery. Dữ liệu của bạn chỉ phục vụ cho mục đích trải nghiệm trong ứng dụng.",
+      "fullname": "Tên gọi của bạn",
+      "age": "Tuổi của bạn",
+      "sex": {
+        "title": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "unsex": "Khác"
+      },
+      "level": {
+        "title": "Trình độ",
+        "beginner": "Người mới bắt đầu",
+        "elementary": "Tiểu học",
+        "intermediate": "Trung học",
+        "upperIntermediate": "Trên trung học",
+        "advanced": "Chuyên nghiệp",
+        "proficient": "Thành thạo"
+      }
+    }
   },
   "userProfile": {
     "title": "Hồ sơ",

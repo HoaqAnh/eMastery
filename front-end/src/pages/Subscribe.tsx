@@ -1,31 +1,31 @@
-import { type JSX } from "react";
-import { useTranslation } from "react-i18next";
+import { type JSX, useState } from "react";
+import ApiKeySubmit from "@/features/subscribe/components/ApiKeySubmit";
+import ProfileSubmit from "@/features/subscribe/components/ProfileSubmit";
+import SubWithGoogle from "@/features/subscribe/components/SubWithGoogle";
 import "@styles/pages/Subscribe.css";
 
+type Step = "apiKey" | "google" |"profile";
+
 const Subscribe = (): JSX.Element => {
-  const { t } = useTranslation();
-  const handleGetKeyClickOpenInNewTab = () => {
-    const targetUrl = "https://aistudio.google.com/app/apikey";
-    window.open(targetUrl, "_blank", "noopener,noreferrer");
+  const [currentStep, setCurrentStep] = useState<Step>("apiKey");
+
+  const handleGoToGoogleStep = () => {
+    setCurrentStep("profile");
   };
+
+  const handleGoToProfileStep = () => {
+    setCurrentStep("google");
+  };
+
   return (
     <div className="subscribe">
-      <div className="card">
-        <span className="card__title">{t("subscribe.title")}</span>
-        <p className="card__content">{t("subscribe.content")}</p>
-        <div className="card__form">
-          <div className="card-form_input-key">
-            <input placeholder={t("subscribe.placeholder")} type="password" />
-            <button
-              className="getKey-btn"
-              onClick={handleGetKeyClickOpenInNewTab}
-            >
-              {t("subscribe.getKey")}
-            </button>
-          </div>
-          <button className="subscribe-btn">{t("subscribe.title")}</button>
-        </div>
-      </div>
+      {currentStep === "apiKey" && (
+        <ApiKeySubmit onNext={handleGoToProfileStep} />
+      )}
+      {currentStep === "google" && (
+        <SubWithGoogle onNext={handleGoToGoogleStep} />
+      )}
+      {currentStep === "profile" && <ProfileSubmit />}
     </div>
   );
 };
