@@ -62,7 +62,6 @@
   padding: 1em 50px 1em 0.6em;
   border-radius: 14px;
   border: 1px solid var(--border);
-  box-sizing: border-box;
   transition: all 0.3s;
 }
 
@@ -76,7 +75,7 @@
   outline: 0;
   background-color: var(--primary-foreground);
   box-shadow: transparent 0px 0px 0px 1px inset;
-  padding: 0.4em 0.6em;
+  padding: 0.6em 0.8em;
   border-radius: 10px;
   border: 1px solid var(--border);
   color: var(--foreground);
@@ -90,6 +89,7 @@
 }
 
 .google-btn {
+  padding: 0.4em 0.6em;
   background: transparent;
   border: none;
 }
@@ -190,4 +190,9 @@
 .card__form input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.card-form_input-key.apikey-error__input {
+  border: 1px solid var(--destructive);
+  border-radius: 14px;
 }

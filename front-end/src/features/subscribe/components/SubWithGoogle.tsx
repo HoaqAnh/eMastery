@@ -26,13 +26,6 @@ const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
             {GoogleIcon}
           </button>
         </div>
-
-        {/* Age */}
-        <input
-          type="number"
-          className="card__form input"
-          placeholder={t("subscribe.profile.age")}
-        />
         <button className="subscribe-btn" onClick={onNext}>
           {t("subscribe.next")}
         </button>

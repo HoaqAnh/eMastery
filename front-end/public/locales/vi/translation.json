@@ -4,6 +4,7 @@
   },
   "subscribe": {
     "title": "Đăng ký",
+    "loading": "Đang tải...",
     "next": "Bước tiếp theo",
     "confirm": "Xác nhận đăng ký",
     "api": {
@@ -28,12 +29,12 @@
       },
       "level": {
         "title": "Trình độ",
-        "beginner": "Người mới bắt đầu",
-        "elementary": "Tiểu học",
-        "intermediate": "Trung học",
-        "upperIntermediate": "Trên trung học",
-        "advanced": "Chuyên nghiệp",
-        "proficient": "Thành thạo"
+        "A1": "Người mới - A1",
+        "A2": "Tiểu học - A2",
+        "B1": "Trung học - B1",
+        "B2": "Trên trung học - B2",
+        "C1": "Chuyên nghiệp - C1",
+        "C2": "Thành thạo - C2"
       }
     }
   },
