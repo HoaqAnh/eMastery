@@ -19,7 +19,7 @@ header {
   display: flex;
   flex-grow: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 nav {
@@ -91,7 +91,10 @@ nav .nav-actions {
 }
 
 @media (max-width: 430px) {
-  .nav-logo {
-    display: none;
+  nav {
+    padding: 15px 15px;
+  }
+  .container {
+    padding: 0 15px;
   }
 }

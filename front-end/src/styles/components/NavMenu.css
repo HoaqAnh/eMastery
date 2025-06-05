@@ -320,7 +320,7 @@
   .nav-menu__dropdown {
     min-width: 220px;
     left: 50%;
-    transform: translateX(-70%) translateY(-10px);
+    transform: translateX(-70%) translateY(0);
   }
 
   .nav-menu__dropdown--open {
@@ -329,11 +329,16 @@
 }
 
 @media (max-width: 380px) {
-  .nav-menu {
-    justify-content: left;
-  }
   .nav-menu__dropdown {
-    transform: translateX(-25%);
+    min-width: 220px;
+    left: 50%;
+    transform: translateX(-80%) translateY(0);
+  }
+
+  .nav-menu-item {
+    font-size: 0.70rem !important;
+    padding: 4px 8px !important;
+    min-width: 80px !important;
   }
 }
 

@@ -8,7 +8,7 @@
     "next": "Next step",
     "confirm": "Confirm subscribe",
     "api": {
-      "content": "First, you need a Gemini API Key. You can get a free API Key from 'aistudio.google.com/app/apikey' or click the 'Key' button below.",
+      "content": "Firstly, you need a Gemini API Key. You can get a free API Key from 'aistudio.google.com/app/apikey' or click the 'Key' button below.",
       "getKey": "Key",
       "placeholder": "Your Gemini API key"
     },

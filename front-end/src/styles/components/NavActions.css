@@ -386,7 +386,6 @@
 
 @media (max-width: 430px) {
   .nav-actions {
-    flex: 1;
     justify-content: left;
   }
 }
