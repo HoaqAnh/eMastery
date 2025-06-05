@@ -78,5 +78,37 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EngPractice.Controllers.ReadingController",
+    "Method": "EvaluateGuess",
+    "RelativePath": "api/reading/evaluate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EngPractice.Controllers.EvaluationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EngPractice.Controllers.ReadingController",
+    "Method": "GeneratePassage",
+    "RelativePath": "api/reading/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EngPractice.Controllers.ReadingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
