@@ -11,8 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddScoped<AuthService>();
-<<<<<<< HEAD
-
+builder.Services.AddScoped<ReadingService>();
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
 {
@@ -26,9 +25,6 @@ builder.Services.AddCors(options =>
                       });
 });
 
-=======
-builder.Services.AddScoped<ReadingService>();
->>>>>>> 302b7462d946cd2298524f5ed22fe3d30295df01
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
