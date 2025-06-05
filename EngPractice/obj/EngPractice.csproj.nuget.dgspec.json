@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\EngPractice\\EngPractice\\EngPractice.csproj": {}
+    "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\EngPractice\\EngPractice\\EngPractice.csproj": {
+    "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\EngPractice\\EngPractice\\EngPractice.csproj",
+        "projectUniqueName": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj",
         "projectName": "EngPractice",
-        "projectPath": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\EngPractice\\EngPractice\\EngPractice.csproj",
-        "packagesPath": "C:\\Users\\xamth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\EngPractice\\EngPractice\\obj\\",
+        "projectPath": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\xamth\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -38,12 +44,17 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.69.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -106,7 +117,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

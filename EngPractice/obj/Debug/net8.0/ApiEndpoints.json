@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "EngPractice.Controllers.AuthController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/auth/google-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EngPractice.Service.GoogleLoginResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EngPractice.Controllers.AuthController",
+    "Method": "GoogleLoginAdditionalInfo",
+    "RelativePath": "api/auth/google-login/additional-info",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "EngPractice.Service.UserInfoGoogle",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EngPractice.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/auth/login",
     "HttpMethod": "POST",

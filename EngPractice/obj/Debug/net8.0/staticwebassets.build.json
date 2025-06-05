@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "4qZ40UMCa6yVvRnJji8uampju+Apo4+133V3Mq3XJbI=",
+  "Hash": "0L5Gmp/L6s4JtSs2slmat+QsD40uzDMS2R9t3fMZ7dg=",
   "Source": "EngPractice",
   "BasePath": "_content/EngPractice",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

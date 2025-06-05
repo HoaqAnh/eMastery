@@ -32,5 +32,25 @@ namespace EngPractice.Controllers
 
             return Ok(response);
         }
+        [HttpPost("google-login")]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginResponse request)
+        {
+            var user = await _authService.LoginWithGoogleAsync(request.IdToken);
+            if (user == null)
+            {
+                return BadRequest(user);
+            }
+            return Ok(user);
+        }
+        [HttpPost("google-login/additional-info")]
+        public async Task<IActionResult> GoogleLoginAdditionalInfo([FromBody] UserInfoGoogle request)
+        {
+            var response = await _authService.SaveAdditionalInfoAsync(request);
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
     }
 }
