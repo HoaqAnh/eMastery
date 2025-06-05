@@ -33,9 +33,9 @@ namespace EngPractice.Controllers
             return Ok(response);
         }
         [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginResponse request)
+        public async Task<IActionResult> GoogleLogin(string idToken)
         {
-            var user = await _authService.LoginWithGoogleAsync(request.IdToken);
+            var user = await _authService.LoginWithGoogleAsync(idToken);
             if (user == null)
             {
                 return BadRequest(user);

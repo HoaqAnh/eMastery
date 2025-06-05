@@ -41,25 +41,15 @@
         "tags": [
           "Auth"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GoogleLoginResponse"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GoogleLoginResponse"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/GoogleLoginResponse"
-              }
+        "parameters": [
+          {
+            "name": "idToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -159,6 +149,68 @@
           }
         }
       }
+    },
+    "/api/reading/generate": {
+      "post": {
+        "tags": [
+          "Reading"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadingRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadingRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadingRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/reading/evaluate": {
+      "post": {
+        "tags": [
+          "Reading"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -210,12 +262,6 @@
           "geminiApiKey": {
             "type": "string",
             "nullable": true
-          },
-          "enableReasoning": {
-            "type": "boolean"
-          },
-          "enableSearching": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -233,13 +279,6 @@
               "$ref": "#/components/schemas/ChatMessage"
             },
             "nullable": true
-          },
-          "imagesAsBase64": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -255,22 +294,20 @@
         ],
         "type": "string"
       },
-      "GoogleLoginResponse": {
+      "EvaluationRequest": {
         "type": "object",
         "properties": {
-          "success": {
-            "type": "boolean"
-          },
-          "message": {
+          "userGuess": {
             "type": "string",
             "nullable": true
           },
-          "idToken": {
+          "correctPhrase": {
             "type": "string",
             "nullable": true
           },
-          "userInfoGoogle": {
-            "$ref": "#/components/schemas/UserInfoGoogle"
+          "geminiApiKey": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -290,6 +327,19 @@
             "type": "integer",
             "format": "int32"
           },
+          "englishLevel": {
+            "$ref": "#/components/schemas/EnglishLevel"
+          },
+          "geminiApiKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReadingRequest": {
+        "type": "object",
+        "properties": {
           "englishLevel": {
             "$ref": "#/components/schemas/EnglishLevel"
           },

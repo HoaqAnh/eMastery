@@ -8,9 +8,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "EngPractice.Service.GoogleLoginResponse",
-        "IsRequired": true
+        "Name": "idToken",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
