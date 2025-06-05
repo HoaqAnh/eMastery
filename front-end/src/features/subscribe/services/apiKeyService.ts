@@ -14,16 +14,6 @@ export const checkApiKeyService = async (
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const apiKeyCheckEndpoint = "/healthcheck/check-api-key";
 
-  if (!baseUrl) {
-    console.error(
-      "Lỗi cấu hình: VITE_API_BASE_URL chưa được đặt trong file .env"
-    );
-    return {
-      isValid: false,
-      message: "Lỗi cấu hình: API base URL không được tìm thấy.",
-    };
-  }
-
   const url = `${baseUrl}${apiKeyCheckEndpoint}`;
 
   try {

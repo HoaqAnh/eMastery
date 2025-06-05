@@ -33,8 +33,14 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
     if (error) {
       toast.error(error);
     }
-    if (validationResult && validationResult.isValid) {
-      onNext();
+    if (validationResult) {
+      if (validationResult.isValid) {
+        onNext();
+      } else {
+        if (apiKeyValue !== "") {
+          setApiKeyValue("");
+        }
+      }
     }
   }, [validationResult, onNext]);
 
@@ -61,7 +67,12 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
         <div className="card__form">
           <div className={inputKeyContainerClasses}>
             <input
-              placeholder={t("subscribe.api.placeholder")}
+              id="apiKey"
+              placeholder={
+                isLoading
+                  ? t("subscribe.api.loading")
+                  : t("subscribe.api.placeholder")
+              }
               type="password"
               value={apiKeyValue}
               onChange={handleInputChange}

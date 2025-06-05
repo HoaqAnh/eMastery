@@ -10,9 +10,11 @@
     "api": {
       "content": "Đầu tiên, bạn cần có Gemini API Key. Bạn có thể lấy API Key miễn phí từ 'aistudio.google.com' hoặc nhấn vào nút 'Key' bên dưới.",
       "getKey": "Key",
-      "placeholder": "Nhập API key của bạn"
+      "placeholder": "Nhập API key của bạn",
+      "loading": "Đang tải..."
     },
     "google": {
+      "configError": "Lỗi cấu hình: Google Client ID không tìm thấy.",
       "buttonTitle": "Liên kết Google",
       "content": "Hãy đặt tên người dùng của bạn hoặc bạn có thể liên kết với tài khoản Google của mình.",
       "placeholder": "Tên gọi của bạn"

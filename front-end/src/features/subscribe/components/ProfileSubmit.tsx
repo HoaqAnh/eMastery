@@ -12,6 +12,7 @@ const ProfileSubmit = (): JSX.Element => {
       <div className="card__form">
         {/* Age */}
         <input
+          id="age"
           type="number"
           className="card__form input"
           placeholder={t("subscribe.profile.age")}
@@ -19,10 +20,12 @@ const ProfileSubmit = (): JSX.Element => {
 
         {/* Gender */}
         <select
+          id="gender"
           className="card__form-select"
           aria-label={t("subscribe.profile.sex.title")}
+          defaultValue=""
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             {t("subscribe.profile.sex.title")}
           </option>
           <option value="male">{t("subscribe.profile.sex.male")}</option>
@@ -32,30 +35,20 @@ const ProfileSubmit = (): JSX.Element => {
 
         {/* Level */}
         <select
+          id="level"
           className="card__form-select"
           aria-label={t("subscribe.profile.level.title")}
+          defaultValue=""
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             {t("subscribe.profile.level.title")}
           </option>
-          <option value="A1">
-            {t("subscribe.profile.level.A1")}
-          </option>
-          <option value="A2">
-            {t("subscribe.profile.level.A2")}
-          </option>
-          <option value="B1">
-            {t("subscribe.profile.level.B1")}
-          </option>
-          <option value="B2">
-            {t("subscribe.profile.level.B2")}
-          </option>
-          <option value="C1">
-            {t("subscribe.profile.level.C1")}
-          </option>
-          <option value="C2">
-            {t("subscribe.profile.level.C2")}
-          </option>
+          <option value="A1">{t("subscribe.profile.level.A1")}</option>
+          <option value="A2">{t("subscribe.profile.level.A2")}</option>
+          <option value="B1">{t("subscribe.profile.level.B1")}</option>
+          <option value="B2">{t("subscribe.profile.level.B2")}</option>
+          <option value="C1">{t("subscribe.profile.level.C1")}</option>
+          <option value="C2">{t("subscribe.profile.level.C2")}</option>
         </select>
         <button className="subscribe-btn">{t("subscribe.confirm")}</button>
       </div>

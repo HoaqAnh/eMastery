@@ -9,7 +9,7 @@ interface UseApiKeyCheckReturn {
   error: string | null;
   validationResult: ApiKeyValidationResult | null;
   validateApiKey: (apiKey: string) => Promise<void>;
-  resetApiKeyValidation: () => void; // Hàm mới để reset
+  resetApiKeyValidation: () => void;
 }
 
 export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
@@ -29,7 +29,7 @@ export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
       setError(emptyKeyResult.message);
       setTimeout(() => {
         setIsLoading(false);
-      }, 2800);
+      }, 2000);
       return;
     }
 
