@@ -1,6 +1,8 @@
 ﻿using EngPractice.Domain;
 using EngPractice.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace EngPractice.Controllers
 {
@@ -33,18 +35,19 @@ namespace EngPractice.Controllers
             return Ok(response);
         }
         [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin(string idToken)
+        public async Task<IActionResult> GoogleLogin(string authorizationCode)
         {
-            var user = await _authService.LoginWithGoogleAsync(idToken);
+            var user = await _authService.LoginWithGoogleAsync(authorizationCode);
             if (user == null)
             {
                 return BadRequest(user);
             }
             return Ok(user);
-        }
+        }       
         [HttpPost("google-login/additional-info")]
         public async Task<IActionResult> GoogleLoginAdditionalInfo([FromBody] UserInfoGoogle request)
-        {
+        {       
+
             var response = await _authService.SaveAdditionalInfoAsync(request);
             if (!response.Success)
             {
@@ -52,5 +55,6 @@ namespace EngPractice.Controllers
             }
             return Ok(response);
         }
+
     }
 }

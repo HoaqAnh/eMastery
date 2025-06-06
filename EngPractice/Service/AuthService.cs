@@ -1,10 +1,25 @@
 ﻿using EngPractice.Domain;
 using Google.Apis.Auth;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Responses;
+using Google.Apis.Auth.OAuth2;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace EngPractice.Service
 {
     public class AuthService
     {
+        private readonly IConfiguration _configuration;
+
+        public AuthService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public async Task<LoginResponse> LoginAsync(LoginRequest request)
         {
             if (string.IsNullOrEmpty(request.Username) ||
@@ -38,43 +53,82 @@ namespace EngPractice.Service
                     FullName = request.Username,
                     Gender = request.Gender,
                     Age = request.Age,
-                    englishLevel=request.englishLevel,
+                    englishLevel = request.englishLevel,
                     GeminiApiKey = request.GeminiApiKey
                 }
             };
         }
-        public async Task<GoogleLoginResponse> LoginWithGoogleAsync(string idToken)
+
+        public async Task<GoogleLoginResponse> LoginWithGoogleAsync(string authorizationCode)
         {
-            var payload = await GoogleJsonWebSignature.ValidateAsync(idToken);
-            if (payload == null)
+            var clientId = _configuration["Authentication:Google:ClientId"];
+            var clientSecret = _configuration["Authentication:Google:ClientSecret"];
+            var redirectUri = _configuration["Authentication:Google:RedirectUri"];
+
+            var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+            {
+                ClientSecrets = new ClientSecrets
+                {
+                    ClientId = clientId,
+                    ClientSecret = clientSecret
+                },
+                Scopes = new[] { "email", "profile" } 
+            });
+         
+            TokenResponse tokenResponse;
+            try
+            {
+                tokenResponse = await flow.ExchangeCodeForTokenAsync("user", authorizationCode, redirectUri, CancellationToken.None);
+            }
+            catch (Exception ex)
+            {               
+                return new GoogleLoginResponse
+                {
+                    Success = false,
+                    Message = "Lỗi khi trao đổi mã AuthorizationCode. " + ex.Message
+                };
+            }
+
+            if (tokenResponse == null || string.IsNullOrEmpty(tokenResponse.IdToken))
             {
                 return new GoogleLoginResponse
                 {
                     Success = false,
-                    Message = "Đăng nhập bằng Google không thành công."
+                    Message = "Không thể lấy được IdToken từ Google."
                 };
+            }          
+            var idToken = tokenResponse.IdToken;
+            GoogleJsonWebSignature.Payload payload;
+            try
+            {
+                payload = await GoogleJsonWebSignature.ValidateAsync(idToken);
             }
+            catch (Exception ex)
+            {             
+                return new GoogleLoginResponse
+                {
+                    Success = false,
+                    Message = "IdToken không hợp lệ. " + ex.Message
+                };
+            }          
             return new GoogleLoginResponse
             {
                 Success = true,
                 Message = $"Chào mừng {payload.Name}! Đăng nhập thành công.",
-                IdToken = idToken,
+                IdToken = idToken,             
                 UserInfoGoogle = new UserInfoGoogle
                 {
                     Email = payload.Email,
                     FullName = payload.Name,
-                    Gender = null,
-                    Age = 0
+                    Gender = null, 
+                    Age = 0        
                 }
             };
         }
         public async Task<GoogleLoginResponse> SaveAdditionalInfoAsync(UserInfoGoogle request)
+
         {
-            // Validate đơn giản
-            if (string.IsNullOrEmpty(request.Email) ||
-                string.IsNullOrEmpty(request.FullName) ||
-                string.IsNullOrEmpty(request.Gender) ||
-                request.Age <= 0)
+            if (string.IsNullOrEmpty(request.Gender) || string.IsNullOrEmpty(request.Level) || request.Age <= 0)
             {
                 return new GoogleLoginResponse
                 {
@@ -83,13 +137,12 @@ namespace EngPractice.Service
                     UserInfoGoogle = null
                 };
             }
-
-            // Trả về thông tin người dùng Google đã hoàn chỉnh
-            return new GoogleLoginResponse
+            return new GoogleLoginResponse
             {
                 Success = true,
                 Message = $"Chào mừng {request.FullName}! Hoàn tất thông tin thành công.",
                 UserInfoGoogle = new UserInfoGoogle
+
                 {
                     Email = request.Email,
                     FullName = request.FullName,
@@ -100,6 +153,7 @@ namespace EngPractice.Service
             };
         }
     }
+}
     public class LoginResponse
     {
         public bool Success { get; set; }
@@ -120,8 +174,7 @@ namespace EngPractice.Service
         public bool Success { get; set; }
         public string Message { get; set; }
         public string IdToken { get; set; }
-
-        public UserInfoGoogle UserInfoGoogle { get; set; }
+    public UserInfoGoogle UserInfoGoogle { get; set; }
     }
     public class UserInfoGoogle
     {
@@ -130,5 +183,6 @@ namespace EngPractice.Service
         public string Gender { get; set; }
         public int Age { get; set; }
         public string Level { get; set; } = "A1";
-    }
-}
+    }  
+
+

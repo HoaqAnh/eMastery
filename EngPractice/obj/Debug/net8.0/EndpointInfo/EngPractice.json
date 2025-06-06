@@ -43,7 +43,7 @@
         ],
         "parameters": [
           {
-            "name": "idToken",
+            "name": "authorizationCode",
             "in": "query",
             "schema": {
               "type": "string"
