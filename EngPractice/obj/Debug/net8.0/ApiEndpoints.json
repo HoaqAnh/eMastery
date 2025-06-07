@@ -48,6 +48,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EngPractice.Controllers.AuthController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EngPractice.Controllers.ChatController",
     "Method": "Chat",
     "RelativePath": "api/Chat",

@@ -9,6 +9,7 @@
       "EngPractice/1.0.0": {
         "dependencies": {
           "Google.Apis.Auth": "1.69.0",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.7",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.8",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.8",
           "Microsoft.EntityFrameworkCore": "8.0.8",
@@ -65,6 +66,14 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.7": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "8.0.7.0",
+            "fileVersion": "8.0.724.31402"
           }
         }
       },
@@ -1117,6 +1126,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ToVB95+oz8gE6E8Y3ziXsNsDimWkmbYo1EKkLmcjmpbIbydY9wccdepD/d32yYFz7HoIJo+RA6EPppB4BOZgfA==",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.7",
+      "hashPath": "microsoft.aspnetcore.authentication.google.8.0.7.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.8": {
       "type": "package",

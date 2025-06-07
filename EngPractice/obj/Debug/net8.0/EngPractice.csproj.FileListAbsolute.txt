@@ -307,3 +307,4 @@ D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\staticwebassets.upToDa
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\EngPract.9358F4D8.Up2Date
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.genruntimeconfig.cache
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\ref\EngPractice.dll
+D:\LapTrinhWeb\DoAn\eMastery\EngPractice\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll

@@ -1,7 +1,9 @@
 ﻿using EngPractice.Domain;
 using EngPractice.Service;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Google;
 
 
 namespace EngPractice.Controllers
@@ -54,6 +56,14 @@ namespace EngPractice.Controllers
                 return BadRequest(response);
             }
             return Ok(response);
+        }
+
+        [HttpGet("login")]
+        public IActionResult GoogleLogin()
+        {
+            var redirectUrl = Url.Action("GoogleResponse", "Auth");
+            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
         }
 
     }
