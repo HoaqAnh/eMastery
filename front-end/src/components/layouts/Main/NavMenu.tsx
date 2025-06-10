@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+import { useNavigate } from "react-router-dom";
 import useClickOutside from "@/hooks/useClickOutside";
 import "@styles/components/NavMenu.css";
 import { useTranslation } from "react-i18next";
@@ -12,6 +13,7 @@ import {
 
 const NavMenu = (): JSX.Element => {
   const { t } = useTranslation();
+  const navigator = useNavigate();
 
   const {
     ref: dropdownRef,
@@ -77,6 +79,7 @@ const NavMenu = (): JSX.Element => {
                   className="nav-menu__dropdown-item"
                   title={t("navMenu.aiAssistant")}
                   type="button"
+                  onClick={() => navigator("/chatbot")}
                 >
                   {ChatBotIcon}
                   <span>{t("navMenu.aiAssistant")}</span>
@@ -134,6 +137,7 @@ const NavMenu = (): JSX.Element => {
           className={`nav-menu-item`}
           title={t("navMenu.aiAssistant")}
           type="button"
+          onClick={() => navigator("/chatbot")}
         >
           {ChatBotIcon}
           <span>{t("navMenu.aiAssistant")}</span>

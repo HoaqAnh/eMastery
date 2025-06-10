@@ -5,19 +5,20 @@ import GuestLayout from "@/components/layouts/guest/GuestLayout";
 import NotFoundPage from "@layouts/NotFoundPage";
 import Home from "@pages/Home";
 import Subscribe from "@/pages/Subscribe";
+import Chatbot from "@/pages/Chatbot";
 
 const AppRoutes = (): JSX.Element => {
   return (
     <Routes>
-      <Route path="/" element={<GuestLayout />}>
+      <Route path="welcome" element={<GuestLayout />}>
         <Route index element={<Home />} />
       </Route>
 
       <Route path="subscribe" element={<Subscribe />} />
 
-      <Route path="/welcome" element={<MainLayout />}>
+      <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        {/* <Route path="about" element={<AboutPage />} /> */}
+        <Route path="/chatbot" element={<Chatbot />} />
       </Route>
 
       {/* 404 Not Found */}

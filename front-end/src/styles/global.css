@@ -20,6 +20,8 @@
   --border: #c9f0f8;
   --input: #e0e6eb;
   --ring: #0077b8;
+  --shadow-realistic: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 html.dark-theme {
@@ -42,6 +44,8 @@ html.dark-theme {
   --border: #333333;
   --input: #333333;
   --ring: #333333;
+  --shadow-realistic: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 * {

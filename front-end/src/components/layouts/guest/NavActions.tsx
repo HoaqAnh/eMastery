@@ -27,7 +27,7 @@ const NavActions = (): JSX.Element => {
           className={`nav_guest-actions__subscribe-button`}
           title={t("subscribe.title")}
           type="button"
-          onClick={() => navigator("subscribe")}
+          onClick={() => navigator("/subscribe")}
         >
           {GoogleIcon}
           <span>{t("subscribe.title")}</span>

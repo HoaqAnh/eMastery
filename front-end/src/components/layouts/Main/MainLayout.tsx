@@ -11,7 +11,7 @@ const MainLayout = (): JSX.Element => {
       <header>
         <nav>
           <div className="nav-logo">
-            <button className="logo" onClick={() => navigator("/welcome")}>
+            <button className="logo" onClick={() => navigator("/")}>
               <span className="actual-text">&nbsp;eMastery&nbsp;</span>
               <span aria-hidden="true" className="hover-text">
                 &nbsp;eMastery&nbsp;

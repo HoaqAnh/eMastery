@@ -10,7 +10,7 @@ const GuestLayout = (): JSX.Element => {
       <header>
         <nav>
           <div className="nav-logo">
-            <button className="logo" onClick={() => navigator("/")}>
+            <button className="logo" onClick={() => navigator("/welcome")}>
               <span className="actual-text">&nbsp;eMastery&nbsp;</span>
               <span aria-hidden="true" className="hover-text">
                 &nbsp;eMastery&nbsp;
