@@ -197,7 +197,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 780px) {
+@media (max-width: 740px) {
   .nav_guest-actions {
     gap: 8px;
   }
@@ -219,6 +219,7 @@
     justify-content: center;
   }
 
+  .nav_guest-actions__language-switcher,
   .nav_guest-actions__theme-switcher {
     display: none;
   }
@@ -239,11 +240,11 @@
   }
 }
 
-@media (max-width: 430px) {
+/* @media (max-width: 430px) {
   .nav_guest-actions__language-switcher {
     display: none;
   }
-}
+} */
 
 @media (max-width: 380px) {
   .nav_guest-actions {

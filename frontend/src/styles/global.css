@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
   --background: #f1fcfc;
@@ -53,10 +53,45 @@ html.dark-theme {
   border: 0 solid;
   margin: 0;
   padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Saira", sans-serif;
+  font-style: normal;
 }
 
 main {
   background-color: var(--background);
   transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* 2. Phần nền của thanh cuộn (track) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+/* 3. Phần con trượt (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  border: 3px solid var(--background);
+}
+
+/* 4. Con trượt khi rê chuột vào */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+/* 5. Ẩn các nút mũi tên lên/xuống */
+.chatbot__input-container textarea::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Áp dụng cho Firefox */
+html {
+  /* scrollbar-color: <màu-con-trượt> <màu-nền-track>; */
+  scrollbar-color: var(--secondary) transparent;
+  scrollbar-width: thin;
 }

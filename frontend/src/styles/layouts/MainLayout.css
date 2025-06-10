@@ -90,11 +90,11 @@ nav .nav-actions {
   align-items: center;
 }
 
-@media (max-width: 430px) {
+/* @media (max-width: 430px) {
   nav {
     padding: 15px 15px;
   }
   .container {
     padding: 0 15px;
   }
-}
+} */

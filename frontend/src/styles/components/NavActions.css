@@ -384,11 +384,11 @@
   }
 }
 
-@media (max-width: 430px) {
+/* @media (max-width: 430px) {
   .nav-actions {
     justify-content: left;
   }
-}
+} */
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
