@@ -3,15 +3,12 @@ import { useNavigate } from "react-router-dom";
 import ApiKeySubmit from "@/features/subscribe/components/ApiKeySubmit";
 import ProfileSubmit from "@/features/subscribe/components/ProfileSubmit";
 import SubWithGoogle from "@/features/subscribe/components/SubWithGoogle";
-import {
-  RegistrationProvider,
-  useRegistration,
-} from "@/context/RegistrationContext";
+import { useRegistration } from "@/context/RegistrationContext";
 import "@styles/pages/Subscribe.css";
 
 type Step = "apiKey" | "google" | "profile";
 
-const SubscribeFlow = () => {
+const Subscribe = (): JSX.Element => {
   const [currentStep, setCurrentStep] = useState<Step>("apiKey");
   const { registrationData } = useRegistration();
   const navigate = useNavigate();
@@ -50,25 +47,15 @@ const SubscribeFlow = () => {
   };
 
   return (
-    <RegistrationProvider>
-      <div className="subscribe">
-        {currentStep === "apiKey" && (
-          <ApiKeySubmit onNext={handleGoToProfileStep} />
-        )}
-        {currentStep === "google" && (
-          <SubWithGoogle onNext={handleGoToGoogleStep} />
-        )}
-        {currentStep === "profile" && <ProfileSubmit />}
-      </div>
-    </RegistrationProvider>
-  );
-};
-
-const Subscribe = (): JSX.Element => {
-  return (
-    <RegistrationProvider>
-      <SubscribeFlow />
-    </RegistrationProvider>
+    <div className="subscribe">
+      {currentStep === "apiKey" && (
+        <ApiKeySubmit onNext={handleGoToProfileStep} />
+      )}
+      {currentStep === "google" && (
+        <SubWithGoogle onNext={handleGoToGoogleStep} />
+      )}
+      {currentStep === "profile" && <ProfileSubmit />}
+    </div>
   );
 };
 

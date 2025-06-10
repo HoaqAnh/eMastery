@@ -91,5 +91,17 @@
     "features": "Chức năng",
     "aiAssistant": "Trợ lý AI",
     "dictionary": "Từ điển"
+  },
+  "chatbot": {
+    "title": "Trợ lý AI",
+    "welcomeMessage": "Chào mừng bạn đến với Trợ lý AI của chúng tôi! Bạn có thể hỏi bất kỳ câu hỏi nào hoặc yêu cầu trợ giúp về các chủ đề khác nhau.",
+    "placeholder": "Hỏi eMastery...",
+    "send": "Gửi",
+    "loading": "Đang trả lời...",
+    "new": "Đoạn chat mới",
+    "error": {
+      "networkError": "Lỗi mạng. Vui lòng thử lại sau.",
+      "apiError": "Lỗi API. Vui lòng thử lại sau."
+    }
   }
 }

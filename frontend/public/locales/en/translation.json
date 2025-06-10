@@ -91,5 +91,17 @@
     "features": "Features",
     "aiAssistant": "AI Assistant",
     "dictionary": "Dictionary"
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "welcomeMessage": "Welcome to the AI Assistant! How can I help you today?",
+    "placeholder": "Ask eMastery...",
+    "send": "Send",
+    "loading": "Responding...",
+    "new": "New conversation",
+    "error": {
+      "networkError": "Network error. Please check your internet connection.",
+      "apiError": "API error. Please try again later."
+    }
   }
 }
