@@ -1,0 +1,95 @@
+{
+  "greeting": {
+    "helloUser": "Hello, {{name}}"
+  },
+  "subscribe": {
+    "title": "Subscribe",
+    "loading": "Loading...",
+    "next": "Next step",
+    "confirm": "Confirm subscribe",
+    "api": {
+      "content": "To begin, you must have a Gemini API Key. Hit the 'Key' button below to acquire your free API Key from Google.",
+      "getKey": "Key",
+      "placeholder": "Your Gemini API key",
+      "loading": "Loading...",
+      "error": {
+        "keyRequired": "Please enter your Gemini API key.",
+        "keyFormatError": "Your Gemini API key must be a valid format."
+      }
+    },
+    "google": {
+      "configError": "Configuration error: Google Client ID not found.",
+      "buttonTitle": "Google",
+      "content": "Please enter your username or you can link it to your Google account.",
+      "placeholder": "Your name",
+      "error": {
+        "nameRequired": "Please enter your name.",
+        "nameLengthError": "Your name must be between 3 and 20 characters.",
+        "nameFormatError": "Your name can only contain letters, numbers, and underscores.",
+        "nameFormatError2": "Your name cannot contain special characters."
+      }
+    },
+    "profile": {
+      "content": "We commit to not using or storing any of your information outside of the eMastery application. Your data solely serves in-app experience.",
+      "fullname": "Your name",
+      "age": "Your age",
+      "sex": {
+        "title": "Gender",
+        "male": "Male",
+        "female": "Female",
+        "unsex": "Other"
+      },
+      "level": {
+        "title": "Level",
+        "A1": "Beginner - A1",
+        "A2": "Elementary - A2",
+        "B1": "Intermediate - B1",
+        "B2": "Upper Intermediate - B2",
+        "C1": "Advanced - C1",
+        "C2": "Proficient - C2"
+      },
+      "error": {
+        "ageRequired": "Please enter your age.",
+        "ageFormatError": "Age must be a valid number.",
+        "ageRangeError": "Age must be between 1 and 120.",
+        "genderRequired": "Please select your gender.",
+        "levelRequired": "Please select your level."
+      }
+    }
+  },
+  "userProfile": {
+    "title": "Profile",
+    "viewProfile": "View Profile"
+  },
+  "settings": {
+    "title": "Settings",
+    "languageSettings": {
+      "title": "Language",
+      "vi": "VI",
+      "en": "EN"
+    },
+    "notifications": "Notifications",
+    "themeSettings": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome to our homepage!",
+    "explore": "Feel free to explore!"
+  },
+  "navMenu": {
+    "contact": {
+      "title": "Contact",
+      "mail": "eMastery@gmail.com"
+    },
+    "writingPractice": "Writing Practice",
+    "puzzleSolving": "Puzzle Solving",
+    "features": "Features",
+    "aiAssistant": "AI Assistant",
+    "dictionary": "Dictionary"
+  }
+}

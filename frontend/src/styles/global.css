@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --background: #f1fcfc;
+  --foreground: #082844;
+  --card: #ffffff;
+  --card-foreground: #082844;
+  --popover: #ffffff;
+  --popover-foreground: #082844;
+  --primary: #063760;
+  --primary-foreground: #fafafa;
+  --secondary: #397bb1;
+  --secondary-foreground: #e9f9fc;
+  --muted: #e3e6e8;
+  --muted-foreground: #03045e;
+  --accent: #dee6ed;
+  --accent-foreground: #1b86e4;
+  --destructive: #ef4343;
+  --destructive-foreground: #fafafa;
+  --border: #c9f0f8;
+  --input: #e0e6eb;
+  --ring: #0077b8;
+  --shadow-realistic: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+html.dark-theme {
+  --background: #141414;
+  --foreground: #f2f2f2;
+  --card: #1a1a1a;
+  --card-foreground: #f2f2f2;
+  --popover: #1b1818;
+  --popover-foreground: #fafafa;
+  --primary: #f2f2f2;
+  --primary-foreground: #141414;
+  --secondary: #262626;
+  --secondary-foreground: #f2f2f2;
+  --muted: #262626;
+  --muted-foreground: #a6a6a6;
+  --accent: #262626;
+  --accent-foreground: #f2f2f2;
+  --destructive: #7c1d1d;
+  --destructive-foreground: #fafafa;
+  --border: #333333;
+  --input: #333333;
+  --ring: #333333;
+  --shadow-realistic: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 0;
+  padding: 0;
+  font-family: "Saira", sans-serif;
+  font-style: normal;
+}
+
+main {
+  background-color: var(--background);
+  transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* 2. Phần nền của thanh cuộn (track) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+/* 3. Phần con trượt (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 20px;
+  border: 3px solid var(--background);
+}
+
+/* 4. Con trượt khi rê chuột vào */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+/* 5. Ẩn các nút mũi tên lên/xuống */
+.chatbot__input-container textarea::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Áp dụng cho Firefox */
+html {
+  /* scrollbar-color: <màu-con-trượt> <màu-nền-track>; */
+  scrollbar-color: var(--secondary) transparent;
+  scrollbar-width: thin;
+}

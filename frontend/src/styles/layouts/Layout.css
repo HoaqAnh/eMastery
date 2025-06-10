@@ -1,0 +1,91 @@
+.main-layout,
+.guest-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: transparent;
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 15px 20px;
+}
+
+.nav-logo {
+  flex: 1;
+}
+.nav-menus,
+.nav-menus {
+  flex: 8;
+}
+
+.logo {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.logo {
+  --border-right: 4px;
+  --animation-color: #37ff8b;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--card-foreground);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.logo:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .nav-actions {
+  display: flex;
+  align-items: center;
+}

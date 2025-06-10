@@ -1,0 +1,95 @@
+{
+  "greeting": {
+    "helloUser": "Xin chào, {{name}}"
+  },
+  "subscribe": {
+    "title": "Đăng ký",
+    "loading": "Đang tải...",
+    "next": "Bước tiếp theo",
+    "confirm": "Xác nhận đăng ký",
+    "api": {
+      "content": "Đầu tiên, bạn cần có Gemini API Key. Nhấn vào nút 'Key' bên dưới để lấy API Key miễn phí từ Google.",
+      "getKey": "Key",
+      "placeholder": "Nhập API key của bạn",
+      "loading": "Đang tải...",
+      "error": {
+        "keyRequired": "Vui lòng nhập API key của bạn.",
+        "keyFormatError": "API key của bạn phải có định dạng hợp lệ."
+      }
+    },
+    "google": {
+      "configError": "Lỗi cấu hình: Google Client ID không tìm thấy.",
+      "buttonTitle": "Liên kết Google",
+      "content": "Hãy đặt tên người dùng của bạn hoặc bạn có thể liên kết với tài khoản Google của mình.",
+      "placeholder": "Tên gọi của bạn",
+      "error": {
+        "nameRequired": "Vui lòng nhập tên của bạn.",
+        "nameLengthError": "Tên của bạn phải từ 3 đến 20 ký tự.",
+        "nameFormatError": "Tên của bạn chỉ có thể chứa chữ cái, số và dấu gạch dưới.",
+        "nameFormatError2": "Tên của bạn không được chứa ký tự đặc biệt."
+      }
+    },
+    "profile": {
+      "content": "Chúng tôi cam kết không sử dụng hoặc lưu trữ bất kỳ thông tin nào của bạn bên ngoài ứng dụng eMastery. Dữ liệu của bạn chỉ phục vụ cho mục đích trải nghiệm trong ứng dụng.",
+      "fullname": "Tên gọi của bạn",
+      "age": "Tuổi của bạn",
+      "sex": {
+        "title": "Giới tính",
+        "male": "Nam",
+        "female": "Nữ",
+        "unsex": "Khác"
+      },
+      "level": {
+        "title": "Trình độ",
+        "A1": "Người mới - A1",
+        "A2": "Tiểu học - A2",
+        "B1": "Trung học - B1",
+        "B2": "Trên trung học - B2",
+        "C1": "Chuyên nghiệp - C1",
+        "C2": "Thành thạo - C2"
+      },
+      "error": {
+        "ageRequired": "Vui lòng nhập tuổi của bạn.",
+        "ageFormatError": "Tuổi phải là một số hợp lệ.",
+        "ageRangeError": "Tuổi phải từ 1 đến 120.",
+        "genderRequired": "Vui lòng chọn giới tính của bạn.",
+        "levelRequired": "Vui lòng chọn trình độ của bạn."
+      }
+    }
+  },
+  "userProfile": {
+    "title": "Hồ sơ",
+    "viewProfile": "Xem hồ sơ"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "languageSettings": {
+      "title": "Ngôn ngữ",
+      "vi": "VI",
+      "en": "EN"
+    },
+    "notifications": "Thông báo",
+    "themeSettings": {
+      "title": "Giao diện",
+      "light": "Sáng",
+      "dark": "Tối",
+      "system": "Hệ thống"
+    }
+  },
+  "home": {
+    "title": "Trang chủ",
+    "welcome": "Chào mừng bạn đến với trang chủ của chúng tôi!",
+    "explore": "Hãy thoải mái khám phá!"
+  },
+  "navMenu": {
+    "contact": {
+      "title": "Liên hệ",
+      "mail": "eMastery@gmail.com"
+    },
+    "writingPractice": "Luyện viết",
+    "puzzleSolving": "Giải đố",
+    "features": "Chức năng",
+    "aiAssistant": "Trợ lý AI",
+    "dictionary": "Từ điển"
+  }
+}
