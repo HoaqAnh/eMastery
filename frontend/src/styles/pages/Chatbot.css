@@ -206,9 +206,6 @@
 
 /* RESPONSIVE */
 @media (max-width: 950px) {
-  .container {
-    padding: 0;
-  }
 }
 
 @media (max-width: 740px) {

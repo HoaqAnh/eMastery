@@ -60,7 +60,7 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="card">
-        <div>
+        <div className="card__header">
           <span className="card__title">{t("subscribe.title")}</span>
           <p className="card__content">{t("subscribe.api.content")}</p>
         </div>

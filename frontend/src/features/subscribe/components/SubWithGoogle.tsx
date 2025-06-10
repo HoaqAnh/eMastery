@@ -32,7 +32,7 @@ const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
 
   return (
     <div className="card">
-      <div>
+      <div className="card__header">
         <span className="card__title">{t("subscribe.title")}</span>
         <p className="card__content">{t("subscribe.google.content")}</p>
       </div>

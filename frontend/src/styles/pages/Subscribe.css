@@ -6,11 +6,12 @@
   min-width: 100vw;
   background-color: transparent;
   color: var(--foreground);
+  padding: 0 20px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .card {
-  width: 260px;
+  width: 360px;
   height: fit-content;
   padding: 20px;
   text-align: center;
@@ -24,7 +25,17 @@
   transition: all 0.3s;
 }
 
+.card__header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 .card__title {
+  width: 100%;
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--card-foreground);
@@ -32,7 +43,7 @@
 }
 
 .card__content {
-  margin-top: 0.5em;
+  width: 100%;
   font-size: 0.85rem;
   line-height: 1.5rem;
   text-align: center;
@@ -41,6 +52,7 @@
 }
 
 .card__form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
