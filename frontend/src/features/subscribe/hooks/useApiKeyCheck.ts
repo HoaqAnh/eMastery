@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import {
   checkApiKeyService,
   type ApiKeyValidationResult,
@@ -13,6 +14,7 @@ interface UseApiKeyCheckReturn {
 }
 
 export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [validationResult, setValidationResult] =
@@ -23,13 +25,13 @@ export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
       setIsLoading(true);
       const emptyKeyResult: ApiKeyValidationResult = {
         isValid: false,
-        message: "API Key không được để trống.",
+        message: t("subscribe.api.error.keyRequired"),
       };
       setValidationResult(emptyKeyResult);
       setError(emptyKeyResult.message);
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000);
+      }, 1000);
       return;
     }
 
@@ -41,7 +43,7 @@ export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
 
     setValidationResult(result);
     if (!result.isValid) {
-      setError(result.message);
+      setError(t("subscribe.api.error.keyFormatError"));
     }
 
     setIsLoading(false);

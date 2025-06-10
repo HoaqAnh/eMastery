@@ -1,6 +1,8 @@
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { GoogleIcon } from "@/components/common/Icons";
+import { useRegistration } from "@/context/RegistrationContext";
+
 interface SubmitWithGoogleProps {
   onNext: () => void;
 }
@@ -8,6 +10,9 @@ interface SubmitWithGoogleProps {
 const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
   const { t } = useTranslation();
   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const { updateRegistrationData } = useRegistration();
+  const [fullName, setFullName] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const handleGoogleRedirectLogin = () => {
     if (!googleClientId) {
@@ -30,6 +35,23 @@ const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
     window.location.href = `${oauth2Endpoint}?${params.toString()}`;
   };
 
+  const handleSkipGoogle = () => {
+    const trimmedName = fullName.trim();
+
+    if (trimmedName === "") {
+      setError(t("subscribe.google.error.nameRequired"));
+      return;
+    }
+
+    if (trimmedName.length < 3 || trimmedName.length > 30) {
+      setError(t("subscribe.google.error.nameLengthError"));
+      return;
+    }
+
+    setError(null);
+    updateRegistrationData({ fullName: trimmedName });
+    onNext();
+  };
   return (
     <div className="card">
       <div className="card__header">
@@ -42,6 +64,11 @@ const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
             id="fullname"
             placeholder={t("subscribe.google.placeholder")}
             type="text"
+            value={fullName}
+            onChange={(e) => {
+              setFullName(e.target.value);
+              if (error) setError(null);
+            }}
           />
           <button
             className="google-btn"
@@ -52,7 +79,8 @@ const SubWithGoogle = ({ onNext }: SubmitWithGoogleProps): JSX.Element => {
             {GoogleIcon}
           </button>
         </div>
-        <button className="subscribe-btn" onClick={onNext}>
+        {error && <p className="form-error-message">{error}</p>}
+        <button className="subscribe-btn" onClick={handleSkipGoogle}>
           {t("subscribe.next")}
         </button>
       </div>

@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useApiKeyCheck } from "../hooks/useApiKeyCheck";
-import toast, { Toaster } from "react-hot-toast";
+import { useRegistration } from "@/context/RegistrationContext";
 
 interface ApiKeySubmitProps {
   onNext: () => void;
@@ -11,6 +11,7 @@ interface ApiKeySubmitProps {
 const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
   const { t } = useTranslation();
   const [apiKeyValue, setApiKeyValue] = useState<string>("");
+  const { updateRegistrationData } = useRegistration();
 
   const {
     isLoading,
@@ -30,11 +31,9 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
   };
 
   useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
     if (validationResult) {
       if (validationResult.isValid) {
+        updateRegistrationData({ apiKey: apiKeyValue });
         onNext();
       } else {
         if (apiKeyValue !== "") {
@@ -42,7 +41,7 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
         }
       }
     }
-  }, [validationResult, onNext]);
+  }, [validationResult, onNext, apiKeyValue, updateRegistrationData]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setApiKeyValue(e.target.value);
@@ -52,50 +51,50 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
   };
 
   let inputKeyContainerClasses = "card-form_input-key";
-  if (validationResult && !validationResult.isValid && !isLoading) {
+  if (error && !isLoading) {
     inputKeyContainerClasses += " apikey-error__input";
   }
 
   return (
-    <>
-      <Toaster position="top-center" reverseOrder={false} />
-      <div className="card">
-        <div className="card__header">
-          <span className="card__title">{t("subscribe.title")}</span>
-          <p className="card__content">{t("subscribe.api.content")}</p>
-        </div>
-        <div className="card__form">
-          <div className={inputKeyContainerClasses}>
-            <input
-              id="apiKey"
-              placeholder={
-                isLoading
-                  ? t("subscribe.api.loading")
-                  : t("subscribe.api.placeholder")
-              }
-              type="password"
-              value={apiKeyValue}
-              onChange={handleInputChange}
-              disabled={isLoading}
-            />
-            <button
-              className="getKey-btn"
-              onClick={handleGetKeyClickOpenInNewTab}
-              disabled={isLoading}
-            >
-              {t("subscribe.api.getKey")}
-            </button>
-          </div>
+    <div className="card">
+      <div className="card__header">
+        <span className="card__title">{t("subscribe.title")}</span>
+        <p className="card__content">{t("subscribe.api.content")}</p>
+      </div>
+      <div className="card__form">
+        <div className={inputKeyContainerClasses}>
+          <input
+            id="apiKey"
+            placeholder={
+              isLoading
+                ? t("subscribe.api.loading")
+                : t("subscribe.api.placeholder")
+            }
+            type="password"
+            value={apiKeyValue}
+            onChange={handleInputChange}
+            disabled={isLoading}
+          />
           <button
-            className={`subscribe-btn ${isLoading ? "loading" : ""}`}
-            onClick={handleSubmitApiKey}
+            className="getKey-btn"
+            onClick={handleGetKeyClickOpenInNewTab}
             disabled={isLoading}
           >
-            {isLoading ? t("subscribe.loading") : t("subscribe.next")}
+            {t("subscribe.api.getKey")}
           </button>
         </div>
+
+        {error && !isLoading && <p className="form-error-message">{error}</p>}
+
+        <button
+          className={`subscribe-btn ${isLoading ? "loading" : ""}`}
+          onClick={handleSubmitApiKey}
+          disabled={isLoading}
+        >
+          {isLoading ? t("subscribe.loading") : t("subscribe.next")}
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 

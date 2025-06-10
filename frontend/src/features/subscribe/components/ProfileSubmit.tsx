@@ -1,8 +1,55 @@
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import { useRegistration } from "@/context/RegistrationContext";
+import { useNavigate } from "react-router-dom";
+
+interface ProfileErrors {
+  age?: string;
+  gender?: string;
+  level?: string;
+}
 
 const ProfileSubmit = (): JSX.Element => {
   const { t } = useTranslation();
+  const { updateRegistrationData } = useRegistration();
+  const navigate = useNavigate();
+
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [level, setLevel] = useState("");
+  const [errors, setErrors] = useState<ProfileErrors>({});
+
+  const validate = (): boolean => {
+    const newErrors: ProfileErrors = {};
+    if (!age) {
+      newErrors.age = t("subscribe.profile.error.ageRequired");
+    } else if (isNaN(Number(age)) || Number(age) <= 0) {
+      newErrors.age = t("subscribe.profile.error.ageFormatError");
+    } else if (Number(age) > 120) {
+      newErrors.age = t("subscribe.profile.error.ageRangeError");
+    }
+    if (!gender) {
+      newErrors.gender = t("subscribe.profile.error.genderRequired");
+    }
+    if (!level) {
+      newErrors.level = t("subscribe.profile.error.levelRequired");
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleConfirm = () => {
+    const isValid = validate();
+
+    if (isValid) {
+      const profileData = { age, gender, level };
+      updateRegistrationData(profileData);
+      console.log("Đăng ký thành công! Đang chuyển hướng về trang chủ.");
+      navigate("/");
+    }
+  };
+
   return (
     <div className="card">
       <div className="card__header">
@@ -10,20 +57,29 @@ const ProfileSubmit = (): JSX.Element => {
         <p className="card__content">{t("subscribe.profile.content")}</p>
       </div>
       <div className="card__form">
-        {/* Age */}
         <input
           id="age"
           type="number"
           className="card__form input"
           placeholder={t("subscribe.profile.age")}
+          value={age}
+          onChange={(e) => {
+            setAge(e.target.value);
+            if (errors.age) setErrors((prev) => ({ ...prev, age: undefined }));
+          }}
         />
+        {errors.age && <p className="form-error-message">{errors.age}</p>}
 
-        {/* Gender */}
         <select
           id="gender"
           className="card__form-select"
           aria-label={t("subscribe.profile.sex.title")}
-          defaultValue=""
+          value={gender}
+          onChange={(e) => {
+            setGender(e.target.value);
+            if (errors.gender)
+              setErrors((prev) => ({ ...prev, gender: undefined }));
+          }}
         >
           <option value="" disabled>
             {t("subscribe.profile.sex.title")}
@@ -32,13 +88,18 @@ const ProfileSubmit = (): JSX.Element => {
           <option value="female">{t("subscribe.profile.sex.female")}</option>
           <option value="other">{t("subscribe.profile.sex.unsex")}</option>
         </select>
+        {errors.gender && <p className="form-error-message">{errors.gender}</p>}
 
-        {/* Level */}
         <select
           id="level"
           className="card__form-select"
           aria-label={t("subscribe.profile.level.title")}
-          defaultValue=""
+          value={level}
+          onChange={(e) => {
+            setLevel(e.target.value);
+            if (errors.level)
+              setErrors((prev) => ({ ...prev, level: undefined }));
+          }}
         >
           <option value="" disabled>
             {t("subscribe.profile.level.title")}
@@ -50,7 +111,11 @@ const ProfileSubmit = (): JSX.Element => {
           <option value="C1">{t("subscribe.profile.level.C1")}</option>
           <option value="C2">{t("subscribe.profile.level.C2")}</option>
         </select>
-        <button className="subscribe-btn">{t("subscribe.confirm")}</button>
+        {errors.level && <p className="form-error-message">{errors.level}</p>}
+
+        <button className="subscribe-btn" onClick={handleConfirm}>
+          {t("subscribe.confirm")}
+        </button>
       </div>
     </div>
   );

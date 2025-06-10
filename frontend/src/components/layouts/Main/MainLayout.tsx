@@ -1,8 +1,8 @@
 import { type JSX } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import "@styles/layouts/Layout.css";
-import NavActions from "./NavActions";
-import NavMenu from "./NavMenu";
+import NavActions from "@components/layouts/Main/NavActions";
+import NavMenu from "@components/layouts/Main/NavMenu";
 
 const MainLayout = (): JSX.Element => {
   const navigator = useNavigate();

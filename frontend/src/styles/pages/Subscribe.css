@@ -71,10 +71,14 @@
   color: var(--card-foreground);
   background: var(--input);
   box-shadow: transparent 0px 0px 0px 1px inset;
-  padding: 1em 50px 1em 0.6em;
+  padding: 1em;
   border-radius: 14px;
   border: 1px solid var(--border);
   transition: all 0.3s;
+}
+
+.card-form_input-key input {
+  padding: 1em 50px 1em 1em;
 }
 
 .google-btn,
@@ -183,10 +187,6 @@
   padding-right: 2em;
 }
 
-.card__form input {
-  padding-right: 0.6em;
-}
-
 .card__form-select option[value=""][disabled] {
   color: var(--muted-foreground, #a1a1aa);
   opacity: 0.7;
@@ -207,4 +207,13 @@
 .card-form_input-key.apikey-error__input {
   border: 1px solid var(--destructive);
   border-radius: 14px;
+}
+
+.form-error-message {
+  color: #ef4444;
+  font-size: 0.8rem;
+  text-align: left;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  width: 100%;
 }
