@@ -1,29 +1,48 @@
 import type { JSX } from "react";
-import "@styles/pages/Chatbot.css";
+import { useChatbot } from "@features/chatbot/hooks/useChatbot";
+import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import UserQuery from "@/features/chatbot/components/UserQuery";
 import Response from "@/features/chatbot/components/Response";
 import Input from "@/features/chatbot/components/Input";
 
+import "@styles/pages/Chatbot.css";
+
 const Chatbot = (): JSX.Element => {
+  const { messages, isLoading, sendMessage, clearChat } = useChatbot();
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="chatbot">
       <div className="chatbot__body">
         <div className="chatbot__body-container">
           <div className="chatbot__body-content">
-            <UserQuery />
-            <Response />
-            <UserQuery />
-            <Response />
-            <UserQuery />
-            <Response />
-            <UserQuery />
-            <Response />
+            {messages.map((message, index) =>
+              message.role === "user" ? (
+                <UserQuery key={index} content={message.content} />
+              ) : (
+                <Response key={index} content={message.content} />
+              )
+            )}
+
+            {isLoading && <Response content={t("chatbot.loading")} />}
+
+            <div ref={chatEndRef} />
           </div>
         </div>
       </div>
       <div className="chatbot__footer">
         <div className="chatbot__footer-container">
-          <Input />
+          <Input
+            onSendMessage={sendMessage}
+            isLoading={isLoading}
+            onNewChat={clearChat}
+          />
         </div>
         <div className="chatbot__footer-infomation">
           <p>
