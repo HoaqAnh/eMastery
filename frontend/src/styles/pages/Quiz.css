@@ -1,0 +1,15 @@
+.quiz__body-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* PROGRESS */
+.progress {
+    border: 1px solid var(--border);
+    width: 100%;
+    height: 20px;
+}

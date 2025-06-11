@@ -103,5 +103,20 @@
       "networkError": "Network error. Please check your internet connection.",
       "apiError": "API error. Please try again later."
     }
+  },
+  "quiz": {
+    "title": "Enter your answer",
+    "startQuiz": "Start new quiz",
+    "loading": "Loading...",
+    "submitAnswer": "Submit Answer",
+    "result": {
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "score": "Your score: {{score}}/{{total}}"
+    },
+    "error": {
+      "networkError": "Network error. Please check your internet connection.",
+      "apiError": "API error. Please try again later."
+    }
   }
 }

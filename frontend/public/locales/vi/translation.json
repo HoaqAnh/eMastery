@@ -103,5 +103,20 @@
       "networkError": "Lỗi mạng. Vui lòng thử lại sau.",
       "apiError": "Lỗi API. Vui lòng thử lại sau."
     }
+  },
+  "quiz": {
+    "title": "Nhập câu trả lời của bạn",
+    "startQuiz": "Tạo Quiz mới",
+    "loading": "Đang tải Quiz...",
+    "submitAnswer": "Gửi câu trả lời",
+    "result": {
+      "correct": "Đúng",
+      "incorrect": "Sai",
+      "score": "Điểm số của bạn: {{score}}/{{total}}"
+    },
+    "error": {
+      "networkError": "Lỗi mạng. Vui lòng thử lại sau.",
+      "apiError": "Lỗi API. Vui lòng thử lại sau."
+    }
   }
 }

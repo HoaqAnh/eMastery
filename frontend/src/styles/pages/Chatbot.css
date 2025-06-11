@@ -1,4 +1,5 @@
 /* PAGE */
+.quiz,
 .chatbot {
   flex-grow: 1;
   display: flex;
@@ -7,6 +8,7 @@
   max-height: 90vh;
 }
 
+.quiz__body,
 .chatbot__body {
   flex: 1;
   overflow-y: auto;
@@ -21,6 +23,7 @@
   margin: 0 auto;
 }
 
+.quiz__body-content,
 .chatbot__body-content {
   flex: 1;
   display: flex;
@@ -28,27 +31,31 @@
   min-width: 0;
 }
 
+.quiz__footer,
 .chatbot__footer {
   height: fit-content;
   width: 100%;
-  padding: 20px;
   padding-bottom: 0;
 }
 
+.quiz__footer-container,
 .chatbot__footer-container {
   max-width: 900px;
   margin: 0 auto;
 }
 
+.quiz__footer-infomation,
 .chatbot__footer-infomation {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 1em;
+  margin-bottom: 1em;
   height: fit-content;
 }
 
+.quiz__footer-infomation p,
 .chatbot__footer-infomation p {
   font-size: 0.8rem;
   font-weight: 200;
@@ -153,9 +160,11 @@
 .response__content-container h1 {
   font-size: 1.5em;
 }
+
 .response__content-container h2 {
   font-size: 1.25em;
 }
+
 .response__content-container h3 {
   font-size: 1.1em;
 }
@@ -229,6 +238,7 @@
 }
 
 /* INPUT */
+.quiz__input,
 .chatbot__input {
   display: flex;
   flex-direction: column;
@@ -239,6 +249,7 @@
   min-width: 0;
 }
 
+.quiz__input-container,
 .chatbot__input-container {
   display: flex;
   flex-direction: row;
@@ -248,6 +259,7 @@
   gap: 10px;
 }
 
+.quiz__input-container textarea,
 .chatbot__input-container textarea {
   flex: 1;
   border: none;
@@ -262,15 +274,18 @@
   overflow-y: auto;
 }
 
+.quiz__input-container textarea:focus,
 .chatbot__input-container textarea:focus {
   outline: none;
 }
 
+.quiz__input-container textarea,
 .chatbot__input-container textarea {
   scrollbar-color: var(--secondary) transparent;
   scrollbar-width: thin;
 }
 
+.quiz__input-actions,
 .chatbot__input-actions {
   display: flex;
   flex-direction: row;
@@ -280,6 +295,7 @@
   margin-top: 10px;
 }
 
+.quiz__input-actions button,
 .chatbot__input-actions button {
   width: 2.5em;
   height: 2.5em;
@@ -292,10 +308,12 @@
   cursor: pointer;
 }
 
+.quiz__input-actions button:hover,
 .chatbot__input-actions button:hover {
   background-color: var(--secondary);
 }
 
+.quiz__input-actions button:disabled,
 .chatbot__input-actions button:disabled {
   background-color: var(--muted);
   color: var(--muted-foreground);
@@ -303,8 +321,7 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 950px) {
-}
+@media (max-width: 950px) {}
 
 @media (max-width: 740px) {
   .userquery {

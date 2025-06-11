@@ -40,9 +40,8 @@ const NavMenu = (): JSX.Element => {
 
         {/* Dropdown Menu */}
         <div
-          className={`nav-menu__dropdown ${
-            isDropdownOpen ? "nav-menu__dropdown--open" : ""
-          }`}
+          className={`nav-menu__dropdown ${isDropdownOpen ? "nav-menu__dropdown--open" : ""
+            }`}
         >
           <div className="nav-menu__dropdown-content">
             {/* Features Section */}
@@ -71,6 +70,7 @@ const NavMenu = (): JSX.Element => {
                   className="nav-menu__dropdown-item"
                   title={t("navMenu.puzzleSolving")}
                   type="button"
+                  onClick={() => navigator("/quiz")}
                 >
                   {QuizIcon}
                   <span>{t("navMenu.puzzleSolving")}</span>
@@ -129,6 +129,7 @@ const NavMenu = (): JSX.Element => {
           className={`nav-menu-item`}
           title={t("navMenu.puzzleSolving")}
           type="button"
+          onClick={() => navigator("/quiz")}
         >
           {QuizIcon}
           <span>{t("navMenu.puzzleSolving")}</span>
