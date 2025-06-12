@@ -61,35 +61,37 @@ namespace EngPractice.Controllers
             var tokenRequest = new HttpRequestMessage(HttpMethod.Post, "https://oauth2.googleapis.com/token")
             {
                 Content = new FormUrlEncodedContent(new Dictionary<string, string>
-         {
-             { "code", decodedCode },
-             { "client_id", clientId },
-             { "client_secret", clientSecret },
-             { "redirect_uri", redirectUri },
-             { "grant_type", "authorization_code" }
-                })
+        {
+            { "code", decodedCode },
+            { "client_id", clientId },
+            { "client_secret", clientSecret },
+            { "redirect_uri", redirectUri },
+            { "grant_type", "authorization_code" }
+        })
             };
 
             var tokenResponse = await _httpClient.SendAsync(tokenRequest);
-            if (!tokenResponse.IsSuccessStatusCode)
-                return BadRequest("Không lấy được access token");
-
             var tokenContent = await tokenResponse.Content.ReadAsStringAsync();
+
+            if (!tokenResponse.IsSuccessStatusCode)
+                return BadRequest($"Không lấy được access token: {tokenContent}");
+
             var tokenData = JsonSerializer.Deserialize<GoogleTokenResponse>(tokenContent);
 
-            // 2. Gọi Google API lấy thông tin user
+            // 2. Gọi API userinfo
             var userRequest = new HttpRequestMessage(HttpMethod.Get, "https://www.googleapis.com/oauth2/v2/userinfo");
             userRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tokenData.AccessToken);
 
             var userResponse = await _httpClient.SendAsync(userRequest);
-            if (!userResponse.IsSuccessStatusCode)
-                return BadRequest("Không lấy được thông tin người dùng");
-
             var userContent = await userResponse.Content.ReadAsStringAsync();
+
+            if (!userResponse.IsSuccessStatusCode)
+                return BadRequest($"Không lấy được thông tin người dùng: {userContent}");
+
             var userInfo = JsonSerializer.Deserialize<GoogleUserInfo>(userContent);
 
+            // TODO: lưu user / tạo JWT nếu cần
             return Ok(userInfo);
         }
-
     }
 }
