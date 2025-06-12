@@ -14,7 +14,7 @@
       "loading": "Đang tải...",
       "error": {
         "keyRequired": "Vui lòng nhập API key của bạn.",
-        "keyFormatError": "API key của bạn phải có định dạng hợp lệ."
+        "keyFormatError": "API key của bạn không hợp lệ."
       }
     },
     "google": {

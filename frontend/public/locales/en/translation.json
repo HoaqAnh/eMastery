@@ -14,7 +14,7 @@
       "loading": "Loading...",
       "error": {
         "keyRequired": "Please enter your Gemini API key.",
-        "keyFormatError": "Your Gemini API key must be a valid format."
+        "keyFormatError": "Your API key is invalid."
       }
     },
     "google": {

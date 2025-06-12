@@ -1,4 +1,10 @@
-import { createContext, useContext, useCallback, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  type ReactNode,
+  useCallback,
+  useMemo,
+} from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface RegistrationData {
@@ -33,7 +39,13 @@ export const RegistrationProvider = ({ children }: { children: ReactNode }) => {
     [setStoredData]
   );
 
-  const value = { registrationData: storedData, updateRegistrationData };
+  const value = useMemo(
+    () => ({
+      registrationData: storedData,
+      updateRegistrationData,
+    }),
+    [storedData, updateRegistrationData]
+  );
 
   return (
     <RegistrationContext.Provider value={value}>

@@ -9,7 +9,7 @@ interface UseApiKeyCheckReturn {
   isLoading: boolean;
   error: string | null;
   validationResult: ApiKeyValidationResult | null;
-  validateApiKey: (apiKey: string) => Promise<void>;
+  validateApiKey: (apiKey: string) => Promise<boolean>;
   resetApiKeyValidation: () => void;
 }
 
@@ -20,34 +20,38 @@ export const useApiKeyCheck = (): UseApiKeyCheckReturn => {
   const [validationResult, setValidationResult] =
     useState<ApiKeyValidationResult | null>(null);
 
-  const validateApiKey = useCallback(async (apiKey: string) => {
-    if (!apiKey || apiKey.trim() === "") {
+  const validateApiKey = useCallback(
+    async (apiKey: string): Promise<boolean> => {
+      if (!apiKey || apiKey.trim() === "") {
+        setIsLoading(true);
+        const emptyKeyResult: ApiKeyValidationResult = {
+          isValid: false,
+          message: t("subscribe.api.error.keyRequired"),
+        };
+        setValidationResult(emptyKeyResult);
+        setError(emptyKeyResult.message);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+        return false;
+      }
+
       setIsLoading(true);
-      const emptyKeyResult: ApiKeyValidationResult = {
-        isValid: false,
-        message: t("subscribe.api.error.keyRequired"),
-      };
-      setValidationResult(emptyKeyResult);
-      setError(emptyKeyResult.message);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-      return;
-    }
+      setError(null);
+      setValidationResult(null);
 
-    setIsLoading(true);
-    setError(null);
-    setValidationResult(null);
+      const result = await checkApiKeyService(apiKey);
 
-    const result = await checkApiKeyService(apiKey);
+      setValidationResult(result);
+      if (!result.isValid) {
+        setError(t("subscribe.api.error.keyFormatError"));
+      }
 
-    setValidationResult(result);
-    if (!result.isValid) {
-      setError(t("subscribe.api.error.keyFormatError"));
-    }
-
-    setIsLoading(false);
-  }, []);
+      setIsLoading(false);
+      return result.isValid;
+    },
+    []
+  );
 
   const resetApiKeyValidation = useCallback(() => {
     setError(null);
