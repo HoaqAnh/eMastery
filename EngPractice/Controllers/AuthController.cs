@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Google;
+using System.Net.Http.Headers;
+using System.Net.Http;
+using System.Web;
 
 
 namespace EngPractice.Controllers
@@ -36,27 +39,7 @@ namespace EngPractice.Controllers
 
             return Ok(response);
         }
-        [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin(string authorizationCode)
-        {
-            var user = await _authService.LoginWithGoogleAsync(authorizationCode);
-            if (user == null)
-            {
-                return BadRequest(user);
-            }
-            return Ok(user);
-        }       
-        [HttpPost("google-login/additional-info")]
-        public async Task<IActionResult> GoogleLoginAdditionalInfo([FromBody] UserInfoGoogle request)
-        {       
-
-            var response = await _authService.SaveAdditionalInfoAsync(request);
-            if (!response.Success)
-            {
-                return BadRequest(response);
-            }
-            return Ok(response);
-        }
+ 
 
         [HttpGet("login")]
         public IActionResult GoogleLogin()
@@ -64,6 +47,46 @@ namespace EngPractice.Controllers
             var redirectUrl = Url.Action("GoogleResponse", "Auth");
             var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
             return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+        }
+        [HttpGet("google/callback")]
+        public async Task<IActionResult> GoogleCallback([FromQuery] string code)
+        {
+            var clientId = _config["Authentication:Google:ClientId"];
+            var clientSecret = _config["Authentication:Google:ClientSecret"];
+            var redirectUri = _config["Authentication:Google:RedirectUri"];
+            var decodedCode = HttpUtility.UrlDecode(code);
+            // 1. Trao đổi code lấy access_token
+            var tokenRequest = new HttpRequestMessage(HttpMethod.Post, "https://oauth2.googleapis.com/token")
+            {
+                Content = new FormUrlEncodedContent(new Dictionary<string, string>
+         {
+             { "code", decodedCode },
+             { "client_id", clientId },
+             { "client_secret", clientSecret },
+             { "redirect_uri", redirectUri },
+             { "grant_type", "authorization_code" }
+                })
+            };
+
+            var tokenResponse = await _httpClient.SendAsync(tokenRequest);
+            if (!tokenResponse.IsSuccessStatusCode)
+                return BadRequest("Không lấy được access token");
+
+            var tokenContent = await tokenResponse.Content.ReadAsStringAsync();
+            var tokenData = JsonSerializer.Deserialize<GoogleTokenResponse>(tokenContent);
+
+            // 2. Gọi Google API lấy thông tin user
+            var userRequest = new HttpRequestMessage(HttpMethod.Get, "https://www.googleapis.com/oauth2/v2/userinfo");
+            userRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tokenData.AccessToken);
+
+            var userResponse = await _httpClient.SendAsync(userRequest);
+            if (!userResponse.IsSuccessStatusCode)
+                return BadRequest("Không lấy được thông tin người dùng");
+
+            var userContent = await userResponse.Content.ReadAsStringAsync();
+            var userInfo = JsonSerializer.Deserialize<GoogleUserInfo>(userContent);
+
+            return Ok(userInfo);
         }
 
     }

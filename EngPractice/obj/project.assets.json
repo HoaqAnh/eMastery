@@ -4457,31 +4457,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\xamth\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj",
+      "projectUniqueName": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\eMastery-BE\\eMastery-BE\\eMastery\\EngPractice\\EngPractice.csproj",
       "projectName": "EngPractice",
-      "projectPath": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\EngPractice.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\LapTrinhWeb\\DoAn\\eMastery\\EngPractice\\obj\\",
+      "projectPath": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\eMastery-BE\\eMastery-BE\\eMastery\\EngPractice\\EngPractice.csproj",
+      "packagesPath": "C:\\Users\\xamth\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\xamth\\OneDrive\\Máy tính\\C#\\eMastery-BE\\eMastery-BE\\eMastery\\EngPractice\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\xamth\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4500,8 +4493,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -4581,7 +4573,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -4590,7 +4582,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "EngPractice depends on Microsoft.Extensions.Logging.Console (>= 8.0.8) but Microsoft.Extensions.Logging.Console 8.0.8 was not found. Microsoft.Extensions.Logging.Console 9.0.0 was resolved instead.",
+      "message": "EngPractice depends on Microsoft.Extensions.Logging.Console (>= 8.0.8) but Microsoft.Extensions.Logging.Console 8.0.8 was not found. An approximate best match of Microsoft.Extensions.Logging.Console 9.0.0 was resolved.",
       "libraryId": "Microsoft.Extensions.Logging.Console",
       "targetGraphs": [
         "net8.0"
@@ -4600,7 +4592,7 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "EngPractice depends on Serilog.AspNetCore (>= 8.0.8) but Serilog.AspNetCore 8.0.8 was not found. Serilog.AspNetCore 9.0.0 was resolved instead.",
+      "message": "EngPractice depends on Serilog.AspNetCore (>= 8.0.8) but Serilog.AspNetCore 8.0.8 was not found. An approximate best match of Serilog.AspNetCore 9.0.0 was resolved.",
       "libraryId": "Serilog.AspNetCore",
       "targetGraphs": [
         "net8.0"
