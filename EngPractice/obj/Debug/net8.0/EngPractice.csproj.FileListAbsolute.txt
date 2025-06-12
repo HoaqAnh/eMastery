@@ -308,3 +308,14 @@ D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\EngPract.9358F4D8.Up2D
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.genruntimeconfig.cache
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\obj\Debug\net8.0\ref\EngPractice.dll
 D:\LapTrinhWeb\DoAn\eMastery\EngPractice\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.csproj.AssemblyReference.cache
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.AssemblyInfoInputs.cache
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.AssemblyInfo.cs
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.csproj.CoreCompileInputs.cache
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.sourcelink.json
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.dll
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\refint\EngPractice.dll
+C:\Users\xamth\OneDrive\Máy tính\C#\eMastery-BE\eMastery-BE\eMastery\EngPractice\obj\Debug\net8.0\EngPractice.pdb

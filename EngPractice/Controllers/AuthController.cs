@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication.Google;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Web;
-
+using System.Text.Json;
 
 namespace EngPractice.Controllers
 {
@@ -16,10 +16,12 @@ namespace EngPractice.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AuthService _authService;
-
-        public AuthController(AuthService authService)
+        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly IConfiguration _config;
+        public AuthController(AuthService authService, IConfiguration config)
         {
             _authService = authService;
+            _config = config;
         }
 
         [HttpPost("login")]
