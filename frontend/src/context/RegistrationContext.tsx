@@ -1,5 +1,5 @@
-import { createContext, useContext, ReactNode } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import { createContext, useContext, useCallback, type ReactNode } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface RegistrationData {
   apiKey?: string;
@@ -14,16 +14,24 @@ interface RegistrationContextType {
   updateRegistrationData: (newData: Partial<RegistrationData>) => void;
 }
 
-const RegistrationContext = createContext<RegistrationContextType | undefined>(undefined);
+const RegistrationContext = createContext<RegistrationContextType | undefined>(
+  undefined
+);
 
 const initialData: RegistrationData = {};
 
 export const RegistrationProvider = ({ children }: { children: ReactNode }) => {
-  const [storedData, setStoredData] = useLocalStorage<RegistrationData>('userRegistrationData', initialData);
+  const [storedData, setStoredData] = useLocalStorage<RegistrationData>(
+    "userRegistrationData",
+    initialData
+  );
 
-  const updateRegistrationData = (newData: Partial<RegistrationData>) => {
-    setStoredData(prevData => ({ ...prevData, ...newData }));
-  };
+  const updateRegistrationData = useCallback(
+    (newData: Partial<RegistrationData>) => {
+      setStoredData((prevData) => ({ ...prevData, ...newData }));
+    },
+    [setStoredData]
+  );
 
   const value = { registrationData: storedData, updateRegistrationData };
 
@@ -37,7 +45,9 @@ export const RegistrationProvider = ({ children }: { children: ReactNode }) => {
 export const useRegistration = (): RegistrationContextType => {
   const context = useContext(RegistrationContext);
   if (context === undefined) {
-    throw new Error('useRegistration must be used within a RegistrationProvider');
+    throw new Error(
+      "useRegistration must be used within a RegistrationProvider"
+    );
   }
   return context;
 };
