@@ -1,7 +1,6 @@
 import { useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { useRegistration } from "@/context/RegistrationContext";
-import { useNavigate } from "react-router-dom";
 
 interface ProfileErrors {
   age?: string;
@@ -12,7 +11,6 @@ interface ProfileErrors {
 const ProfileSubmit = (): JSX.Element => {
   const { t } = useTranslation();
   const { updateRegistrationData } = useRegistration();
-  const navigate = useNavigate();
 
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
@@ -45,8 +43,6 @@ const ProfileSubmit = (): JSX.Element => {
     if (isValid) {
       const profileData = { age, gender, level };
       updateRegistrationData(profileData);
-      console.log("Đăng ký thành công! Đang chuyển hướng về trang chủ.");
-      navigate("/");
     }
   };
 

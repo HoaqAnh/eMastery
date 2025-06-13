@@ -17,24 +17,24 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps): JSX.Element => {
 
   useEffect(() => {
     const verifyAccess = async () => {
-      const { apiKey, fullName, age, gender, level } = registrationData;
+      if (isAllowed) {
+        setIsVerifying(false);
+        return;
+      }
 
+      const { apiKey, fullName, age, gender, level } = registrationData;
       if (!apiKey || !fullName || !age || !gender || !level) {
-        console.log("Thiếu thông tin đăng ký, đang chuyển hướng...");
         setIsAllowed(false);
         setIsVerifying(false);
         return;
       }
 
-      console.log("Đang xác thực API Key với server...");
       const isKeyValid = await validateApiKey(apiKey);
 
       if (isKeyValid) {
-        console.log("API Key hợp lệ. Cho phép truy cập.");
         setIsAllowed(true);
       } else {
-        console.log("API Key không hợp lệ. Xóa key và chuyển hướng...");
-        updateRegistrationData({ apiKey: "" });
+        updateRegistrationData({ apiKey: undefined });
         setIsAllowed(false);
       }
 
@@ -42,7 +42,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps): JSX.Element => {
     };
 
     verifyAccess();
-  }, [registrationData, validateApiKey, updateRegistrationData]);
+  }, [registrationData, validateApiKey, updateRegistrationData, isAllowed]);
 
   if (isVerifying) {
     return <Loader />;

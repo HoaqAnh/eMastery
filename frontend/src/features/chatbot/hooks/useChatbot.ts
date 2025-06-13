@@ -67,7 +67,7 @@ export const useChatbot = () => {
         setError(errorMessage);
         const errorBotMessage: ChatMessage = {
           role: "model",
-          content: `Lỗi: ${errorMessage}`,
+          content: `${errorMessage} Vui lòng làm mới trang và thử lại sau.`,
         };
         setMessages((prevMessages) => [...prevMessages, errorBotMessage]);
       } finally {
