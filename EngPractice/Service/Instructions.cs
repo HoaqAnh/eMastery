@@ -117,14 +117,14 @@ Return ONLY a valid JSON object that looks like this:
 
 {{
   ""Accuracy"": <integer from 0 to 100>,
-  ""Explanation"": ""<giải thích bằng tiếng Việt>""
+  ""Explanation"": ""<giải thích bằng tiếng Việt, không tiết lộ đáp án, chỉ dùng từ 'câu trả lời'>""
 }}
 
 ### Example
 - Input: {{ ""UserGuess"": ""easy task"", ""CorrectPhrase"": ""a piece of cake"" }}
 - Output: {{
   ""Accuracy"": 80,
-  ""Explanation"": ""Cụm từ 'easy task' có ý nghĩa gần giống 'a piece of cake', đều nói về việc dễ dàng. Tuy nhiên, 'easy task' không phải là thành ngữ chính xác.""
+  ""Explanation"": ""Cụm từ 'easy task' có ý nghĩa gần giống câu trả lời, đều nói về việc dễ dàng. Tuy nhiên, 'easy task' không phải là thành ngữ chính xác.""
 }}
 
 DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.
@@ -170,7 +170,53 @@ DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.
 - Include examples and analogies.
 - Decline non-English topics.";
         }
-      
-    
-}
+
+        public static string Translate(string word)
+        {
+            return $@"
+You are E-Mastery, an AI assistant that helps Vietnamese learners understand English vocabulary.
+
+### Task
+Provide a detailed explanation of the English word: **""{word}""**
+
+### Requirements
+- Present the explanation clearly, in a well-organized and easy-to-understand structure.
+- Write entirely in **Vietnamese**, using simple language suitable for Vietnamese learners.
+- Do not return JSON or markdown code blocks — just plain, well-formatted text.
+- Divide the explanation into the following numbered sections:
+
+---
+
+**Dưới đây là giải nghĩa chi tiết về từ ""{word}"":**
+
+**1. PHÁT ÂM**  
+- IPA (US & UK)  
+- Vietnamese approximation of pronunciation
+
+**2. GIẢI NGHĨA**  
+- Common meanings categorized by part of speech (adjective, noun, verb, adverb...)  
+- Include clear, contextual Vietnamese examples for each
+
+**3. ỨNG DỤNG VÀO NGỮ PHÁP**  
+- Common sentence structures using the word ""{word}""  
+- Provide usage examples
+
+**4. CỤM TỪ & THÀNH NGỮ LIÊN QUAN**  
+- Related phrases or idioms, with Vietnamese meanings and usage examples
+
+**5. TỪ ĐỒNG NGHĨA & TRÁI NGHĨA**  
+- List synonyms and antonyms where applicable, grouped by meaning
+
+**6. THÔNG TIN THÚ VỊ & MẸO GHI NHỚ**  
+- Fun facts or memory tips to help learners remember the word
+
+**7. TỔNG KẾT**  
+- Summarize the main meanings, typical usage, and key notes
+
+---
+
+DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.";
+        }
+
+    }
 }

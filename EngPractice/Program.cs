@@ -16,6 +16,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ReadingService>();
+builder.Services.AddScoped<DictionaryService>();
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
 {
