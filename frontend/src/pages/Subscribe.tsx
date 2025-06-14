@@ -4,10 +4,7 @@ import ApiKeySubmit from "@/features/subscribe/components/ApiKeySubmit";
 import ProfileSubmit from "@/features/subscribe/components/ProfileSubmit";
 import SubWithGoogle from "@/features/subscribe/components/SubWithGoogle";
 import "@styles/pages/Subscribe.css";
-import {
-  RegistrationProvider,
-  useRegistration,
-} from "@/context/RegistrationContext";
+import { useRegistration } from "@/context/RegistrationContext";
 import { useGoogleCallback } from "@features/subscribe/hooks/useGoogleCallback";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -100,9 +97,7 @@ const Subscribe = (): JSX.Element => {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="subscribe">
-        <RegistrationProvider>
-          <SubscribeFlow />
-        </RegistrationProvider>
+        <SubscribeFlow />
       </div>
     </>
   );
