@@ -122,6 +122,7 @@ Return ONLY a valid JSON object that looks like this:
 {{
   ""Accuracy"": <integer from 0 to 100>,
   ""Explanation"": ""<giải thích bằng tiếng Việt, không tiết lộ đáp án, chỉ dùng từ 'câu trả lời'>""
+  ""ExplainationEnglish"": ""<giải thích bằng tiếng Anh, không tiết lộ đáp án, chỉ dùng từ 'The Answer'>""
 }}
 
 ### Example
@@ -129,6 +130,7 @@ Return ONLY a valid JSON object that looks like this:
 - Output: {{
   ""Accuracy"": 80,
   ""Explanation"": ""Cụm từ 'easy task' có ý nghĩa gần giống câu trả lời, đều nói về việc dễ dàng. Tuy nhiên, 'easy task' không phải là thành ngữ chính xác.""
+  ""ExplainationEnglish"": ""The phrase 'easy task' shares similar meaning with the answer, both referring to something not difficult. However, it is not the exact idiomatic expression."" 
 }}
 
 DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.

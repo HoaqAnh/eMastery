@@ -242,5 +242,6 @@ namespace EngPractice.Service
     {
         public int Accuracy { get; set; }
         public string Explanation { get; set; }
+        public string ExplainationEnglish { get; set; }
     }
 }
