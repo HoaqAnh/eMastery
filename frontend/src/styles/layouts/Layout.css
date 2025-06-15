@@ -2,25 +2,27 @@
 .guest-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background-color: transparent;
   color: var(--foreground);
   transition: background-color 0.3s, color 0.3s;
 }
 
 header {
+  position: relative;
   display: flex;
   flex-direction: row;
-  height: fit-content;
   width: 100%;
-  height: 100%;
+  min-height: 5vh;
 }
 
 .container {
+  flex: 1;
   display: flex;
-  flex-grow: 1;
-  overflow-y: auto;
+  min-height: 0;
+  height: 95vh;
 }
 
 nav {
@@ -31,20 +33,10 @@ nav {
   align-items: center;
   gap: 1rem;
   padding: 0 20px;
-  padding-top: 15px;
   background-color: transparent;
 }
 
-.nav-logo {
-  flex: 1;
-}
-.nav-menus,
-.nav-menus {
-  flex: 8;
-}
-
 .logo {
-  margin: 0;
   height: auto;
   background: transparent;
   padding: 0;
@@ -54,7 +46,7 @@ nav {
 
 .logo {
   --border-right: 4px;
-  --animation-color: #37ff8b;
+  --animation-color: #377dff;
   letter-spacing: 3px;
   text-decoration: none;
   font-size: 1rem;
@@ -81,13 +73,8 @@ nav {
   filter: drop-shadow(0 0 23px var(--animation-color));
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-nav .nav-actions {
-  display: flex;
-  align-items: center;
+@media (max-width: 380px) {
+  .nav-logo {
+    display: none;
+  }
 }

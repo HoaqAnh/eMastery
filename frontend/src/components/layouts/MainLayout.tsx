@@ -1,12 +1,19 @@
 import { type JSX } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import ThemeSwitcher from "./ThemeSwitcher";
 import Magnet from "@/components/common/Magnet";
-import NavActions from "@components/layouts/Main/NavActions";
-import NavMenu from "@components/layouts/Main/NavMenu";
+import UserSettings from "./UserSettings";
+import LanguageSwitcher from "./LanguageSwitcher";
+import DesktopFeatures from "./DesktopFeatures";
+import MobileMenu from "./MobileMenu";
+
 import "@styles/layouts/Layout.css";
+import "@styles/components/NavActions.css";
+import "@styles/components/NavMenu.css";
 
 const MainLayout = (): JSX.Element => {
   const navigator = useNavigate();
+
   return (
     <div className="main-layout">
       <header>
@@ -21,11 +28,14 @@ const MainLayout = (): JSX.Element => {
               </button>
             </div>
           </Magnet>
-          <div className="nav-menus">
-            <NavMenu />
+          <div className="nav-menu">
+            <MobileMenu />
+            <DesktopFeatures />
           </div>
           <div className="nav-actions">
-            <NavActions />
+            <ThemeSwitcher />
+            <LanguageSwitcher />
+            <UserSettings />
           </div>
         </nav>
       </header>

@@ -1,12 +1,12 @@
 import { type JSX } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
-import MainLayout from "@/components/layouts/Main/MainLayout";
-import GuestLayout from "@/components/layouts/guest/GuestLayout";
-import NotFoundPage from "@layouts/NotFoundPage";
+import MainLayout from "@components/layouts/MainLayout";
+import GuestLayout from "@components/layouts/GuestLayout";
+import NotFoundPage from "@pages/NotFoundPage";
 import Home from "@pages/Home";
-import Subscribe from "@/pages/Subscribe";
-import Chatbot from "@/pages/Chatbot";
+import Subscribe from "@pages/Subscribe";
+import Chatbot from "@pages/Chatbot";
 import Quiz from "@pages/Quiz";
 
 const AppRoutes = (): JSX.Element => {
