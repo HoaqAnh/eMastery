@@ -1,16 +1,11 @@
 /* PAGE */
-.quiz__body-container {
+.quiz__header {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 100%;
+  height: fit-content;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.quiz__body-content {
-    /* max-height: ; */
-    overflow-y: auto;
 }
 
 /* DESCQUIZ */
@@ -19,8 +14,7 @@
   flex-direction: row;
   border-radius: 0 20px 20px 20px;
   padding: 1rem;
-  margin-top: 0.5em;
-  margin-left: 3.2em;
+  margin: 0.5em 0 0 3.2em;
   background-color: var(--card);
   border: 1px solid var(--border);
   transition: background-color 0.3s, border 0.3s;
@@ -29,12 +23,13 @@
 .btn-expand__collapse {
   cursor: pointer;
   background-color: transparent;
+  border-radius: 50%;
   color: var(--card-foreground);
   width: 2em;
   height: 2em;
   display: grid;
   place-content: center;
-  transition: background-color 0.3s, color 0.3s;
+  transition: color 0.3s;
 }
 
 .descquiz__container {
@@ -48,13 +43,21 @@
   transition: color 0.3s;
 }
 
+.descquiz__container.collapsed p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* PROGRESS */
 .progress {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   width: 100%;
-  margin-top: 1em;
+  margin-bottom: 1.5em;
 }
 
 .progress__header {
@@ -67,7 +70,7 @@
 
 .progress__bar {
   width: 100%;
-  height: 12px;
+  height: 24px;
   background-color: var(--accent);
   border-radius: 10px;
   overflow: hidden;

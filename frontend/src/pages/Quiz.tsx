@@ -7,11 +7,11 @@ import "@styles/pages/Quiz.css";
 const Quiz = (): JSX.Element => {
   return (
     <div className="quiz">
+      <div className="quiz__header">
+        <DescQuiz />
+      </div>
       <div className="quiz__body">
         <div className="quiz__body-container">
-          <div className="quiz__body-descquiz">
-            <DescQuiz />
-          </div>
           <div className="quiz__body-content">
             <Progress />
             <Progress />

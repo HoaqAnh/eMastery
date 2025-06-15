@@ -7,7 +7,9 @@ const getColorByPercentage = (percentage: number): string => {
 };
 
 const Progress = (): JSX.Element => {
-  const percentage = 20;
+  const number = 1;
+  const userAnswer = "Motobike";
+  const percentage = 70;
   const barColor = getColorByPercentage(percentage);
   const fillStyle = {
     width: `${percentage}%`,
@@ -17,7 +19,9 @@ const Progress = (): JSX.Element => {
   return (
     <div className="progress">
       <div className="progress__header">
-        <span>Đáp án của bạn: </span>
+        <span>
+          {number}. Đáp án của bạn: {userAnswer}
+        </span>
         <strong>{percentage}%</strong>
       </div>
 

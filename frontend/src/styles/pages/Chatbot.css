@@ -5,15 +5,16 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  /* max-height: 90vh; */
 }
 
 .quiz__body,
 .chatbot__body {
   flex: 1;
   overflow-y: auto;
+  margin-bottom: 1em;
 }
 
+.quiz__body-container,
 .chatbot__body-container {
   display: flex;
   flex-direction: row;
@@ -61,6 +62,7 @@
   font-weight: 200;
   color: var(--primary);
   text-align: center;
+  transition: color 0.3s;
 }
 
 /* USER */
@@ -71,15 +73,17 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .userquery__content {
-  padding: 20px;
+  padding: 10px 20px;
   max-width: 600px;
+  height: fit-content;
   border-radius: 20px 0 20px 20px;
   background-color: var(--card);
   box-shadow: var(--shadow-realistic);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .userquery__content p {
@@ -96,7 +100,7 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
 }
 
 .response__info {
@@ -114,6 +118,7 @@
   border-radius: 50%;
   background-color: var(--primary);
   color: var(--primary-foreground);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .response__info-bot__logo svg {
@@ -125,6 +130,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--text);
+  transition: color 0.3s;
 }
 
 .response__content {
@@ -134,13 +140,13 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
 }
 
 .response__content-container p {
   font-size: 1rem;
   color: var(--text);
   text-align: justify;
+  transition: color 0.3s;
 }
 
 .response__content-container p {
@@ -247,6 +253,7 @@
   box-shadow: var(--shadow-realistic);
   border-radius: 20px;
   min-width: 0;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
 .quiz__input-container,
@@ -283,6 +290,7 @@
 .chatbot__input-container textarea {
   scrollbar-color: var(--secondary) transparent;
   scrollbar-width: thin;
+  transition: scrollbar-color 0.3s;
 }
 
 .quiz__input-actions,
@@ -306,6 +314,7 @@
   background-color: var(--primary);
   color: var(--primary-foreground);
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .quiz__input-actions button:hover,
@@ -321,7 +330,8 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 950px) {}
+@media (max-width: 950px) {
+}
 
 @media (max-width: 740px) {
   .userquery {
