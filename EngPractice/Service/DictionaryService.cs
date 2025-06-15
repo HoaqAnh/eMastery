@@ -50,7 +50,7 @@ namespace EngPractice.Service
                         },
                         generationConfig = new
                         {
-                            maxOutputTokens = 1000,
+                            maxOutputTokens = 1500,
                             temperature = attempt == 0 ? 0.7 : 0.5
                         }
                     };
@@ -85,7 +85,6 @@ namespace EngPractice.Service
                         continue;
                     }
 
-                    // Optional: Remove markdown block markers if present
                     if (message.StartsWith("```json") || message.StartsWith("```"))
                     {
                         var match = Regex.Match(message, @"```(?:json)?\n([\s\S]*?)\n```");
@@ -95,11 +94,14 @@ namespace EngPractice.Service
                         }
                     }
 
-                    // Return the plain explanation
+                    string cleaned = CleanRawText(message);
+
+                    Console.WriteLine("===== ĐOẠN VĂN SAU KHI CLEAN =====");
+                    Console.WriteLine(cleaned);
                     return new TranslateWordResponse
                     {
                         Word = word,
-                        Explanation = message.Trim()
+                        Explanation = CleanRawText(message)
                     };
                 }
                 catch (HttpRequestException ex)
@@ -138,37 +140,61 @@ namespace EngPractice.Service
         {
             var dto = new WordExplanationDto();
 
-            // Bổ sung chuẩn hóa
-            rawText = rawText.Replace("\r", "").Trim();
+            if (string.IsNullOrWhiteSpace(rawText))
+                return dto;
 
-            // Sử dụng regex để bắt từng mục
-            var sections = Regex.Split(rawText, @"\*\*\s*\d+\.\s*([^\*]+)\s*\*\*")
-                                .Select(s => s.Trim())
-                                .ToList();
+            // Tách thành từng phần dựa vào số thứ tự (ví dụ: "1. PHÁT ÂM...")
+            var parts = Regex.Split(rawText, @"(?=\b\d+\.\s+)") // giữ số thứ tự
+                             .Where(p => !string.IsNullOrWhiteSpace(p))
+                             .ToList();
 
-            // Regex.Split ở trên tách chuỗi thành: [Intro, Title1, Content1, Title2, Content2, ...]
-            for (int i = 1; i < sections.Count - 1; i += 2)
+            foreach (var part in parts)
             {
-                string title = sections[i].ToLowerInvariant();
-                string content = sections[i + 1];
+                string lowerPart = part.ToLowerInvariant();
 
-                if (title.Contains("phát âm"))
-                    dto.Pronunciation = content;
-                else if (title.Contains("giải nghĩa"))
-                    dto.Meaning = content;
-                else if (title.Contains("ngữ pháp") || title.Contains("ứng dụng"))
-                    dto.GrammarUsage = content;
-                else if (title.Contains("cụm từ") || title.Contains("thành ngữ"))
-                    dto.PhrasesAndIdioms = content;
-                else if (title.Contains("đồng nghĩa") || title.Contains("trái nghĩa"))
-                    dto.SynonymsAndAntonyms = content;
-                else if (title.Contains("thú vị") || title.Contains("mẹo"))
-                    dto.FunFactsAndTips = content;
-                else if (title.Contains("tổng kết"))
-                    dto.Summary = content;
+                if (lowerPart.StartsWith("1."))
+                    dto.Pronunciation = RemovePrefixOnly(part, "1.");
+                else if (lowerPart.StartsWith("2."))
+                    dto.Meaning = RemovePrefixOnly(part, "2.");
+                else if (lowerPart.StartsWith("3."))
+                    dto.GrammarUsage = RemovePrefixOnly(part, "3.");
+                else if (lowerPart.StartsWith("4."))
+                    dto.PhrasesAndIdioms = RemovePrefixOnly(part, "4.");
+                else if (lowerPart.StartsWith("5."))
+                    dto.SynonymsAndAntonyms = RemovePrefixOnly(part, "5.");
+                else if (lowerPart.StartsWith("6."))
+                    dto.FunFactsAndTips = RemovePrefixOnly(part, "6.");
+                else if (lowerPart.StartsWith("7."))
+                    dto.Summary = RemovePrefixOnly(part, "7.");
             }
 
             return dto;
+        }
+
+        private string RemovePrefixOnly(string section, string prefix)
+        {
+            // Bỏ tiền tố số thứ tự (ví dụ "1. ") nhưng giữ nguyên tiêu đề như "PHÁT ÂM"
+            return section.Substring(prefix.Length).Trim();
+        }
+
+        public string CleanRawText(string raw)
+        {
+            if (string.IsNullOrWhiteSpace(raw)) return raw;
+
+            raw = raw.Replace("\\n", " ")
+                     .Replace("\\t", " ")
+                     .Replace("\\r", " ")
+                     .Replace("\\", "");
+
+            raw = Regex.Replace(raw, @"[*\-]+", "");
+
+            raw = Regex.Replace(raw, @"[ \t]{2,}", " ");        
+            raw = Regex.Replace(raw, @"\s*\n\s*", " ");         
+            raw = Regex.Replace(raw, @"\s+([.,;:!?])", "$1");   
+
+            
+
+            return raw.Trim();
         }
     }
 }
