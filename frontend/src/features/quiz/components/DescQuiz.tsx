@@ -5,7 +5,11 @@ import {
   UserIcon,
 } from "@/components/common/Icons";
 
-const DescQuiz = (): JSX.Element => {
+interface DescQuizProps {
+  description: string;
+}
+
+const DescQuiz = ({ description }: DescQuizProps): JSX.Element => {
   const [extend, setExtend] = useState(false);
 
   return (
@@ -16,13 +20,7 @@ const DescQuiz = (): JSX.Element => {
       </div>
       <div className="descquiz">
         <div className={`descquiz__container ${!extend ? "collapsed" : ""}`}>
-          <p>
-            It was a very hot day. My friend and I wanted to go swimming, but we
-            were too tired to walk to the pool. We decided to stay home and
-            relax instead. We were both very happy with our decision. It was a
-            great choice because we could watch movies and eat snacks all day
-            long without getting sunburned.
-          </p>
+          <p>{description}</p>
         </div>
         <button
           className="btn-expand__collapse"

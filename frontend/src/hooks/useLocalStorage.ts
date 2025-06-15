@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 
-const LOCAL_STORAGE_CHANGE_EVENT = "onLocalStorageChange";
-
 export function useLocalStorage<T>(key: string, initialValue: T) {
   const readValue = useCallback((): T => {
     try {
@@ -22,7 +20,6 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
           const valueToStore =
             value instanceof Function ? value(currentStoredValue) : value;
           window.localStorage.setItem(key, JSON.stringify(valueToStore));
-          window.dispatchEvent(new Event(LOCAL_STORAGE_CHANGE_EVENT));
           return valueToStore;
         });
       } catch (error) {
@@ -33,19 +30,17 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   );
 
   useEffect(() => {
-    const handleStorageChange = () => {
-      setStoredValue(readValue());
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === key) {
+        setStoredValue(readValue());
+      }
     };
     window.addEventListener("storage", handleStorageChange);
-    window.addEventListener(LOCAL_STORAGE_CHANGE_EVENT, handleStorageChange);
+
     return () => {
       window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener(
-        LOCAL_STORAGE_CHANGE_EVENT,
-        handleStorageChange
-      );
     };
-  }, [readValue]);
+  }, [key, readValue]);
 
   return [storedValue, setValue] as const;
 }

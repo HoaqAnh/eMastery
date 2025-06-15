@@ -65,11 +65,11 @@ export const useChatbot = () => {
         const errorMessage =
           err instanceof Error ? err.message : "Đã có lỗi xảy ra.";
         setError(errorMessage);
-        const errorBotMessage: ChatMessage = {
-          role: "model",
-          content: `${errorMessage} Vui lòng làm mới trang và thử lại sau.`,
-        };
-        setMessages((prevMessages) => [...prevMessages, errorBotMessage]);
+        // const errorBotMessage: ChatMessage = {
+        //   role: "model",
+        //   content: `Vui lòng thử lại sau.`,
+        // };
+        // setMessages((prevMessages) => [...prevMessages, errorBotMessage]);
       } finally {
         setIsLoading(false);
       }
