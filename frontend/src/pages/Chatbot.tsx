@@ -1,6 +1,5 @@
-import type { JSX } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { useChatbot } from "@features/chatbot/hooks/useChatbot";
-import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Error from "@components/common/Error";
 import UserQuery from "@/features/chatbot/components/UserQuery";
@@ -56,10 +55,7 @@ const Chatbot = (): JSX.Element => {
           />
         </div>
         <div className="chatbot__footer-infomation">
-          <p>
-            eMastery có thể mắc sai sót, vì vậy, hãy xác minh các câu trả lời
-            của eMastery
-          </p>
+          <p>{t("chatbot.info")}</p>
         </div>
       </div>
     </div>

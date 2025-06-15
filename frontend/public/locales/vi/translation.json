@@ -99,6 +99,7 @@
     "send": "Gửi",
     "loading": "Đang trả lời...",
     "new": "Đoạn chat mới",
+    "info": "eMastery có thể mắc sai sót, vì vậy hãy xác minh các câu trả lời của eMastery.",
     "error": {
       "networkError": "Lỗi mạng. Vui lòng thử lại sau.",
       "apiError": "Lỗi API. Vui lòng thử lại sau."
@@ -117,6 +118,8 @@
       "hard": "Khó"
     },
     "result": {
+      "title": "Đáp án của bạn: ",
+      "hint": "Gợi ý: ",
       "correct": "Đúng",
       "incorrect": "Sai",
       "score": "Điểm số của bạn: {{score}}/{{total}}"

@@ -1,4 +1,4 @@
-import { useState, type JSX, useRef, useEffect } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
 import {
   ArrowUpIcon,
@@ -6,15 +6,23 @@ import {
   UserIcon,
 } from "@/components/common/Icons";
 
+type Level = "ez" | "med" | "hard";
+
 interface DescQuizProps {
   description: string;
   translation: string;
+  level: Level;
+  onLevelChange: (newLevel: Level) => void;
 }
 
-const DescQuiz = ({ description, translation }: DescQuizProps): JSX.Element => {
+const DescQuiz = ({
+  description,
+  translation,
+  level,
+  onLevelChange,
+}: DescQuizProps): JSX.Element => {
   const { t } = useTranslation();
   const [extend, setExtend] = useState(false);
-  const [level, setLevel] = useState<"ez" | "med" | "hard">("hard");
 
   const pRef = useRef<HTMLParagraphElement>(null);
   const [showButton, setShowButton] = useState(false);
@@ -51,17 +59,17 @@ const DescQuiz = ({ description, translation }: DescQuizProps): JSX.Element => {
           <button
             className={getModeClass("ez")}
             title={t("quiz.level.ez")}
-            onClick={() => setLevel("ez")}
+            onClick={() => onLevelChange("ez")}
           ></button>
           <button
             className={getModeClass("med")}
             title={t("quiz.level.med")}
-            onClick={() => setLevel("med")}
+            onClick={() => onLevelChange("med")}
           ></button>
           <button
             className={getModeClass("hard")}
             title={t("quiz.level.hard")}
-            onClick={() => setLevel("hard")}
+            onClick={() => onLevelChange("hard")}
           ></button>
         </div>
       </div>

@@ -99,6 +99,7 @@
     "send": "Send",
     "loading": "Responding...",
     "new": "New conversation",
+    "info": "eMastery may make mistakes, so please verify eMastery answers.",
     "error": {
       "networkError": "Network error. Please check your internet connection.",
       "apiError": "API error. Please try again later."
@@ -117,6 +118,8 @@
       "hard": "Hard"
     },
     "result": {
+      "title": "Your answer: ",
+      "hint": "Hint: ",
       "correct": "Correct",
       "incorrect": "Incorrect",
       "score": "Your score: {{score}}/{{total}}"
