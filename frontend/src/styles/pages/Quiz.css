@@ -2,15 +2,77 @@
 .quiz__header {
   display: flex;
   flex-direction: column;
-  width: 800px;
-  max-width: 800px;
-  padding: 20px;
   height: fit-content;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 
 /* DESCQUIZ */
 .descquiz {
+  min-width: 0;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.descquiz__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.descquiz__level {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.descquiz__level p {
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: color 0.3s;
+}
+
+.hard-mode,
+.med-mode,
+.ez-mode {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.hard-mode.active,
+.med-mode.active,
+.ez-mode.active {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.hard-mode:hover,
+.med-mode:hover,
+.ez-mode:hover {
+  transform: scale(1.05);
+}
+
+.ez-mode {
+  background-color: green;
+}
+
+.med-mode {
+  background-color: orange;
+}
+
+.hard-mode {
+  background-color: brown;
+}
+
+.descquiz__body {
   display: flex;
   flex-direction: row;
   border-radius: 0 20px 20px 20px;
@@ -67,6 +129,7 @@
   align-items: center;
   font-size: 0.9rem;
   color: var(--foreground);
+  transition: color 0.3s;
 }
 
 .progress__bar {
@@ -75,6 +138,7 @@
   background-color: var(--accent);
   border-radius: 10px;
   overflow: hidden;
+  transition: background-color 0.3s;
 }
 
 .progress__bar-fill {
@@ -93,5 +157,6 @@
   color: var(--foreground);
   font-size: 0.85rem;
   font-style: italic;
+  transition: color 0.3s;
   transition: color 0.3s;
 }

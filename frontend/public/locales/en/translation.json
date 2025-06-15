@@ -110,6 +110,12 @@
     "loading": "Loading...",
     "submitAnswer": "Submit Answer",
     "initialPrompt": "Loading reading for you...",
+    "level": {
+      "title": "Level",
+      "ez": "Easy",
+      "med": "Medium",
+      "hard": "Hard"
+    },
     "result": {
       "correct": "Correct",
       "incorrect": "Incorrect",

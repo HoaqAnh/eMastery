@@ -110,6 +110,12 @@
     "loading": "Đang tải Quiz...",
     "submitAnswer": "Gửi câu trả lời",
     "initialPrompt": "Đang tải bài đọc cho bạn...",
+    "level": {
+      "title": "Mức độ",
+      "ez": "Dễ",
+      "med": "Trung bình",
+      "hard": "Khó"
+    },
     "result": {
       "correct": "Đúng",
       "incorrect": "Sai",

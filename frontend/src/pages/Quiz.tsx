@@ -8,7 +8,6 @@ import { useRegistration } from "@/context/RegistrationContext.tsx";
 import { useLocalStorage } from "@/hooks/useLocalStorage.ts";
 import { type GenerateReadingResponse } from "@/features/quiz/services/quizService.ts";
 import { useTranslation } from "react-i18next";
-
 import "@styles/pages/Quiz.css";
 
 const Quiz = (): JSX.Element => {
@@ -70,6 +69,9 @@ const Quiz = (): JSX.Element => {
     storedQuiz?.description ||
     t("quiz.initialPrompt");
 
+  const displayTranslation =
+    readingData?.translation || storedQuiz?.translation || "";
+
   if (error) {
     return <Error />;
   }
@@ -77,7 +79,10 @@ const Quiz = (): JSX.Element => {
   return (
     <div className="quiz">
       <div className="quiz__header">
-        <DescQuiz description={displayDescription} />
+        <DescQuiz
+          description={displayDescription}
+          translation={displayTranslation}
+        />
       </div>
       <div className="quiz__body">
         <div className="quiz__body-container">
