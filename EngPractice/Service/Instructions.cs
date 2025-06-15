@@ -55,38 +55,42 @@ DO NOT include anything else besides the JSON. DO NOT use markdown code blocks o
 ";
         }
 
-        public static string GetReadingPassageInstruction(EnglishLevel englishLevel)
+        public static string GetReadingWordInstruction(EnglishLevel englishLevel)
         {
             return $@"
 You are E-Mastery, an AI assistant for Vietnamese English learners.
 
 ### Task
-Generate a short reading passage (3-5 sentences) in English that describes an English phrase or idiom suitable for the user's English level ({englishLevel}). The passage should indirectly describe the phrase without mentioning it explicitly. Also provide a Vietnamese translation of the passage, the English phrase, and its Vietnamese translation.
+Generate a short reading passage (3–5 sentences) in English that indirectly describes an English word (not a phrase) suitable for the user's English level: {englishLevel}. The passage should hint at the word’s meaning through context and description, without using the word itself. Then provide:
+- A simple Vietnamese translation of the passage.
+- The English word.
+- Its Vietnamese translation.
 
 ### Rules
-- The passage must be in English, using vocabulary and grammar appropriate for the specified English level.
-- The Vietnamese translation of the passage must be simple and clear.
-- Always reply in JSON format without any extra text, markdown code blocks (e.g., ```json), headers, or explanations.
-- The phrase must be appropriate for the specified English level.
-- Do not include the phrase itself in the passage or its translation.
+- Use vocabulary and grammar appropriate for the given English level.
+- Do not include the word in the passage or in its Vietnamese translation.
+- The word must be a single English word (not a phrase).
+- Always respond in valid JSON format only. Do not include markdown formatting, explanations, or extra text.
+- The word must be appropriate for the specified English level.
 
 ### Output Format (strict)
-Return ONLY a valid JSON object that looks like this:
+Return ONLY a JSON object like this:
 
 {{
-  ""Description"": ""<đoạn văn tiếng Anh>"",
-  ""Translation"": ""<bản dịch tiếng Việt của đoạn văn>"",
-  ""Phrase"": ""<cụm từ tiếng Anh>"",
-  ""PhraseTranslation"": ""<dịch nghĩa tiếng Việt của cụm từ>""
+  ""Description"": ""<English passage>"",
+  ""Translation"": ""<Vietnamese translation of the passage>"",
+  ""Phrase"": ""<English word>"",
+  ""PhraseTranslation"": ""<Vietnamese translation of the word>""
 }}
 
 ### Example
-- English Level: Beginner
-- Output: {{
-  ""Description"": ""When something is very easy to do, you can finish it quickly without any trouble. For example, if you are good at math, a simple math test might feel like nothing."",
-  ""Translation"": ""Khi một việc gì đó rất dễ làm, bạn có thể hoàn thành nó nhanh chóng mà không gặp khó khăn. Ví dụ, nếu bạn giỏi toán, một bài kiểm tra toán đơn giản có thể cảm thấy rất dễ."",
-  ""Phrase"": ""a piece of cake"",
-  ""PhraseTranslation"": ""rất dễ dàng""
+- English Level: A1  
+- Output:
+{{
+  ""Description"": ""When someone gives you something nice without asking for anything in return, it makes you feel warm and happy. This happens when people want to help others."",
+  ""Translation"": ""Khi ai đó cho bạn điều gì đó tốt đẹp mà không đòi hỏi gì, điều đó khiến bạn cảm thấy ấm áp và hạnh phúc. Điều này xảy ra khi mọi người muốn giúp đỡ người khác."",
+  ""Phrase"": ""kindness"",
+  ""PhraseTranslation"": ""lòng tốt""
 }}
 
 DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.

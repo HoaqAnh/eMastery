@@ -25,7 +25,7 @@ namespace EngPractice.Controllers
 
             try
             {
-                var response = await _readingService.GenerateReadingPassage(request.EnglishLevel, request.GeminiApiKey);
+                var response = await _readingService.GenerateReadingWord(request.EnglishLevel, request.GeminiApiKey);
                 return Ok(response);
             }
             catch (Exception ex)
