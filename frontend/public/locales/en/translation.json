@@ -14,7 +14,7 @@
       "loading": "Loading...",
       "error": {
         "keyRequired": "Please enter your Gemini API key.",
-        "keyFormatError": "Your Gemini API key must be a valid format."
+        "keyFormatError": "Your API key is invalid."
       }
     },
     "google": {
@@ -99,9 +99,37 @@
     "send": "Send",
     "loading": "Responding...",
     "new": "New conversation",
+    "info": "eMastery may make mistakes, so please verify eMastery answers.",
     "error": {
       "networkError": "Network error. Please check your internet connection.",
       "apiError": "API error. Please try again later."
     }
+  },
+  "quiz": {
+    "title": "Enter your answer",
+    "startQuiz": "Start new quiz",
+    "loading": "Loading...",
+    "submitAnswer": "Submit Answer",
+    "initialPrompt": "Loading reading for you...",
+    "level": {
+      "title": "Level",
+      "ez": "Easy",
+      "med": "Medium",
+      "hard": "Hard"
+    },
+    "result": {
+      "title": "Your answer: ",
+      "hint": "Hint: ",
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "score": "Your score: {{score}}/{{total}}"
+    },
+    "error": {
+      "networkError": "Network error. Please check your internet connection.",
+      "apiError": "API error. Please try again later."
+    }
+  },
+  "error": {
+    "retry": "Retry"
   }
 }

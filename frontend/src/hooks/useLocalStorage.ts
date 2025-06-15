@@ -1,32 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  const readValue = useCallback((): T => {
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : initialValue;
     } catch (error) {
-      console.error(error);
+      console.warn(`Lỗi khi đọc localStorage key “${key}”:`, error);
       return initialValue;
     }
-  });
+  }, [initialValue, key]);
 
-  const setValue = (value: T | ((val: T) => T)) => {
-    try {
-      if (value instanceof Function) {
-        setStoredValue((prevValue) => {
-          const newValue = value(prevValue);
-          window.localStorage.setItem(key, JSON.stringify(newValue));
-          return newValue;
+  const [storedValue, setStoredValue] = useState<T>(readValue);
+
+  const setValue = useCallback(
+    (value: T | ((val: T) => T)) => {
+      try {
+        setStoredValue((currentStoredValue) => {
+          const valueToStore =
+            value instanceof Function ? value(currentStoredValue) : value;
+          window.localStorage.setItem(key, JSON.stringify(valueToStore));
+          return valueToStore;
         });
-      } else {
-        setStoredValue(value);
-        window.localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        console.warn(`Lỗi khi ghi localStorage key “${key}”:`, error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    },
+    [key]
+  );
+
+  useEffect(() => {
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === key) {
+        setStoredValue(readValue());
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [key, readValue]);
 
   return [storedValue, setValue] as const;
 }

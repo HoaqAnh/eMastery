@@ -1,17 +1,20 @@
 /* PAGE */
+.quiz,
 .chatbot {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  max-height: 90vh;
 }
 
+.quiz__body,
 .chatbot__body {
   flex: 1;
   overflow-y: auto;
+  margin-bottom: 1em;
 }
 
+.quiz__body-container,
 .chatbot__body-container {
   display: flex;
   flex-direction: row;
@@ -21,6 +24,7 @@
   margin: 0 auto;
 }
 
+.quiz__body-content,
 .chatbot__body-content {
   flex: 1;
   display: flex;
@@ -28,32 +32,37 @@
   min-width: 0;
 }
 
+.quiz__footer,
 .chatbot__footer {
   height: fit-content;
   width: 100%;
-  padding: 20px;
-  padding-bottom: 0;
+  padding: 0 20px;
 }
 
+.quiz__footer-container,
 .chatbot__footer-container {
   max-width: 900px;
   margin: 0 auto;
 }
 
+.quiz__footer-infomation,
 .chatbot__footer-infomation {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 1em;
+  margin-bottom: 1em;
   height: fit-content;
 }
 
+.quiz__footer-infomation p,
 .chatbot__footer-infomation p {
   font-size: 0.8rem;
   font-weight: 200;
   color: var(--primary);
   text-align: center;
+  transition: color 0.3s;
 }
 
 /* USER */
@@ -64,15 +73,17 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .userquery__content {
-  padding: 20px;
+  padding: 10px 20px;
   max-width: 600px;
+  height: fit-content;
   border-radius: 20px 0 20px 20px;
   background-color: var(--card);
   box-shadow: var(--shadow-realistic);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .userquery__content p {
@@ -89,7 +100,7 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
 }
 
 .response__info {
@@ -107,6 +118,7 @@
   border-radius: 50%;
   background-color: var(--primary);
   color: var(--primary-foreground);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .response__info-bot__logo svg {
@@ -118,6 +130,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--text);
+  transition: color 0.3s;
 }
 
 .response__content {
@@ -127,13 +140,13 @@
   width: 100%;
   min-width: 0;
   height: fit-content;
-  margin-bottom: 2em;
 }
 
 .response__content-container p {
   font-size: 1rem;
   color: var(--text);
   text-align: justify;
+  transition: color 0.3s;
 }
 
 .response__content-container p {
@@ -153,9 +166,11 @@
 .response__content-container h1 {
   font-size: 1.5em;
 }
+
 .response__content-container h2 {
   font-size: 1.25em;
 }
+
 .response__content-container h3 {
   font-size: 1.1em;
 }
@@ -229,6 +244,7 @@
 }
 
 /* INPUT */
+.quiz__input,
 .chatbot__input {
   display: flex;
   flex-direction: column;
@@ -237,8 +253,10 @@
   box-shadow: var(--shadow-realistic);
   border-radius: 20px;
   min-width: 0;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
+.quiz__input-container,
 .chatbot__input-container {
   display: flex;
   flex-direction: row;
@@ -248,6 +266,7 @@
   gap: 10px;
 }
 
+.quiz__input-container textarea,
 .chatbot__input-container textarea {
   flex: 1;
   border: none;
@@ -262,15 +281,19 @@
   overflow-y: auto;
 }
 
+.quiz__input-container textarea:focus,
 .chatbot__input-container textarea:focus {
   outline: none;
 }
 
+.quiz__input-container textarea,
 .chatbot__input-container textarea {
   scrollbar-color: var(--secondary) transparent;
   scrollbar-width: thin;
+  transition: scrollbar-color 0.3s;
 }
 
+.quiz__input-actions,
 .chatbot__input-actions {
   display: flex;
   flex-direction: row;
@@ -280,6 +303,7 @@
   margin-top: 10px;
 }
 
+.quiz__input-actions button,
 .chatbot__input-actions button {
   width: 2.5em;
   height: 2.5em;
@@ -290,12 +314,15 @@
   background-color: var(--primary);
   color: var(--primary-foreground);
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+.quiz__input-actions button:hover,
 .chatbot__input-actions button:hover {
   background-color: var(--secondary);
 }
 
+.quiz__input-actions button:disabled,
 .chatbot__input-actions button:disabled {
   background-color: var(--muted);
   color: var(--muted-foreground);
