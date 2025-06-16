@@ -9,7 +9,6 @@ import { useEvaluateReading } from "@/features/quiz/hooks/useEvaluateReading.ts"
 import { useRegistration } from "@/context/RegistrationContext.tsx";
 import { useLocalStorage } from "@/hooks/useLocalStorage.ts";
 import { type GenerateReadingResponse } from "@/features/quiz/services/quizService.ts";
-import LoadingResponse from "@/components/common/LoadingResponse";
 import "@styles/pages/Quiz.css";
 
 type Level = "ez" | "med" | "hard";
@@ -108,18 +107,13 @@ const Quiz = (): JSX.Element => {
   return (
     <div className="quiz">
       <div className="quiz__header">
-        {loading ? (
-          <div className="loading-container">
-            <LoadingResponse />
-          </div>
-        ) : (
-          <DescQuiz
-            description={displayDescription}
-            translation={displayTranslation}
-            level={level}
-            onLevelChange={setLevel}
-          />
-        )}
+        <DescQuiz
+          description={displayDescription}
+          translation={displayTranslation}
+          level={level}
+          isLoading={loading}
+          onLevelChange={setLevel}
+        />
       </div>
       <div className="quiz__body">
         <div className="quiz__body-container">

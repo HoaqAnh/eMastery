@@ -98,6 +98,8 @@
 .descquiz__container {
   flex-grow: 1;
   padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .descquiz__container p {
@@ -112,6 +114,15 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.descquiz__loading {
+  width: fit-content;
+  height: 2em;
+}
+
+.descquiz__loading .dots-container {
+  margin: 0;
 }
 
 /* PROGRESS */

@@ -94,7 +94,7 @@
   },
   "chatbot": {
     "title": "AI Assistant",
-    "welcomeMessage": "Welcome to the AI Assistant! How can I help you today?",
+    "welcomeMessage": "Welcome to the eMastery! How can I help you today?",
     "placeholder": "Ask eMastery...",
     "send": "Send",
     "loading": "Responding...",
