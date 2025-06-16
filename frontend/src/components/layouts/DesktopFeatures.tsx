@@ -6,7 +6,7 @@ import {
   QuizIcon,
   ChatBotIcon,
   LibraryBooksIcon,
-  MailIcon
+  MailIcon,
 } from "@components/common/Icons";
 
 const DesktopFeatures = (): JSX.Element => {
@@ -18,6 +18,7 @@ const DesktopFeatures = (): JSX.Element => {
         className={`nav-menu-item`}
         title={t("navMenu.dictionary")}
         type="button"
+        onClick={() => navigator("/dictionary")}
       >
         {LibraryBooksIcon}
         <span>{t("navMenu.dictionary")}</span>
