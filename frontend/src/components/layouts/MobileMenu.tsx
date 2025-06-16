@@ -52,6 +52,7 @@ const MobileMenu = (): JSX.Element => {
                 className="nav-menu__dropdown-item"
                 title={t("navMenu.dictionary")}
                 type="button"
+                onClick={() => navigator("/dictionary")}
               >
                 {LibraryBooksIcon}
                 <span>{t("navMenu.dictionary")}</span>

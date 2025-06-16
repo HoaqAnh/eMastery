@@ -94,7 +94,7 @@
   },
   "chatbot": {
     "title": "AI Assistant",
-    "welcomeMessage": "Welcome to the AI Assistant! How can I help you today?",
+    "welcomeMessage": "Welcome to the eMastery! How can I help you today?",
     "placeholder": "Ask eMastery...",
     "send": "Send",
     "loading": "Responding...",
@@ -127,6 +127,37 @@
     "error": {
       "networkError": "Network error. Please check your internet connection.",
       "apiError": "API error. Please try again later."
+    }
+  },
+  "dictionary": {
+    "welcome": "Look up English vocabulary to see definitions, pronunciation, examples, and more.",
+    "title": "eMastery Dictionary",
+    "placeholder": "Enter word to look up...",
+    "btnPlaceholder": "Search history",
+    "btnSend": "Search",
+    "pronunciation": "Pronunciation",
+    "expanded": "Expanded",
+    "collapsed": "Collapsed",
+    "summary": "Summary",
+    "meaning": "Meaning",
+    "grammarUsage": "Grammar",
+    "phrasesAndIdioms": "Phrases",
+    "synonymsAndAntonyms": "Related Words",
+    "funFactsAndTips": "Memory Tips",
+    "error": {
+      "valid": "Only single English words are supported, without special characters.",
+      "apiKey": "API Key is missing. Please refresh the page."
+    },
+    "notFound": {
+      "title": "Word not found",
+      "description": "Please check the spelling or try another word.",
+      "content": "Content not available."
+    },
+    "history": {
+      "closePlaceholder": "Close",
+      "deletePlaceholder": "Clear all history",
+      "title": "History",
+      "empty": "No history yet."
     }
   },
   "error": {

@@ -1,6 +1,7 @@
 /* PAGE */
 .quiz,
-.chatbot {
+.chatbot,
+.dictionary {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -33,20 +34,24 @@
 }
 
 .quiz__footer,
-.chatbot__footer {
+.chatbot__footer,
+.dictionary__footer {
+  background-color: transparent;
   height: fit-content;
   width: 100%;
   padding: 0 20px;
 }
 
 .quiz__footer-container,
-.chatbot__footer-container {
+.chatbot__footer-container,
+.dictionary__footer-container {
   max-width: 900px;
   margin: 0 auto;
 }
 
 .quiz__footer-infomation,
-.chatbot__footer-infomation {
+.chatbot__footer-infomation,
+.dictionary__footer-infomation {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +62,8 @@
 }
 
 .quiz__footer-infomation p,
-.chatbot__footer-infomation p {
+.chatbot__footer-infomation p,
+.dictionary__footer-infomation p {
   font-size: 0.8rem;
   font-weight: 200;
   color: var(--primary);
@@ -90,6 +96,7 @@
   font-size: 1rem;
   color: var(--text);
   text-align: justify;
+  hyphens: auto;
 }
 
 /* RESPONSE */
@@ -146,6 +153,7 @@
   font-size: 1rem;
   color: var(--text);
   text-align: justify;
+  hyphens: auto;
   transition: color 0.3s;
 }
 
@@ -251,6 +259,7 @@
   padding: 20px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-realistic);
+  background-color: transparent;
   border-radius: 20px;
   min-width: 0;
   transition: border 0.3s, box-shadow 0.3s;

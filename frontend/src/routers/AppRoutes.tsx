@@ -8,6 +8,7 @@ import Home from "@pages/Home";
 import Subscribe from "@pages/Subscribe";
 import Chatbot from "@pages/Chatbot";
 import Quiz from "@pages/Quiz";
+import Dictionary from "@/pages/Dictionary";
 
 const AppRoutes = (): JSX.Element => {
   return (
@@ -29,6 +30,7 @@ const AppRoutes = (): JSX.Element => {
         <Route index element={<Home />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/dictionary" element={<Dictionary />} />
       </Route>
 
       {/* 404 Not Found */}

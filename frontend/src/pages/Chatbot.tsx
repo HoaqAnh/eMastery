@@ -26,6 +26,7 @@ const Chatbot = (): JSX.Element => {
       <div className="chatbot__body">
         <div className="chatbot__body-container">
           <div className="chatbot__body-content">
+            <Response content={t("chatbot.welcomeMessage")} isLoading={false} />
             {messages.map((message, index) =>
               message.role === "user" ? (
                 <UserQuery key={index} content={message.content} />
@@ -37,11 +38,7 @@ const Chatbot = (): JSX.Element => {
                 />
               )
             )}
-
-            {isLoading && (
-              <Response content={t("chatbot.loading")} isLoading={isLoading} />
-            )}
-
+            {isLoading && <Response content="" isLoading={true} />}
             <div ref={chatEndRef} />
           </div>
         </div>

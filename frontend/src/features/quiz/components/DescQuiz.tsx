@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import { useTranslation } from "react-i18next";
+import LoadingResponse from "@/components/common/LoadingResponse";
 import {
   ArrowUpIcon,
   ArrowDownIcon,
@@ -12,6 +13,7 @@ interface DescQuizProps {
   description: string;
   translation: string;
   level: Level;
+  isLoading: boolean;
   onLevelChange: (newLevel: Level) => void;
 }
 
@@ -19,6 +21,7 @@ const DescQuiz = ({
   description,
   translation,
   level,
+  isLoading,
   onLevelChange,
 }: DescQuizProps): JSX.Element => {
   const { t } = useTranslation();
@@ -75,7 +78,13 @@ const DescQuiz = ({
       </div>
       <div className="descquiz__body">
         <div className={`descquiz__container ${!extend ? "collapsed" : ""}`}>
-          <p ref={pRef}>{contentToDisplay}</p>
+          {isLoading ? (
+            <div className="descquiz__loading">
+              <LoadingResponse />
+            </div>
+          ) : (
+            <p ref={pRef}>{contentToDisplay}</p>
+          )}
         </div>
         {showButton && (
           <button

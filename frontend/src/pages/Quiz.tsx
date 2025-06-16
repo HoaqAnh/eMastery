@@ -4,12 +4,12 @@ import Input from "@/features/quiz/components/Input.tsx";
 import DescQuiz from "@/features/quiz/components/DescQuiz.tsx";
 import Progress from "@/features/quiz/components/Progress.tsx";
 import Error from "@components/common/Error";
+import ProgressSkeleton from "@/features/quiz/components/ProgressSkeleton.tsx";
 import { useGenerateReading } from "@/features/quiz/hooks/useGenerateReading.ts";
 import { useEvaluateReading } from "@/features/quiz/hooks/useEvaluateReading.ts";
 import { useRegistration } from "@/context/RegistrationContext.tsx";
 import { useLocalStorage } from "@/hooks/useLocalStorage.ts";
 import { type GenerateReadingResponse } from "@/features/quiz/services/quizService.ts";
-import LoadingResponse from "@/components/common/LoadingResponse";
 import "@styles/pages/Quiz.css";
 
 type Level = "ez" | "med" | "hard";
@@ -50,8 +50,8 @@ const Quiz = (): JSX.Element => {
     const { level: englishLevel, apiKey: geminiApiKey } = registrationData;
     if (englishLevel && geminiApiKey) {
       try {
-        await generate({ englishLevel, geminiApiKey });
         setHistory([]);
+        await generate({ englishLevel, geminiApiKey });
       } catch (err) {
         console.error(err);
       }
@@ -108,22 +108,18 @@ const Quiz = (): JSX.Element => {
   return (
     <div className="quiz">
       <div className="quiz__header">
-        {loading ? (
-          <div className="loading-container">
-            <LoadingResponse />
-          </div>
-        ) : (
-          <DescQuiz
-            description={displayDescription}
-            translation={displayTranslation}
-            level={level}
-            onLevelChange={setLevel}
-          />
-        )}
+        <DescQuiz
+          description={displayDescription}
+          translation={displayTranslation}
+          level={level}
+          isLoading={loading}
+          onLevelChange={setLevel}
+        />
       </div>
       <div className="quiz__body">
         <div className="quiz__body-container">
           <div className="quiz__body-content">
+            {isEvaluating && <ProgressSkeleton />}
             {history
               .map((item, index) => (
                 <Progress

@@ -98,11 +98,14 @@
 .descquiz__container {
   flex-grow: 1;
   padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .descquiz__container p {
   color: var(--card-foreground);
   text-align: justify;
+  hyphens: auto;
   transition: color 0.3s;
 }
 
@@ -112,6 +115,15 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.descquiz__loading {
+  width: fit-content;
+  height: 2em;
+}
+
+.descquiz__loading .dots-container {
+  margin: 0;
 }
 
 /* PROGRESS */
@@ -149,7 +161,7 @@
 
 .progress__hint {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
 }
 
@@ -158,5 +170,6 @@
   font-size: 0.85rem;
   font-style: italic;
   transition: color 0.3s;
-  transition: color 0.3s;
+  text-align: justify;
+  hyphens: auto;
 }
