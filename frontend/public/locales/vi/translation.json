@@ -129,6 +129,31 @@
       "apiError": "Lỗi API. Vui lòng thử lại sau."
     }
   },
+  "dictionary": {
+    "welcome": "Tra cứu từ vựng tiếng Anh để xem định nghĩa, phát âm, ví dụ và hơn thế nữa.",
+    "title": "Từ điển eMastery",
+    "placeholder": "Nhập từ cần tra...",
+    "btnPlaceholder": "Lịch sử tra cứu",
+    "btnSend": "Tra cứu",
+    "pronunciation": "Phát âm",
+    "expanded": "Mở rộng",
+    "collapsed": "Thu gọn",
+    "summary": "Tóm tắt",
+    "meaning": "Giải nghĩa",
+    "grammarUsage": "Ngữ pháp",
+    "phrasesAndIdioms": "Cụm từ",
+    "synonymsAndAntonyms": "Từ liên quan",
+    "funFactsAndTips": "Mẹo nhớ",
+    "error": {
+      "valid": "Chỉ hỗ trợ tra cứu từ đơn tiếng anh và không sử dụng ký tự đặc biệt.",
+      "apiKey": "Thiếu API Key. Vui lòng làm mới lại trang."
+    },
+    "notFound": {
+      "title": "Không tìm thấy từ",
+      "description": "Vui lòng kiểm tra lại chính tả hoặc thử một từ khác.",
+      "content": "Nội dung không có sẵn."
+    }
+  },
   "error": {
     "retry": "Thử lại"
   }

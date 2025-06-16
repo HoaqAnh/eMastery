@@ -34,15 +34,13 @@ const Dictionary = (): JSX.Element => {
   const handleSearch = (word: string) => {
     const validWordRegex = /^[a-zA-Z]+$/;
     if (!validWordRegex.test(word)) {
-      toast.error(
-        "Chỉ hỗ trợ tra cứu từ đơn tiếng anh và không sử dụng ký tự đặc biệt."
-      );
+      toast.error(t("dictionary.error.valid"));
       return;
     }
 
     if (!registrationData.apiKey) {
       console.error("API key is missing!");
-      toast.error("Thiếu API Key. Vui lòng kiểm tra lại.");
+      toast.error(t("dictionary.error.apiKey"));
       return;
     }
 
@@ -89,17 +87,11 @@ const Dictionary = (): JSX.Element => {
     }
 
     const placeholderTitle = data
-      ? t("dictionary.notFound.title", "Không tìm thấy từ") + ` "${data.word}"`
-      : t("dictionary.title", "Từ điển eMastery");
+      ? t("dictionary.notFound.title") + ` "${data.word}"`
+      : t("dictionary.title");
     const placeholderDescription = data
-      ? t(
-          "dictionary.notFound.description",
-          "Vui lòng kiểm tra lại chính tả hoặc thử một từ khác."
-        )
-      : t(
-          "dictionary.welcome",
-          "Tra cứu từ vựng tiếng Anh để xem định nghĩa, phát âm, ví dụ và hơn thế nữa."
-        );
+      ? t("dictionary.notFound.description")
+      : t("dictionary.welcome");
 
     return (
       <div className="dictionary-placeholder">

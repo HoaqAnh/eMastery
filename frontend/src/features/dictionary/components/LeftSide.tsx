@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import { SoundIcon, StarIcon, SearchIcon } from "@/components/common/Icons";
+import { useTranslation } from "react-i18next";
 
 interface LeftSideProps {
   word: string;
@@ -12,6 +13,8 @@ const LeftSide = ({
   pronunciation,
   summary,
 }: LeftSideProps): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <div className="dictionary__leftside">
       <div className="dictionary__leftside-word">
@@ -23,7 +26,7 @@ const LeftSide = ({
       <div className="dictionary__leftside-pronunciation">
         <div className="dictionary__leftside-title">
           {SoundIcon}
-          <p>PRONUNCIATION</p>
+          <p>{t("dictionary.pronunciation")}</p>
         </div>
         <div className="dictionary__leftside-content">
           <p>{pronunciation}</p>
@@ -32,7 +35,7 @@ const LeftSide = ({
       <div className="dictionary__leftside-summary">
         <div className="dictionary__leftside-title">
           {StarIcon}
-          <p>SUMMARY</p>
+          <p>{t("dictionary.summary")}</p>
         </div>
         <div className="dictionary__leftside-content">
           <p>{summary}</p>

@@ -36,7 +36,7 @@ const Input = ({
       <div className="chatbot__input-container">
         <textarea
           rows={1}
-          placeholder={t("dictionary.placeholder", "Nhập từ cần tra...")}
+          placeholder={t("dictionary.placeholder")}
           value={inputValue}
           onInput={handleTextareaInput}
           onKeyDown={(e) => {
@@ -50,7 +50,7 @@ const Input = ({
       </div>
       <div className="chatbot__input-actions">
         <button
-          title="Lịch sử tra cứu"
+          title={t("dictionary.btnPlaceholder")}
           type="button"
           onClick={onHistoryClick}
           disabled={isLoading}
@@ -58,7 +58,7 @@ const Input = ({
           {CachedIcon}
         </button>
         <button
-          title={t("chatbot.send")}
+          title={t("dictionary.btnSend")}
           type="submit"
           disabled={!inputValue.trim() || isLoading}
         >

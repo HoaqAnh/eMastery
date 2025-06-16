@@ -67,7 +67,8 @@ const Progress = ({
       {level === "ez" && (
         <div className="progress__hint">
           <p>
-            {t("quiz.result.hint")} {explanation}
+            {/* {t("quiz.result.hint")} */}
+            {explanation}
           </p>
         </div>
       )}

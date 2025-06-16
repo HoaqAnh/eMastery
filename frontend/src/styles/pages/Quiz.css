@@ -105,6 +105,7 @@
 .descquiz__container p {
   color: var(--card-foreground);
   text-align: justify;
+  hyphens: auto;
   transition: color 0.3s;
 }
 
@@ -160,7 +161,7 @@
 
 .progress__hint {
   display: flex;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
 }
 
@@ -169,5 +170,6 @@
   font-size: 0.85rem;
   font-style: italic;
   transition: color 0.3s;
-  transition: color 0.3s;
+  text-align: justify;
+  hyphens: auto;
 }

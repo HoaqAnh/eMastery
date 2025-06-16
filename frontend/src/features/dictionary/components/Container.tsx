@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { useTranslation } from "react-i18next";
 import {
   StarIcon,
   BookIcon,
@@ -32,7 +33,8 @@ const Container = ({
   activeTab,
   setActiveTab,
 }: ContainerProps): JSX.Element => {
-  const contentToDisplay = data[activeTab] || "Nội dung không có sẵn.";
+  const { t } = useTranslation();
+  const contentToDisplay = data[activeTab] || t("dictionary.notFound.content");
 
   return (
     <div className="dictionary__body-container">
@@ -44,7 +46,7 @@ const Container = ({
           onClick={() => setActiveTab("meaning")}
         >
           {BookIcon}
-          <p>Giải nghĩa</p>
+          <p>{t("dictionary.meaning")}</p>
         </button>
         <button
           className={`dictionary___item ${
@@ -53,7 +55,7 @@ const Container = ({
           onClick={() => setActiveTab("grammarUsage")}
         >
           {DialogIcon}
-          <p>Ngữ pháp</p>
+          <p>{t("dictionary.grammarUsage")}</p>
         </button>
         <button
           className={`dictionary___item ${
@@ -62,7 +64,7 @@ const Container = ({
           onClick={() => setActiveTab("phrasesAndIdioms")}
         >
           {StarIcon}
-          <p>Cụm từ</p>
+          <p>{t("dictionary.phrasesAndIdioms")}</p>
         </button>
         <button
           className={`dictionary___item ${
@@ -71,7 +73,7 @@ const Container = ({
           onClick={() => setActiveTab("synonymsAndAntonyms")}
         >
           {CachedIcon}
-          <p>Từ liên quan</p>
+          <p>{t("dictionary.synonymsAndAntonyms")}</p>
         </button>
         <button
           className={`dictionary___item ${
@@ -80,15 +82,17 @@ const Container = ({
           onClick={() => setActiveTab("funFactsAndTips")}
         >
           {LightbulbIcon}
-          <p>Mẹo nhớ</p>
+          <p>{t("dictionary.funFactsAndTips")}</p>
         </button>
       </div>
       <button
         className={`dictionary___extend ${!isExpanded ? "collapsed" : ""}`}
         onClick={onToggleExpand}
       >
-        {isExpanded ? ArrowUpIcon : ArrowDownIcon}
-        <p>{isExpanded ? "Thu gọn" : "Mở rộng"}</p>
+        {isExpanded ? ArrowDownIcon : ArrowUpIcon}
+        <p>
+          {isExpanded ? t("dictionary.collapsed") : t("dictionary.expanded")}
+        </p>
       </button>
       <div
         className={`dictionary__body-container__main ${

@@ -14,7 +14,8 @@
   gap: 1em;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .dictionary__leftside-word,
@@ -60,17 +61,25 @@
 .dictionary__leftside-title p,
 .dictionary__leftside-title svg {
   color: var(--card-foreground);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: bold;
   font-size: 1rem;
   transition: color 0.3s;
 }
 
 .dictionary__leftside-content {
+  margin-top: 0.5rem;
+}
+
+.dictionary__leftside-content p {
   color: var(--card-foreground);
   font-weight: normal;
   font-size: 1rem;
   text-align: justify;
-  margin-top: 0.5rem;
+  hyphens: auto;
   transition: color 0.3s;
 }
 
@@ -110,7 +119,7 @@
   background-color: transparent;
   color: var(--card-foreground);
   width: fit-content;
-  min-width: 10rem;
+  white-space: nowrap;
   height: 2rem;
   display: flex;
   flex-direction: row;
@@ -175,6 +184,7 @@
 
 .dictionary__body-container__main p {
   text-align: justify;
+  hyphens: auto;
   font-size: 1rem;
   font-weight: normal;
   color: var(--card-foreground);
@@ -182,6 +192,8 @@
 }
 
 .dictionary__body-container__main.collapsed p {
+  text-align: justify;
+  hyphens: auto;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -190,25 +202,25 @@
 }
 
 .dictionary-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--muted-foreground);
-    padding: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: 2rem;
 }
 
 .dictionary-placeholder h1 {
-    font-size: 2rem;
-    color: var(--foreground);
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
 }
 
 .dictionary-placeholder p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 /* RESPONSIVE */

@@ -129,6 +129,31 @@
       "apiError": "API error. Please try again later."
     }
   },
+  "dictionary": {
+    "welcome": "Look up English vocabulary to see definitions, pronunciation, examples, and more.",
+    "title": "eMastery Dictionary",
+    "placeholder": "Enter word to look up...",
+    "btnPlaceholder": "Search history",
+    "btnSend": "Search",
+    "pronunciation": "Pronunciation",
+    "expanded": "Expanded",
+    "collapsed": "Collapsed",
+    "summary": "Summary",
+    "meaning": "Meaning",
+    "grammarUsage": "Grammar",
+    "phrasesAndIdioms": "Phrases",
+    "synonymsAndAntonyms": "Related Words",
+    "funFactsAndTips": "Memory Tips",
+    "error": {
+      "valid": "Only single English words are supported, without special characters.",
+      "apiKey": "API Key is missing. Please refresh the page."
+    },
+    "notFound": {
+      "title": "Word not found",
+      "description": "Please check the spelling or try another word.",
+      "content": "Content not available."
+    }
+  },
   "error": {
     "retry": "Retry"
   }
