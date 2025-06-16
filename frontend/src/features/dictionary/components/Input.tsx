@@ -1,14 +1,19 @@
 import type { JSX, FormEvent } from "react";
 import { useState } from "react";
-import { SendIcon } from "@/components/common/Icons";
+import { SendIcon, CachedIcon } from "@/components/common/Icons";
 import { useTranslation } from "react-i18next";
 
 interface InputProps {
   onSearch: (word: string) => void;
   isLoading: boolean;
+  onHistoryClick: () => void;
 }
 
-const Input = ({ onSearch, isLoading }: InputProps): JSX.Element => {
+const Input = ({
+  onSearch,
+  isLoading,
+  onHistoryClick,
+}: InputProps): JSX.Element => {
   const [inputValue, setInputValue] = useState("");
   const { t } = useTranslation();
 
@@ -44,6 +49,14 @@ const Input = ({ onSearch, isLoading }: InputProps): JSX.Element => {
         />
       </div>
       <div className="chatbot__input-actions">
+        <button
+          title="Lịch sử tra cứu"
+          type="button"
+          onClick={onHistoryClick}
+          disabled={isLoading}
+        >
+          {CachedIcon}
+        </button>
         <button
           title={t("chatbot.send")}
           type="submit"
