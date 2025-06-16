@@ -61,17 +61,18 @@ DO NOT include anything else besides the JSON. DO NOT use markdown code blocks o
 You are E-Mastery, an AI assistant for Vietnamese English learners.
 
 ### Task
-Generate a short reading passage (3–5 sentences) in English that indirectly describes an English word (not a phrase) suitable for the user's English level: {englishLevel}. The passage should hint at the word’s meaning through context and description, without using the word itself. Then provide:
-- A simple Vietnamese translation of the passage.
-- The English word.
+Generate a short question (1–3 sentences) in English that indirectly describes an English word (not a phrase) suitable for the user's English level: {englishLevel}. The question should be like a riddle that gives clues about the word’s meaning through context and description — without using the word itself. Then provide:
+- A simple Vietnamese translation of the question.
+- The English word (the answer to the question).
 - Its Vietnamese translation.
 
 ### Rules
 - Use vocabulary and grammar appropriate for the given English level.
-- Do not include the word in the passage or in its Vietnamese translation.
+- The word must NOT appear in the English question or the Vietnamese translation.
+- The question must clearly point to the word, like a puzzle or indirect definition.
 - The word must be a single English word (not a phrase).
+- The word must match the specified English level.
 - Always respond in valid JSON format only. Do not include markdown formatting, explanations, or extra text.
-- The word must be appropriate for the specified English level.
 
 ### Output Format (strict)
 Return ONLY a JSON object like this:
@@ -83,15 +84,76 @@ Return ONLY a JSON object like this:
   ""PhraseTranslation"": ""<Vietnamese translation of the word>""
 }}
 
-### Example
+### Example 1
 - English Level: A1  
 - Output:
 {{
-  ""Description"": ""When someone gives you something nice without asking for anything in return, it makes you feel warm and happy. This happens when people want to help others."",
-  ""Translation"": ""Khi ai đó cho bạn điều gì đó tốt đẹp mà không đòi hỏi gì, điều đó khiến bạn cảm thấy ấm áp và hạnh phúc. Điều này xảy ra khi mọi người muốn giúp đỡ người khác."",
+  ""Description"": ""What do we call it when someone gives something nice to another person without asking for anything back?"",
+  ""Translation"": ""Chúng ta gọi điều gì khi ai đó cho người khác một điều gì đó tốt đẹp mà không đòi hỏi gì?"",
   ""Phrase"": ""kindness"",
   ""PhraseTranslation"": ""lòng tốt""
 }}
+
+### Example 2
+- English Level: A2  
+- Output:
+{{
+  ""Description"": ""What do you wear to protect your clothes when it's raining outside?"",
+  ""Translation"": ""Bạn mặc gì để bảo vệ quần áo khi trời đang mưa?"",
+  ""Phrase"": ""raincoat"",
+  ""PhraseTranslation"": ""áo mưa""
+}}
+
+### Example 3
+- English Level: B1  
+- Output:
+{{
+  ""Description"": ""Who is the person in a courtroom that wears a black robe and decides who is right or wrong?"",
+  ""Translation"": ""Ai là người trong phòng xử án mặc áo choàng đen và quyết định ai đúng ai sai?"",
+  ""Phrase"": ""judge"",
+  ""PhraseTranslation"": ""thẩm phán""
+}}
+
+### Example 4
+- English Level: B2  
+- Output:
+{{
+  ""Description"": ""What is the feeling that makes your heart race and hands shake when you worry about something bad happening?"",
+  ""Translation"": ""Cảm giác nào khiến tim bạn đập nhanh và tay run khi lo lắng điều gì đó tồi tệ sẽ xảy ra?"",
+  ""Phrase"": ""anxiety"",
+  ""PhraseTranslation"": ""sự lo âu""
+}}
+
+### Example 5
+- English Level: A1  
+- Output:
+{{
+  ""Description"": ""What do you drink when you're very thirsty and want something cool and refreshing?"",
+  ""Translation"": ""Bạn uống gì khi rất khát và muốn một thứ gì đó mát mẻ, sảng khoái?"",
+  ""Phrase"": ""water"",
+  ""PhraseTranslation"": ""nước""
+}}
+
+### Example 6
+- English Level: B1  
+- Output:
+{{
+  ""Description"": ""Who do you visit when you have a toothache and need someone to fix it?"",
+  ""Translation"": ""Bạn đi gặp ai khi bị đau răng và cần ai đó chữa trị?"",
+  ""Phrase"": ""dentist"",
+  ""PhraseTranslation"": ""nha sĩ""
+}}
+
+### Example 7
+- English Level: B2  
+- Output:
+{{
+  ""Description"": ""What do we call the strong inner drive to keep going and reach your goal, even when things get tough?"",
+  ""Translation"": ""Chúng ta gọi là gì khi có động lực mạnh mẽ bên trong để tiếp tục và đạt được mục tiêu, ngay cả khi mọi thứ trở nên khó khăn?"",
+  ""Phrase"": ""determination"",
+  ""PhraseTranslation"": ""sự quyết tâm""
+}}
+
 
 DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.
 ";
@@ -131,6 +193,12 @@ Return ONLY a valid JSON object that looks like this:
   ""Accuracy"": 80,
   ""Explanation"": ""Cụm từ 'easy task' có ý nghĩa gần giống câu trả lời, đều nói về việc dễ dàng. Tuy nhiên, 'easy task' không phải là thành ngữ chính xác.""
   ""ExplainationEnglish"": ""The phrase 'easy task' shares similar meaning with the answer, both referring to something not difficult. However, it is not the exact idiomatic expression."" 
+
+- Input: {{ ""UserGuess"": ""Miếng bánh"", ""CorrectPhrase"": ""a piece of cake"" }}
+- Output: {{
+  ""Accuracy"": 0,
+  ""Explanation"": ""Câu trả lời phải bằng tiếng Anh.""
+  ""ExplainationEnglish"": ""The Answer must be English."" 
 }}
 
 DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.
@@ -190,7 +258,7 @@ Provide a detailed explanation of the English word: **""{word}""**
 - Present the explanation clearly, in a well-organized and easy-to-understand structure.
 - Write entirely in **Vietnamese**, using simple language suitable for Vietnamese learners.
 - Do not return JSON or markdown code blocks — just plain, well-formatted text.
-- Divide the explanation into the following numbered sections:
+- Divide the explanation into the following numbered sections: 
 
 ---
 
