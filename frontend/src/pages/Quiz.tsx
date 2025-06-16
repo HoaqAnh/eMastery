@@ -4,6 +4,7 @@ import Input from "@/features/quiz/components/Input.tsx";
 import DescQuiz from "@/features/quiz/components/DescQuiz.tsx";
 import Progress from "@/features/quiz/components/Progress.tsx";
 import Error from "@components/common/Error";
+import ProgressSkeleton from "@/features/quiz/components/ProgressSkeleton.tsx";
 import { useGenerateReading } from "@/features/quiz/hooks/useGenerateReading.ts";
 import { useEvaluateReading } from "@/features/quiz/hooks/useEvaluateReading.ts";
 import { useRegistration } from "@/context/RegistrationContext.tsx";
@@ -49,8 +50,8 @@ const Quiz = (): JSX.Element => {
     const { level: englishLevel, apiKey: geminiApiKey } = registrationData;
     if (englishLevel && geminiApiKey) {
       try {
-        await generate({ englishLevel, geminiApiKey });
         setHistory([]);
+        await generate({ englishLevel, geminiApiKey });
       } catch (err) {
         console.error(err);
       }
@@ -118,6 +119,7 @@ const Quiz = (): JSX.Element => {
       <div className="quiz__body">
         <div className="quiz__body-container">
           <div className="quiz__body-content">
+            {isEvaluating && <ProgressSkeleton />}
             {history
               .map((item, index) => (
                 <Progress
