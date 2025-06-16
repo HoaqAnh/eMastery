@@ -28,7 +28,7 @@ const Dictionary = (): JSX.Element => {
   const { registrationData } = useRegistration();
   const { data, isLoading, error, fetchTranslation } = useDictionary();
 
-  const { history, addWordToHistory } = useSearchHistory();
+  const { history, addWordToHistory, clearHistory } = useSearchHistory();
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
   const handleSearch = (word: string) => {
@@ -52,6 +52,11 @@ const Dictionary = (): JSX.Element => {
 
   const handleHistoryWordClick = (word: string) => {
     handleSearch(word);
+    setIsHistoryOpen(false);
+  };
+
+  const handleClearHistory = () => {
+    clearHistory();
     setIsHistoryOpen(false);
   };
 
@@ -109,6 +114,7 @@ const Dictionary = (): JSX.Element => {
         onClose={() => setIsHistoryOpen(false)}
         history={history}
         onWordClick={handleHistoryWordClick}
+        onClearHistory={handleClearHistory}
       />
 
       <div className="dictionary__body">{renderContent()}</div>

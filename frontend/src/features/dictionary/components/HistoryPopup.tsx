@@ -1,12 +1,14 @@
 import type { JSX } from "react";
+import { CloseIcon, DeleteIcon } from "@/components/common/Icons";
+import { useTranslation } from "react-i18next";
 import "@styles/features/HistoryPopup.css";
-import { CloseIcon } from "@/components/common/Icons";
 
 interface HistoryPopupProps {
   history: string[];
   isOpen: boolean;
   onClose: () => void;
   onWordClick: (word: string) => void;
+  onClearHistory: () => void;
 }
 
 const HistoryPopup = ({
@@ -14,7 +16,10 @@ const HistoryPopup = ({
   isOpen,
   onClose,
   onWordClick,
+  onClearHistory,
 }: HistoryPopupProps): JSX.Element | null => {
+  const { t } = useTranslation();
+
   if (!isOpen) {
     return null;
   }
@@ -23,14 +28,26 @@ const HistoryPopup = ({
     <div className="history-popup-overlay">
       <div className="history-popup">
         <div className="history-popup__header">
-          <h3 className="history-popup__title">Lịch sử tra cứu</h3>
-          <button
-            className="history-popup__close-btn"
-            onClick={onClose}
-            title="Đóng"
-          >
-            {CloseIcon}
-          </button>
+          <h3 className="history-popup__title">
+            {t("dictionary.history.title")}
+          </h3>
+          <div className="history-popup__actions">
+            <button
+              className="history-popup__clear-btn"
+              onClick={onClearHistory}
+              disabled={history.length === 0}
+              title={t("dictionary.history.deletePlaceholder")}
+            >
+              {DeleteIcon}
+            </button>
+            <button
+              className="history-popup__close-btn"
+              onClick={onClose}
+              title={t("dictionary.history.closePlaceholder")}
+            >
+              {CloseIcon}
+            </button>
+          </div>
         </div>
 
         {history.length > 0 ? (
@@ -42,7 +59,9 @@ const HistoryPopup = ({
             ))}
           </ul>
         ) : (
-          <p className="history-popup__empty">Chưa có lịch sử tra cứu.</p>
+          <p className="history-popup__empty">
+            {t("dictionary.history.empty")}
+          </p>
         )}
       </div>
     </div>

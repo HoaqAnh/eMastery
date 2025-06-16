@@ -152,6 +152,12 @@
       "title": "Không tìm thấy từ",
       "description": "Vui lòng kiểm tra lại chính tả hoặc thử một từ khác.",
       "content": "Nội dung không có sẵn."
+    },
+    "history": {
+      "closePlaceholder": "Đóng",
+      "deletePlaceholder": "Xóa tất cả lịch sử",
+      "title": "Lịch sử tra cứu",
+      "empty": "Chưa có lịch sử tra cứu."
     }
   },
   "error": {

@@ -152,6 +152,12 @@
       "title": "Word not found",
       "description": "Please check the spelling or try another word.",
       "content": "Content not available."
+    },
+    "history": {
+      "closePlaceholder": "Close",
+      "deletePlaceholder": "Clear all history",
+      "title": "History",
+      "empty": "No history yet."
     }
   },
   "error": {

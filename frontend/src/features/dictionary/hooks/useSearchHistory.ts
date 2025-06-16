@@ -20,5 +20,9 @@ export const useSearchHistory = () => {
     [setHistory]
   );
 
-  return { history, addWordToHistory };
+  const clearHistory = useCallback(() => {
+    setHistory([]);
+  }, [setHistory]);
+
+  return { history, addWordToHistory, clearHistory };
 };
