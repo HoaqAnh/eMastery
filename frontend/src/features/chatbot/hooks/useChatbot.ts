@@ -41,8 +41,7 @@ export const useChatbot = () => {
         const payload: ChatbotRequest = {
           conversation: {
             question: question,
-            chatHistory: historyForAPI,
-            // imagesAsBase64: [],
+            chatHistory: historyForAPI
           },
 
           username: registrationData.fullName || "User",

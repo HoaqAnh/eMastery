@@ -38,6 +38,7 @@ const Chatbot = (): JSX.Element => {
                 />
               )
             )}
+            {isLoading && <Response content="" isLoading={true} />}
             <div ref={chatEndRef} />
           </div>
         </div>
