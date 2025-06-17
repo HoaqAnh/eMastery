@@ -183,8 +183,8 @@ namespace EngPractice.Service
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
 
-            // Regex tìm đoạn bắt đầu và kết thúc bởi ``` hoặc ```markdown
-            var match = Regex.Match(input, @"^```(?:\w+)?\s*(.*?)\s*```$", RegexOptions.Singleline);
+            
+            var match = Regex.Match(input, @"^(?:\w+)?\s*(.*?)\s*$", RegexOptions.Singleline);
 
             if (match.Success)
             {
@@ -193,6 +193,7 @@ namespace EngPractice.Service
 
             return input.Trim();
         }
+
 
     }
 }
