@@ -1,8 +1,8 @@
 import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
-  WritingIcon,
+  // WritingIcon,
   QuizIcon,
   ChatBotIcon,
   LibraryBooksIcon,
@@ -12,51 +12,52 @@ import {
 const DesktopFeatures = (): JSX.Element => {
   const { t } = useTranslation();
   const navigator = useNavigate();
+  const location = useLocation();
+
+  const navItems = [
+    {
+      path: "/dictionary",
+      icon: LibraryBooksIcon,
+      text: t("navMenu.dictionary"),
+    },
+    // {
+    //   path: "/",
+    //   icon: WritingIcon,
+    //   text: t("navMenu.writingPractice"),
+    // },
+    {
+      path: "/quiz",
+      icon: QuizIcon,
+      text: t("navMenu.puzzleSolving"),
+    },
+    {
+      path: "/chatbot",
+      icon: ChatBotIcon,
+      text: t("navMenu.aiAssistant"),
+    },
+    {
+      path: "/contact",
+      icon: MailIcon,
+      text: t("navMenu.contact.title"),
+    },
+  ];
+
   return (
     <div className="nav-menu__features">
-      <button
-        className={`nav-menu-item`}
-        title={t("navMenu.dictionary")}
-        type="button"
-        onClick={() => navigator("/dictionary")}
-      >
-        {LibraryBooksIcon}
-        <span>{t("navMenu.dictionary")}</span>
-      </button>
-      <button
-        className={`nav-menu-item active`}
-        title={t("navMenu.writingPractice")}
-        type="button"
-      >
-        {WritingIcon}
-        <span>{t("navMenu.writingPractice")}</span>
-      </button>
-      <button
-        className={`nav-menu-item`}
-        title={t("navMenu.puzzleSolving")}
-        type="button"
-        onClick={() => navigator("/quiz")}
-      >
-        {QuizIcon}
-        <span>{t("navMenu.puzzleSolving")}</span>
-      </button>
-      <button
-        className={`nav-menu-item`}
-        title={t("navMenu.aiAssistant")}
-        type="button"
-        onClick={() => navigator("/chatbot")}
-      >
-        {ChatBotIcon}
-        <span>{t("navMenu.aiAssistant")}</span>
-      </button>
-      <button
-        className={`nav-menu-item`}
-        title={t("navMenu.aiAssistant")}
-        type="button"
-      >
-        {MailIcon}
-        <span>{t("navMenu.contact.title")}</span>
-      </button>
+      {navItems.map((item) => (
+        <button
+          key={item.path}
+          className={`nav-menu-item ${
+            location.pathname === item.path ? "active" : ""
+          }`}
+          title={item.text}
+          type="button"
+          onClick={() => navigator(item.path)}
+        >
+          {item.icon}
+          <span>{item.text}</span>
+        </button>
+      ))}
     </div>
   );
 };
