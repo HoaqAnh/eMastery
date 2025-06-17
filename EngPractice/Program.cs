@@ -17,6 +17,7 @@ builder.Services.AddScoped<ChatService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ReadingService>();
 builder.Services.AddScoped<DictionaryService>();
+builder.Services.AddScoped<EmailService>();
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
 {
