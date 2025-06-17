@@ -154,3 +154,8 @@
 .btn__profile-popup-save:hover {
   background-color: rgb(1, 94, 1);
 }
+
+.profile-popup__form-group input[type="number"]::-webkit-outer-spin-button,
+.profile-popup__form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

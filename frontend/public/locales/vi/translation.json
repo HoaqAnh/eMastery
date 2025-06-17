@@ -7,6 +7,7 @@
     "loading": "Đang tải...",
     "next": "Bước tiếp theo",
     "confirm": "Xác nhận đăng ký",
+    "tutorial": "Bạn cần video hướng dẫn? Nhấn vào đây.",
     "api": {
       "content": "Đầu tiên, bạn cần có Gemini API Key để đăng ký. Nhấn vào nút 'Lấy Key' bên dưới để lấy API Key miễn phí từ Google.",
       "getKey": "Lấy Key",

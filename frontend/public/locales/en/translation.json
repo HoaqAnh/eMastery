@@ -7,6 +7,7 @@
     "loading": "Loading...",
     "next": "Next step",
     "confirm": "Confirm subscribe",
+    "tutorial": "Need a video tutorial? Click here.",
     "api": {
       "content": "To begin, you need a Gemini API Key to subscribe. Click the 'Get Key' button below to obtain a free API Key from Google.",
       "getKey": "Get Key",
