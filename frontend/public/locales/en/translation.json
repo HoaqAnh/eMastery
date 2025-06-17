@@ -195,5 +195,16 @@
       "title": "AI Assistant",
       "description": "Chat with our friendly AI to practice conversation and get instant answers."
     }
+  },
+  "logout": {
+    "title": "Logout",
+    "message": "Are you sure you want to log out? All search history and chat conversations will be permanently deleted and cannot be recovered.",
+    "confirmButton": "Logout Anyway",
+    "cancelButton": "Cancel",
+    "success": "Logged out successfully!"
+  },
+  "confirmation": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   }
 }

@@ -7,16 +7,19 @@ import {
   LightIcon,
   UserIcon,
   EditIcon,
+  LogoutIcon,
 } from "@components/common/Icons";
 
 type ThemeSetting = "light" | "dark" | "system";
 
 interface UserSettingsProps {
   onOpenProfilePopup: () => void;
+  onOpenLogoutPopup: () => void;
 }
 
 const UserSettings = ({
   onOpenProfilePopup,
+  onOpenLogoutPopup,
 }: UserSettingsProps): JSX.Element => {
   const { themeSetting, setThemeSetting } = useTheme();
   const { t, i18n } = useTranslation();
@@ -130,6 +133,24 @@ const UserSettings = ({
                 type="button"
               >
                 <span>{t("settings.languageSettings.vi", "Language")}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Logout Section */}
+          <div className="nav-actions__dropdown-divider" />
+          <div className="nav-actions__dropdown-section">
+            <div className="nav-actions__dropdown-profile-group">
+              <button
+                className="nav-actions__dropdown-item nav-actions__dropdown-item--destructive"
+                type="button"
+                onClick={() => {
+                  onOpenLogoutPopup();
+                  toggleDropdown();
+                }}
+              >
+                {LogoutIcon}
+                <span>{t("logout.title")}</span>
               </button>
             </div>
           </div>

@@ -195,5 +195,16 @@
       "title": "Trợ lý AI",
       "description": "Trò chuyện với AI của chúng tôi, hỗ trợ quá trình học tập và giải đáp thắc mắc của bạn một cách nhanh chóng."
     }
+  },
+  "logout": {
+    "title": "Đăng xuất",
+    "message": "Bạn có chắc chắn muốn đăng xuất? Toàn bộ lịch sử tra cứu và các đoạn hội thoại sẽ bị xóa vĩnh viễn và không thể khôi phục.",
+    "confirmButton": "Vẫn đăng xuất",
+    "cancelButton": "Hủy bỏ",
+    "success": "Đăng xuất thành công!"
+  },
+  "confirmation": {
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
   }
 }
