@@ -1,6 +1,7 @@
 export interface GenerateReadingRequest {
   englishLevel: string;
   geminiApiKey: string;
+  usedDescriptions: string[];
 }
 
 export interface GenerateReadingResponse {

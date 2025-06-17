@@ -153,6 +153,13 @@
     "startQuiz": "New Quiz",
     "submitAnswer": "Submit",
     "initialPrompt": "A new quiz will be generated for you. Click 'New Quiz' to begin!",
+    "info": "eMastery can make mistakes. Consider checking important information.",
+    "showAnswer": {
+      "buttonTitle": "Show Answer",
+      "confirmTitle": "Confirm to See Answer",
+      "confirmMessage": "Are you sure you want to give up and see the answer?",
+      "correctAnswerIs": "The correct answer is"
+    },
     "result": {
       "title": "Your answer:"
     },

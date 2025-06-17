@@ -137,6 +137,13 @@
     "loading": "Đang tải Quiz...",
     "submitAnswer": "Gửi câu trả lời",
     "initialPrompt": "Đang tải bài đọc cho bạn...",
+    "info": "eMastery có thể mắc lỗi. Hãy cân nhắc kiểm tra các thông tin quan trọng.",
+    "showAnswer": {
+      "buttonTitle": "Hiển thị đáp án",
+      "confirmTitle": "Xác nhận xem đáp án",
+      "confirmMessage": "Bạn có chắc chắn muốn bỏ cuộc và xem đáp án không?",
+      "correctAnswerIs": "Đáp án đúng là"
+    },
     "level": {
       "title": "Mức độ",
       "ez": "Dễ",

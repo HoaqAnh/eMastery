@@ -1,10 +1,12 @@
-import { type JSX, useEffect, useCallback } from "react";
+import { type JSX, useEffect, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 import Input from "@/features/quiz/components/Input.tsx";
 import DescQuiz from "@/features/quiz/components/DescQuiz.tsx";
 import Progress from "@/features/quiz/components/Progress.tsx";
 import Error from "@components/common/Error";
 import ProgressSkeleton from "@/features/quiz/components/ProgressSkeleton.tsx";
+import ConfirmationPopup from "@/components/common/ConfirmationPopup.tsx";
 import { useGenerateReading } from "@/features/quiz/hooks/useGenerateReading.ts";
 import { useEvaluateReading } from "@/features/quiz/hooks/useEvaluateReading.ts";
 import { useRegistration } from "@/context/RegistrationContext.tsx";
@@ -22,6 +24,10 @@ const Quiz = (): JSX.Element => {
 
   const [storedQuiz, setStoredQuiz] =
     useLocalStorage<GenerateReadingResponse | null>("currentQuizReading", null);
+  const [readingHistory, setReadingHistory] = useLocalStorage<string[]>(
+    "quizReadingHistory",
+    []
+  );
 
   const {
     loading: isEvaluating,
@@ -30,13 +36,19 @@ const Quiz = (): JSX.Element => {
   } = useEvaluateReading();
   const [history, setHistory] = useLocalStorage<any[]>("quizHistory", []);
 
+  const [isConfirmShowAnswerOpen, setIsConfirmShowAnswerOpen] = useState(false);
+
   useEffect(() => {
     const fetchInitialReading = async () => {
       if (!storedQuiz) {
         const { level: englishLevel, apiKey: geminiApiKey } = registrationData;
         if (englishLevel && geminiApiKey) {
           try {
-            await generate({ englishLevel, geminiApiKey });
+            await generate({
+              englishLevel,
+              geminiApiKey,
+              usedDescriptions: readingHistory,
+            });
           } catch (err) {
             console.error(err);
           }
@@ -44,19 +56,23 @@ const Quiz = (): JSX.Element => {
       }
     };
     fetchInitialReading();
-  }, [storedQuiz, registrationData, generate]);
+  }, [registrationData, generate]);
 
   const handleGenerateNewQuiz = useCallback(async () => {
     const { level: englishLevel, apiKey: geminiApiKey } = registrationData;
     if (englishLevel && geminiApiKey) {
       try {
         setHistory([]);
-        await generate({ englishLevel, geminiApiKey });
+        await generate({
+          englishLevel,
+          geminiApiKey,
+          usedDescriptions: readingHistory,
+        });
       } catch (err) {
         console.error(err);
       }
     }
-  }, [registrationData, generate, setHistory]);
+  }, [registrationData, generate, setHistory, readingHistory]);
 
   const handleGuessSubmit = useCallback(
     async (guess: string) => {
@@ -87,11 +103,34 @@ const Quiz = (): JSX.Element => {
     [storedQuiz, registrationData, evaluateGuess, setHistory]
   );
 
+  const handleShowAnswerClick = () => {
+    if (storedQuiz) {
+      setIsConfirmShowAnswerOpen(true);
+    }
+  };
+
+  const handleConfirmShowAnswer = () => {
+    if (storedQuiz) {
+      toast.success(
+        `${t("quiz.showAnswer.correctAnswerIs")}: "${storedQuiz.phrase}"`,
+        {
+          duration: 5000,
+          icon: "💡",
+        }
+      );
+    }
+    setIsConfirmShowAnswerOpen(false);
+  };
+
   useEffect(() => {
     if (readingData) {
       setStoredQuiz(readingData);
+      setReadingHistory((prev) => {
+        const newHistory = [...prev, readingData.description];
+        return newHistory.slice(-50);
+      });
     }
-  }, [readingData, setStoredQuiz]);
+  }, [readingData, setStoredQuiz, setReadingHistory]);
 
   const displayDescription =
     readingData?.description ||
@@ -107,6 +146,13 @@ const Quiz = (): JSX.Element => {
 
   return (
     <div className="quiz">
+      <ConfirmationPopup
+        isOpen={isConfirmShowAnswerOpen}
+        onClose={() => setIsConfirmShowAnswerOpen(false)}
+        onConfirm={handleConfirmShowAnswer}
+        title={t("quiz.showAnswer.confirmTitle")}
+        message={t("quiz.showAnswer.confirmMessage")}
+      />
       <div className="quiz__header">
         <DescQuiz
           description={displayDescription}
@@ -142,6 +188,7 @@ const Quiz = (): JSX.Element => {
             isLoading={loading}
             onGuessSubmit={handleGuessSubmit}
             isEvaluating={isEvaluating}
+            onShowAnswer={handleShowAnswerClick}
           />
         </div>
         <div className="quiz__footer-infomation">
