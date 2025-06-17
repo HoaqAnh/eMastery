@@ -59,7 +59,16 @@
   },
   "userProfile": {
     "title": "Hồ sơ",
-    "viewProfile": "Xem hồ sơ"
+    "viewProfile": "Xem hồ sơ",
+    "profilePopup": {
+      "title": "Cập nhật hồ sơ",
+      "apiKey": "API Key",
+      "fullName": "Tên của bạn",
+      "cancel": "Hủy",
+      "save": "Lưu",
+      "success": "Cập nhật thành công",
+      "error": "Thông tin không hợp lệ"
+    }
   },
   "settings": {
     "title": "Cài đặt",

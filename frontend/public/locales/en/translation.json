@@ -59,7 +59,16 @@
   },
   "userProfile": {
     "title": "Profile",
-    "viewProfile": "View Profile"
+    "viewProfile": "View Profile",
+    "profilePopup": {
+      "title": "Update profile",
+      "apiKey": "API Key",
+      "fullName": "Your name",
+      "cancel": "Cancel",
+      "save": "Save",
+      "success": "Updated successfully",
+      "error": "Invalid information"
+    }
   },
   "settings": {
     "title": "Settings",

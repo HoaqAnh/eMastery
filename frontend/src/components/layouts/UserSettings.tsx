@@ -2,11 +2,22 @@ import type { JSX } from "react";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useTheme } from "@context/ThemeContext";
 import { useTranslation } from "react-i18next";
-import { DarkIcon, LightIcon, UserIcon } from "@components/common/Icons";
+import {
+  DarkIcon,
+  LightIcon,
+  UserIcon,
+  EditIcon,
+} from "@components/common/Icons";
 
 type ThemeSetting = "light" | "dark" | "system";
 
-const UserSettings = (): JSX.Element => {
+interface UserSettingsProps {
+  onOpenProfilePopup: () => void;
+}
+
+const UserSettings = ({
+  onOpenProfilePopup,
+}: UserSettingsProps): JSX.Element => {
   const { themeSetting, setThemeSetting } = useTheme();
   const { t, i18n } = useTranslation();
 
@@ -52,11 +63,15 @@ const UserSettings = (): JSX.Element => {
             </h3>
             <div className="nav-actions__dropdown-profile-group">
               <button
-                className="nav-actions__dropdown-item nav-actions__dropdown-profile-item"
+                className="nav-actions__dropdown-item"
                 type="button"
+                onClick={() => {
+                  onOpenProfilePopup();
+                  toggleDropdown();
+                }}
               >
-                {UserIcon}
-                <span>{t("userProfile.viewProfile", "Profile")}</span>
+                {EditIcon}
+                <span>{t("userProfile.profilePopup.title")}</span>
               </button>
             </div>
           </div>
