@@ -1,6 +1,7 @@
 ﻿using EngPractice.Domain;
 using EngPractice.Service;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EngPractice.Controllers
 {
@@ -23,9 +24,11 @@ namespace EngPractice.Controllers
                 return BadRequest(ModelState);
             }
 
+            Console.WriteLine("Lịch sử usedDescriptions (JSON): " + JsonConvert.SerializeObject(request.usedDescriptions, Formatting.Indented));
+
             try
             {
-                var response = await _readingService.GenerateReadingWord(request.EnglishLevel, request.GeminiApiKey);
+                var response = await _readingService.GenerateReadingWord(request.EnglishLevel, request.GeminiApiKey,request.usedDescriptions);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -37,6 +40,7 @@ namespace EngPractice.Controllers
         [HttpPost("evaluate")]
         public async Task<IActionResult> EvaluateGuess([FromBody] EvaluationRequest request)
         {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -58,6 +62,8 @@ namespace EngPractice.Controllers
     {
         public EnglishLevel EnglishLevel { get; set; }
         public string GeminiApiKey { get; set; }
+
+        public List<String> usedDescriptions { get; set; }
     }
 
     public class EvaluationRequest

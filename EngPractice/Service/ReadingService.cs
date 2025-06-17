@@ -16,7 +16,7 @@ namespace EngPractice.Service
             _httpClient = httpClient;
         }
 
-        public async Task<ReadingPassageResponse> GenerateReadingWord(EnglishLevel englishLevel, string apiKey)
+        public async Task<ReadingPassageResponse> GenerateReadingWord(EnglishLevel englishLevel, string apiKey, List<string> usedDescriptions)
         {
             if (!await HealthcheckService.Healthcheck(apiKey))
             {
@@ -28,7 +28,7 @@ namespace EngPractice.Service
                 throw new Exception("API Key không được để trống.");
             }
 
-            var systemInstruction = Instructions.GetReadingWordInstruction(englishLevel);
+            var systemInstruction = Instructions.GetReadingWordInstruction(englishLevel, usedDescriptions);
 
             for (int attempt = 0; attempt < MaxRetries; attempt++)
             {
