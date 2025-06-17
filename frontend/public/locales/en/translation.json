@@ -170,9 +170,15 @@
     "phrasesAndIdioms": "Phrases",
     "synonymsAndAntonyms": "Related Words",
     "funFactsAndTips": "Memory Tips",
+    "loadingAudio": "Loading audio...",
+    "playAudio": "Play audio",
+    "cooldown": "Waitting",
     "error": {
       "valid": "Only single English words are supported, without special characters.",
-      "apiKey": "API Key is missing. Please refresh the page."
+      "apiKey": "API Key is missing. Please refresh the page.",
+      "audio": "An error loading audio.",
+      "play": "An error playing audio.",
+      "noAudio": "No audio to play."
     },
     "notFound": {
       "title": "Word not found",

@@ -170,9 +170,15 @@
     "phrasesAndIdioms": "Cụm từ",
     "synonymsAndAntonyms": "Từ liên quan",
     "funFactsAndTips": "Mẹo nhớ",
+    "loadingAudio": "Đang tải audio...",
+    "playAudio": "Phát audio",
+    "cooldown": "Chờ tí",
     "error": {
       "valid": "Chỉ hỗ trợ tra cứu từ đơn tiếng anh và không sử dụng ký tự đặc biệt.",
-      "apiKey": "Thiếu API Key. Vui lòng làm mới lại trang."
+      "apiKey": "Thiếu API Key. Vui lòng làm mới lại trang.",
+      "audio": "Có lỗi khi tải audio.",
+      "play": "Có lỗi khi phát audio.",
+      "noAudio": "Không có audio để phát."
     },
     "notFound": {
       "title": "Không tìm thấy từ",
