@@ -1,5 +1,7 @@
 import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
   StarIcon,
   BookIcon,
@@ -94,12 +96,16 @@ const Container = ({
           {isExpanded ? t("dictionary.collapsed") : t("dictionary.expanded")}
         </p>
       </button>
-      <div
-        className={`dictionary__body-container__main ${
-          !isExpanded ? "collapsed" : ""
-        }`}
-      >
-        <p>{contentToDisplay}</p>
+      <div className="dictionary__body-container__main">
+        <div
+          className={`dictionary__body-container__content markdown-content  ${
+            !isExpanded ? "collapsed" : ""
+          }`}
+        >
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {contentToDisplay}
+          </ReactMarkdown>
+        </div>
       </div>
     </div>
   );

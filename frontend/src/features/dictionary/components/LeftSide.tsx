@@ -1,4 +1,6 @@
 import type { JSX } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { SoundIcon, StarIcon, SearchIcon } from "@/components/common/Icons";
 import { useTranslation } from "react-i18next";
 
@@ -28,8 +30,10 @@ const LeftSide = ({
           {SoundIcon}
           <p>{t("dictionary.pronunciation")}</p>
         </div>
-        <div className="dictionary__leftside-content">
-          <p>{pronunciation}</p>
+        <div className="dictionary__leftside-content markdown-content">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {pronunciation}
+          </ReactMarkdown>
         </div>
       </div>
       <div className="dictionary__leftside-summary">
@@ -37,8 +41,8 @@ const LeftSide = ({
           {StarIcon}
           <p>{t("dictionary.summary")}</p>
         </div>
-        <div className="dictionary__leftside-content">
-          <p>{summary}</p>
+        <div className="dictionary__leftside-content markdown-content">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{summary}</ReactMarkdown>
         </div>
       </div>
     </div>
