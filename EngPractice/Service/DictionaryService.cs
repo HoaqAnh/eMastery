@@ -183,8 +183,8 @@ namespace EngPractice.Service
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
 
-            
-            var match = Regex.Match(input, @"^(?:\w+)?\s*(.*?)\s*$", RegexOptions.Singleline);
+            // Bắt đầu bằng ``` hoặc ```markdown và kết thúc bằng ```
+            var match = Regex.Match(input, @"^```(?:\w+)?\s*\n([\s\S]*?)\n```$", RegexOptions.Singleline);
 
             if (match.Success)
             {
