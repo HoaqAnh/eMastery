@@ -1,21 +1,57 @@
-import { type JSX } from "react";
+import { type JSX, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Toaster } from "react-hot-toast";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Magnet from "@/components/common/Magnet";
 import UserSettings from "./UserSettings";
-import LanguageSwitcher from "./LanguageSwitcher";
 import DesktopFeatures from "./DesktopFeatures";
 import MobileMenu from "./MobileMenu";
-
+import ProfilePopup from "@/components/common/ProfilePopup";
+import ConfirmationPopup from "@/components/common/ConfirmationPopup";
+import ContactPopup from "@/features/contact/components/ContactPopup";
 import "@styles/layouts/Layout.css";
 import "@styles/components/NavActions.css";
 import "@styles/components/NavMenu.css";
 
 const MainLayout = (): JSX.Element => {
+  const { t } = useTranslation();
   const navigator = useNavigate();
+  const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
+  const [isLogoutPopupOpen, setIsLogoutPopupOpen] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
+  const handleLogoutConfirm = () => {
+    localStorage.clear();
+    setIsLogoutPopupOpen(false);
+    navigator("/welcome", { replace: true });
+    window.location.reload();
+  };
 
   return (
     <div className="main-layout">
+      <Toaster position="top-center" reverseOrder={false} />
+
+      <ProfilePopup
+        isOpen={isProfilePopupOpen}
+        onClose={() => setIsProfilePopupOpen(false)}
+      />
+
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
+      />
+
+      <ConfirmationPopup
+        isOpen={isLogoutPopupOpen}
+        onClose={() => setIsLogoutPopupOpen(false)}
+        onConfirm={handleLogoutConfirm}
+        title={t("logout.title")}
+        message={t("logout.message")}
+        confirmText={t("logout.confirmButton")}
+        cancelText={t("logout.cancelButton")}
+      />
+
       <header>
         <nav>
           <Magnet padding={50} disabled={false} magnetStrength={8}>
@@ -29,13 +65,19 @@ const MainLayout = (): JSX.Element => {
             </div>
           </Magnet>
           <div className="nav-menu">
-            <MobileMenu />
-            <DesktopFeatures />
+            <DesktopFeatures
+              onOpenContactPopup={() => setIsContactPopupOpen(true)}
+            />
           </div>
           <div className="nav-actions">
+            <MobileMenu
+              onOpenContactPopup={() => setIsContactPopupOpen(true)}
+            />
             <ThemeSwitcher />
-            <LanguageSwitcher />
-            <UserSettings />
+            <UserSettings
+              onOpenProfilePopup={() => setIsProfilePopupOpen(true)}
+              onOpenLogoutPopup={() => setIsLogoutPopupOpen(true)}
+            />
           </div>
         </nav>
       </header>

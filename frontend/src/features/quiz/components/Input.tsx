@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react";
-import { SendIcon, AddIcon } from "@/components/common/Icons";
+import { SendIcon, AddIcon, LightbulbIcon } from "@/components/common/Icons";
 import { useTranslation } from "react-i18next";
 
 interface InputProps {
@@ -7,6 +7,7 @@ interface InputProps {
   isLoading: boolean;
   onGuessSubmit: (guess: string) => void;
   isEvaluating: boolean;
+  onShowAnswer: () => void;
 }
 
 const Input = ({
@@ -14,6 +15,7 @@ const Input = ({
   isLoading,
   onGuessSubmit,
   isEvaluating,
+  onShowAnswer,
 }: InputProps): JSX.Element => {
   const { t } = useTranslation();
   const [inputValue, setInputValue] = useState("");
@@ -49,6 +51,14 @@ const Input = ({
           disabled={isLoading || isEvaluating}
         >
           {AddIcon}
+        </button>
+        <button
+          title={t("quiz.showAnswer.buttonTitle")}
+          type="button"
+          onClick={onShowAnswer}
+          disabled={isLoading || isEvaluating}
+        >
+          {LightbulbIcon}
         </button>
         <button
           title={t("quiz.submitAnswer")}

@@ -16,6 +16,8 @@ header {
   flex-direction: row;
   width: 100%;
   min-height: 5vh;
+  padding: 5px 0;
+  box-shadow: var(--shadow-realistic);
 }
 
 .container {
@@ -74,7 +76,7 @@ nav {
 }
 
 @media (max-width: 380px) {
-  .nav-logo {
-    display: none;
+  nav {
+    gap: 0.5rem;
   }
 }

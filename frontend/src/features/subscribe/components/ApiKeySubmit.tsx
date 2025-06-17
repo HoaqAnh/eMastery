@@ -26,6 +26,11 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
     window.open(targetUrl, "_blank", "noopener,noreferrer");
   };
 
+  const handleVideoTutorial = () => {
+    const targetUrl = "https://www.youtube.com/watch?v=6BRyynZkvf0";
+    window.open(targetUrl, "_blank", "noopener,noreferrer");
+  };
+
   const handleSubmitApiKey = async () => {
     await validateApiKey(apiKeyValue);
   };
@@ -94,6 +99,9 @@ const ApiKeySubmit = ({ onNext }: ApiKeySubmitProps): JSX.Element => {
           {isLoading ? t("subscribe.loading") : t("subscribe.next")}
         </button>
       </div>
+      <p className="card__info-title" onClick={handleVideoTutorial}>
+        {t("subscribe.tutorial")}
+      </p>
     </div>
   );
 };

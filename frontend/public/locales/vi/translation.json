@@ -1,15 +1,13 @@
 {
-  "greeting": {
-    "helloUser": "Xin chào, {{name}}"
-  },
   "subscribe": {
     "title": "Đăng ký",
     "loading": "Đang tải...",
     "next": "Bước tiếp theo",
     "confirm": "Xác nhận đăng ký",
+    "tutorial": "Bạn cần video hướng dẫn? Nhấn vào đây.",
     "api": {
-      "content": "Đầu tiên, bạn cần có Gemini API Key. Nhấn vào nút 'Key' bên dưới để lấy API Key miễn phí từ Google.",
-      "getKey": "Key",
+      "content": "Đầu tiên, bạn cần có Gemini API Key để đăng ký. Nhấn vào nút 'Lấy Key' bên dưới để lấy API Key miễn phí từ Google.",
+      "getKey": "Lấy Key",
       "placeholder": "Nhập API key của bạn",
       "loading": "Đang tải...",
       "error": {
@@ -59,14 +57,23 @@
   },
   "userProfile": {
     "title": "Hồ sơ",
-    "viewProfile": "Xem hồ sơ"
+    "viewProfile": "Xem hồ sơ",
+    "profilePopup": {
+      "title": "Cập nhật hồ sơ",
+      "apiKey": "API Key",
+      "fullName": "Tên của bạn",
+      "cancel": "Hủy",
+      "save": "Lưu",
+      "success": "Cập nhật thành công",
+      "error": "Thông tin không hợp lệ"
+    }
   },
   "settings": {
     "title": "Cài đặt",
     "languageSettings": {
       "title": "Ngôn ngữ",
-      "vi": "VI",
-      "en": "EN"
+      "vi": "Tiếng Việt",
+      "en": "Tiếng Anh"
     },
     "notifications": "Thông báo",
     "themeSettings": {
@@ -77,9 +84,28 @@
     }
   },
   "home": {
-    "title": "Trang chủ",
-    "welcome": "Chào mừng bạn đến với trang chủ của chúng tôi!",
-    "explore": "Hãy thoải mái khám phá!"
+    "welcome": "Chúc bạn có một buổi học hiệu quả!",
+    "comingSoon": "Sắp ra mắt",
+    "developing": "Đang phát triển",
+    "features": {
+      "dictionaryDesc": "Tra cứu từ vựng, xem giải thích chi tiết và các ví dụ thực tế.",
+      "quizDesc": "Thử thách bản thân với các câu đố vui và kiểm tra kiến thức của bạn.",
+      "chatbotDesc": "Trò chuyện với trợ lý AI để luyện tập hội thoại và giải đáp thắc mắc.",
+      "writingDesc": "Cải thiện kỹ năng viết thông qua các bài tập và gợi ý.",
+      "developing": "Chúng tôi đang nghiên cứu phát triển một số chức năng khác để hỗ trợ học tiếng anh tốt hơn."
+    },
+    "stats": {
+      "title": "Thống kê nhanh",
+      "wordsSearched": "Số từ đã tra",
+      "quizzesTaken": "Số đáp án ở bài hiện tại"
+    },
+    "tip": {
+      "title": "Mẹo hay trong ngày",
+      "content": "Hãy thử sử dụng 3 từ mới bạn học được hôm nay trong một cuộc hội thoại. Lặp lại là chìa khóa để ghi nhớ!"
+    }
+  },
+  "greeting": {
+    "helloUser": "Chào mừng trở lại, {{name}}!"
   },
   "navMenu": {
     "contact": {
@@ -111,6 +137,13 @@
     "loading": "Đang tải Quiz...",
     "submitAnswer": "Gửi câu trả lời",
     "initialPrompt": "Đang tải bài đọc cho bạn...",
+    "info": "eMastery có thể mắc lỗi. Hãy cân nhắc kiểm tra các thông tin quan trọng.",
+    "showAnswer": {
+      "buttonTitle": "Hiển thị đáp án",
+      "confirmTitle": "Xác nhận xem đáp án",
+      "confirmMessage": "Bạn có chắc chắn muốn bỏ cuộc và xem đáp án không?",
+      "correctAnswerIs": "Đáp án đúng là"
+    },
     "level": {
       "title": "Mức độ",
       "ez": "Dễ",
@@ -144,9 +177,15 @@
     "phrasesAndIdioms": "Cụm từ",
     "synonymsAndAntonyms": "Từ liên quan",
     "funFactsAndTips": "Mẹo nhớ",
+    "loadingAudio": "Đang tải audio...",
+    "playAudio": "Phát audio",
+    "cooldown": "Chờ tí",
     "error": {
       "valid": "Chỉ hỗ trợ tra cứu từ đơn tiếng anh và không sử dụng ký tự đặc biệt.",
-      "apiKey": "Thiếu API Key. Vui lòng làm mới lại trang."
+      "apiKey": "Thiếu API Key. Vui lòng làm mới lại trang.",
+      "audio": "Có lỗi khi tải audio.",
+      "play": "Có lỗi khi phát audio.",
+      "noAudio": "Không có audio để phát."
     },
     "notFound": {
       "title": "Không tìm thấy từ",
@@ -162,5 +201,55 @@
   },
   "error": {
     "retry": "Thử lại"
+  },
+  "welcome": {
+    "title": "Học tiếng anh cùng eMastery",
+    "description": "@ Powered by Gemini AI.",
+    "cta": "Bắt đầu ngay"
+  },
+  "features": {
+    "dictionary": {
+      "title": "Tra cứu từ điển",
+      "description": "Tra cứu từ vựng cùng với những thông tin chi tiết và bổ ích như cách phát âm, giải nghĩa, ngữ pháp, mẹo ghi nhớ và hơn thế nữa."
+    },
+    "writing": {
+      "title": "Luyện viết",
+      "description": "Nâng cao kỹ năng viết của bạn với các bài tập có hướng dẫn và phản hồi được cá nhân hóa."
+    },
+    "quiz": {
+      "title": "Giải đố tiếng anh",
+      "description": "Kiểm tra kiến thức từ vựng của bạn với các câu đố hấp dẫn, có khả năng tùy chỉnh theo trình độ của bạn."
+    },
+    "chatbot": {
+      "title": "Trợ lý AI",
+      "description": "Trò chuyện với AI của chúng tôi, hỗ trợ quá trình học tập và giải đáp thắc mắc của bạn một cách nhanh chóng."
+    }
+  },
+  "logout": {
+    "title": "Đăng xuất",
+    "message": "Bạn có chắc chắn muốn đăng xuất? Toàn bộ lịch sử tra cứu và các đoạn hội thoại sẽ bị xóa vĩnh viễn và không thể khôi phục.",
+    "confirmButton": "Vẫn đăng xuất",
+    "cancelButton": "Hủy bỏ",
+    "success": "Đăng xuất thành công!"
+  },
+  "confirmation": {
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  },
+  "contact": {
+    "title": "Liên hệ & Phản hồi",
+    "name": "Tên của bạn",
+    "namePlaceholder": "Nhập tên của bạn...",
+    "message": "Nội dung phản hồi",
+    "messagePlaceholder": "Chúng tôi có thể giúp gì cho bạn?",
+    "send": "Gửi",
+    "sending": "Đang gửi...",
+    "success": "Cảm ơn bạn đã gửi phản hồi!",
+    "error": "Gửi thất bại",
+    "validation": {
+      "nameRequired": "Vui lòng nhập tên của bạn.",
+      "messageRequired": "Vui lòng nhập nội dung phản hồi.",
+      "messageLength": "Nội dung phản hồi cần ít nhất 10 ký tự."
+    }
   }
 }

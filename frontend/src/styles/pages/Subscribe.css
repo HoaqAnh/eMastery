@@ -46,7 +46,9 @@
   width: 100%;
   font-size: 0.85rem;
   line-height: 1.5rem;
-  text-align: center;
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
   color: var(--card-foreground);
   transition: all 0.3s;
 }
@@ -77,8 +79,12 @@
   transition: all 0.3s;
 }
 
+.card__form.input-number {
+  padding: 0.5rem 1rem;
+}
+
 .card-form_input-key input {
-  padding: 1em 60px 1em 1em;
+  padding: 1em 85px 1em 1em;
 }
 
 .google-btn,
@@ -105,15 +111,10 @@
 }
 
 .google-btn {
-  padding: 0.4em 0.6em;
+  display: flex;
+  padding: 0.4em;
   background: transparent;
   border: none;
-}
-
-.google-btn:hover {
-  background-color: var(--primary);
-  padding: 0.4em;
-  padding-bottom: 0.2em;
 }
 
 .subscribe-btn {
@@ -201,7 +202,21 @@
 .card__form input[type="number"]::-webkit-outer-spin-button,
 .card__form input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+}
+
+.card__info-title {
+  cursor: pointer;
+  color: var(--card-foreground);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.card__info-title:active {
+  color: #0077b8;
+}
+
+.card__info-title:active {
+  text-decoration: underline;
 }
 
 .card-form_input-key.apikey-error__input {

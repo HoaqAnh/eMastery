@@ -1,25 +1,63 @@
 import type { JSX } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useTranslation } from "react-i18next";
 import {
-  WritingIcon,
+  // WritingIcon,
   QuizIcon,
   ChatBotIcon,
   MailIcon,
   LibraryBooksIcon,
+  MenuIcon,
 } from "@components/common/Icons";
 
-const MobileMenu = (): JSX.Element => {
+interface MobileMenuProps {
+  onOpenContactPopup: () => void;
+}
+
+const MobileMenu = ({ onOpenContactPopup }: MobileMenuProps): JSX.Element => {
   const { t } = useTranslation();
   const navigator = useNavigate();
+  const location = useLocation();
+
+  const handleOpenContact = () => {
+    onOpenContactPopup();
+    toggleDropdown();
+  };
 
   const {
     ref: dropdownRef,
     isOpen: isDropdownOpen,
-    // setIsOpen: setIsDropdownOpen,
     toggleDropdown,
   } = useClickOutside<HTMLDivElement>();
+
+  const featureItems = [
+    {
+      path: "/dictionary",
+      icon: LibraryBooksIcon,
+      text: t("navMenu.dictionary"),
+    },
+    // {
+    //   path: "/",
+    //   icon: WritingIcon,
+    //   text: t("navMenu.writingPractice"),
+    // },
+    {
+      path: "/quiz",
+      icon: QuizIcon,
+      text: t("navMenu.puzzleSolving"),
+    },
+    {
+      path: "/chatbot",
+      icon: ChatBotIcon,
+      text: t("navMenu.aiAssistant"),
+    },
+  ];
+
+  const handleNavigate = (path: string) => {
+    navigator(path);
+    toggleDropdown();
+  };
 
   return (
     <div className="nav-menu__mobile" ref={dropdownRef}>
@@ -31,11 +69,10 @@ const MobileMenu = (): JSX.Element => {
         title={t("navMenu.features")}
         type="button"
       >
-        {/* {MenuIcon} */}
-        <span>{t("navMenu.features")}</span>
+        {MenuIcon}
+        <span className="nav-menu__mobile--title">{t("navMenu.features")}</span>
       </button>
 
-      {/* Dropdown Menu */}
       <div
         className={`nav-menu__dropdown ${
           isDropdownOpen ? "nav-menu__dropdown--open" : ""
@@ -48,41 +85,20 @@ const MobileMenu = (): JSX.Element => {
               {t("navMenu.features", "Features")}
             </h3>
             <div className="nav-menu__dropdown-group">
-              <button
-                className="nav-menu__dropdown-item"
-                title={t("navMenu.dictionary")}
-                type="button"
-                onClick={() => navigator("/dictionary")}
-              >
-                {LibraryBooksIcon}
-                <span>{t("navMenu.dictionary")}</span>
-              </button>
-              <button
-                className="nav-menu__dropdown-item active"
-                title={t("navMenu.writingPractice")}
-                type="button"
-              >
-                {WritingIcon}
-                <span>{t("navMenu.writingPractice")}</span>
-              </button>
-              <button
-                className="nav-menu__dropdown-item"
-                title={t("navMenu.puzzleSolving")}
-                type="button"
-                onClick={() => navigator("/quiz")}
-              >
-                {QuizIcon}
-                <span>{t("navMenu.puzzleSolving")}</span>
-              </button>
-              <button
-                className="nav-menu__dropdown-item"
-                title={t("navMenu.aiAssistant")}
-                type="button"
-                onClick={() => navigator("/chatbot")}
-              >
-                {ChatBotIcon}
-                <span>{t("navMenu.aiAssistant")}</span>
-              </button>
+              {featureItems.map((item) => (
+                <button
+                  key={item.path}
+                  className={`nav-menu__dropdown-item ${
+                    location.pathname === item.path ? "active" : ""
+                  }`}
+                  title={item.text}
+                  type="button"
+                  onClick={() => handleNavigate(item.path)}
+                >
+                  {item.icon}
+                  <span>{item.text}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -94,8 +110,9 @@ const MobileMenu = (): JSX.Element => {
             <div className="nav-menu__dropdown-group">
               <button
                 className="nav-menu__dropdown-item"
-                title={t("navMenu.aiAssistant")}
+                title={t("navMenu.contact.mail")}
                 type="button"
+                onClick={handleOpenContact}
               >
                 {MailIcon}
                 <span>{t("navMenu.contact.mail")}</span>

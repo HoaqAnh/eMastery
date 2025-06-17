@@ -17,7 +17,7 @@ const Response = ({ content, isLoading }: ResponseProps): JSX.Element => {
         <div className="response__info-bot__name">eMastery</div>
       </div>
       <div className="response__content">
-        <div className="response__content-container">
+        <div className="response__content-container markdown-content">
           {isLoading ? (
             <LoadingResponse />
           ) : (

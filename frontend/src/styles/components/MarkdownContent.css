@@ -1,0 +1,107 @@
+.markdown-content p,
+.markdown-content ul,
+.markdown-content ol,
+.markdown-content blockquote,
+.markdown-content pre,
+.markdown-content table {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--card-foreground);
+}
+
+.markdown-content h1 {
+  font-size: 1.75em;
+}
+.markdown-content h2 {
+  font-size: 1.5em;
+}
+.markdown-content h3 {
+  font-size: 1.25em;
+}
+.markdown-content h4 {
+  font-size: 1.1em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 2rem;
+}
+
+.markdown-content li > p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: #1d4ed8;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.markdown-content code {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.markdown-content pre {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 1em;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: var(--accent);
+  font-weight: 600;
+}
+
+.markdown-content > *:last-child {
+  margin-bottom: 0;
+}

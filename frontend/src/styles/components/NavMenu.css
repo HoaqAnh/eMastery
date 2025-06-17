@@ -263,18 +263,6 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1290px) {
-  .nav-menu-item {
-    padding: 6px 12px;
-    font-size: 13px;
-  }
-
-  .nav-menu-item svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
 @media (max-width: 850px) {
   .nav-menu {
     position: static;
@@ -289,5 +277,23 @@
 
   .nav-menu__features {
     display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-menu__mobile--title {
+    display: none;
+  }
+
+  .nav-menu__mobile .nav-menu-item {
+    border-radius: 50%;
+    padding: 3px;
+    min-width: 0;
+    min-height: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
   }
 }

@@ -56,7 +56,7 @@ const ProfileSubmit = (): JSX.Element => {
         <input
           id="age"
           type="number"
-          className="card__form input"
+          className="card__form input-number"
           placeholder={t("subscribe.profile.age")}
           value={age}
           onChange={(e) => {

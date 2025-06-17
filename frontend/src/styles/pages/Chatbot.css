@@ -75,7 +75,7 @@
 .userquery {
   display: flex;
   justify-content: end;
-  padding-left: 5em;
+  padding-left: 3em;
   width: 100%;
   min-width: 0;
   height: fit-content;
@@ -336,24 +336,4 @@
   background-color: var(--muted);
   color: var(--muted-foreground);
   cursor: not-allowed;
-}
-
-/* RESPONSIVE */
-@media (max-width: 950px) {
-}
-
-@media (max-width: 740px) {
-  .userquery {
-    padding-left: 2.5em;
-  }
-}
-
-@media (max-width: 580px) {
-  .userquery {
-    padding-left: 2em;
-  }
-
-  .userquery__content {
-    padding: 15px;
-  }
 }
