@@ -127,7 +127,7 @@ const Quiz = (): JSX.Element => {
       setStoredQuiz(readingData);
       setReadingHistory((prev) => {
         const newHistory = [...prev, readingData.description];
-        return newHistory.slice(-50);
+        return newHistory.slice(-20);
       });
     }
   }, [readingData, setStoredQuiz, setReadingHistory]);
