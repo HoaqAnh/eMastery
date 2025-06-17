@@ -1,7 +1,7 @@
 import { type JSX, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { toast, Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Magnet from "@/components/common/Magnet";
 import UserSettings from "./UserSettings";

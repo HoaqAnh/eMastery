@@ -48,7 +48,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps): JSX.Element => {
     return <Loader />;
   }
 
-  return isAllowed ? <>{children}</> : <Navigate to="/subscribe" replace />;
+  return isAllowed ? <>{children}</> : <Navigate to="/welcome" replace />;
 };
 
 export default ProtectedRoute;

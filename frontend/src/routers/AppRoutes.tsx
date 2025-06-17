@@ -1,6 +1,7 @@
 import { type JSX } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import GuestRoute from "./GuestRoute";
 import MainLayout from "@components/layouts/MainLayout";
 import GuestLayout from "@components/layouts/GuestLayout";
 import NotFoundPage from "@pages/NotFoundPage";
@@ -14,7 +15,14 @@ import Dictionary from "@/pages/Dictionary";
 const AppRoutes = (): JSX.Element => {
   return (
     <Routes>
-      <Route path="welcome" element={<GuestLayout />}>
+      <Route
+        path="welcome"
+        element={
+          <GuestRoute>
+            <GuestLayout />
+          </GuestRoute>
+        }
+      >
         <Route index element={<Welcome />} />
       </Route>
 
