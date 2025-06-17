@@ -183,16 +183,24 @@ namespace EngPractice.Service
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
 
-            // Regex tìm đoạn bắt đầu và kết thúc bởi ``` hoặc ```markdown
-            var match = Regex.Match(input, @"^```(?:\w+)?\s*(.*?)\s*```$", RegexOptions.Singleline);
+            string content = input.Trim();
 
+            // Bước 1: Loại bỏ code block nếu có (```markdown ... ```)
+            var match = Regex.Match(content, @"^```(?:\w+)?\s*(.*?)\s*```$", RegexOptions.Singleline);
             if (match.Success)
             {
-                return match.Groups[1].Value.Trim();
+                content = match.Groups[1].Value.Trim();
             }
 
-            return input.Trim();
+            // Bước 2: Xóa các ký hiệu markdown như **, *, _, __, `, ~~, #
+            content = Regex.Replace(content, @"(\*\*|\*|__|_|~~|`|#+)", string.Empty);
+
+            // Bước 3: Loại khoảng trắng dư thừa (nếu có)
+            content = Regex.Replace(content, @"[ \t]{2,}", " ");
+
+            return content.Trim();
         }
+
 
     }
 }
