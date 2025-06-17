@@ -99,7 +99,7 @@ namespace EngPractice.Service
                     return new TranslateWordResponse
                     {
                         Word = word,
-                        Explanation = message.Trim()
+                        Explanation = RemoveMarkdownCodeBlock(message.Trim())
                     };
                 }
                 catch (HttpRequestException ex)
@@ -171,8 +171,27 @@ namespace EngPractice.Service
 
         private string RemovePrefixOnly(string section, string prefix)
         {
-            // Bỏ tiền tố số thứ tự (ví dụ "1. ") nhưng giữ nguyên tiêu đề như "PHÁT ÂM"
-            return section.Substring(prefix.Length).Trim();
+            // Xóa số thứ tự + dòng tiêu đề (ví dụ: "1. PHÁT ÂM")
+            var lines = section.Substring(prefix.Length).Trim().Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+            if (lines.Length <= 1)
+                return ""; // Không có nội dung thực tế
+
+            return string.Join('\n', lines.Skip(1)).Trim();
+        }
+        public static string RemoveMarkdownCodeBlock(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return input;
+
+            // Regex tìm đoạn bắt đầu và kết thúc bởi ``` hoặc ```markdown
+            var match = Regex.Match(input, @"^```(?:\w+)?\s*(.*?)\s*```$", RegexOptions.Singleline);
+
+            if (match.Success)
+            {
+                return match.Groups[1].Value.Trim();
+            }
+
+            return input.Trim();
         }
 
     }

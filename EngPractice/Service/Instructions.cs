@@ -262,36 +262,33 @@ Provide a detailed explanation of the English word: **""{word}""**
 
 ---
 
-**Dưới đây là giải nghĩa chi tiết về từ ""{word}"":**
+Dưới đây là giải nghĩa chi tiết về từ ""{word}"":
 
-**1. PHÁT ÂM**  
+1. PHÁT ÂM  
 - IPA (US & UK)  
 - Vietnamese approximation of pronunciation
 
-**2. GIẢI NGHĨA**  
+2. GIẢI NGHĨA  
 - Common meanings categorized by part of speech (adjective, noun, verb, adverb...)  
 - Include clear, contextual Vietnamese examples for each
 
-**3. ỨNG DỤNG VÀO NGỮ PHÁP**  
+3. ỨNG DỤNG VÀO NGỮ PHÁP  
 - Common sentence structures using the word ""{word}""  
 - Provide usage examples
 
-**4. CỤM TỪ & THÀNH NGỮ LIÊN QUAN**  
+4. CỤM TỪ & THÀNH NGỮ LIÊN QUAN 
 - Related phrases or idioms, with Vietnamese meanings and usage examples
 
-**5. TỪ ĐỒNG NGHĨA & TRÁI NGHĨA**  
+5. TỪ ĐỒNG NGHĨA & TRÁI NGHĨA  
 - List synonyms and antonyms where applicable, grouped by meaning
 
-**6. THÔNG TIN THÚ VỊ & MẸO GHI NHỚ**  
+6. THÔNG TIN THÚ VỊ & MẸO GHI NHỚ  
 - Fun facts or memory tips to help learners remember the word
 
-**7. TỔNG KẾT**  
+7. TỔNG KẾT  
 - Summarize the main meanings, typical usage, and key notes
 
----
-
-DO NOT include anything else besides the JSON. Use markdown code blocks.
-```";
+DO NOT include anything else besides the JSON. Use markdown code blocks.";
         }
 
     }
