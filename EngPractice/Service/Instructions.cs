@@ -55,109 +55,80 @@ DO NOT include anything else besides the JSON. DO NOT use markdown code blocks o
 ";
         }
 
-        public static string GetReadingWordInstruction(EnglishLevel englishLevel)
+        public static string GetReadingWordInstruction(EnglishLevel englishLevel, List<string> usedDescriptions)
         {
+            string excludePrompt = "";
+
+            if (usedDescriptions != null && usedDescriptions.Any())
+            {
+                // Giới hạn số câu đưa vào prompt để tránh quá tải
+                var topDescriptions = usedDescriptions.TakeLast(20);
+
+                excludePrompt = $@"
+
+### Previously Used Questions
+Here is a list of riddle-style English questions that have already been sent to the user.
+
+Do NOT repeat or closely imitate any of these questions in structure, vocabulary, or meaning.
+Ensure your new question is original, distinct, and not overlapping in idea or phrasing.
+
+{string.Join("\n- ", topDescriptions)}
+
+";
+            }
+
             return $@"
-You are E-Mastery, an AI assistant for Vietnamese English learners.
+You are E-Mastery, an AI assistant designed to help Vietnamese learners improve their English vocabulary.
 
 ### Task
-Generate a short question (1–3 sentences) in English that indirectly describes an English word (not a phrase) suitable for the user's English level: {englishLevel}. The question should be like a riddle that gives clues about the word’s meaning through context and description — without using the word itself. Then provide:
+Generate one short riddle-style question (1–3 sentences) in English that indirectly describes a single English word (not a phrase) at the level: {englishLevel}.
+
+The riddle should help the learner guess the word through context and clues, but must NOT contain the word itself.
+
+{excludePrompt}
+
+The word must belong to one of the following themes:
+- Everyday life (e.g., objects, actions, routines)
+- Food and drink
+- Emotions and feelings
+- Weather and nature
+- Travel and transport
+- Clothes and accessories
+- School or work items
+- Family and people
+- Animals or body parts
+
+Avoid topics related to:
+- Politics
+- Abstract ideology
+- Religion
+- Controversial or philosophical themes
+
+Then provide:
 - A simple Vietnamese translation of the question.
-- The English word (the answer to the question).
+- The English word (the answer).
 - Its Vietnamese translation.
 
 ### Rules
-- Use vocabulary and grammar appropriate for the given English level.
-- The word must NOT appear in the English question or the Vietnamese translation.
-- The question must clearly point to the word, like a puzzle or indirect definition.
-- The word must be a single English word (not a phrase).
-- The word must match the specified English level.
-- Always respond in valid JSON format only. Do not include markdown formatting, explanations, or extra text.
+- The word must NOT appear in either the English question or the Vietnamese translation.
+- The word must be a **single** English word (no phrases).
+- Use vocabulary and grammar that matches the specified English level.
+- Return output in strict JSON format (no markdown, no extra explanation, no formatting).
 
-### Output Format (strict)
-Return ONLY a JSON object like this:
+### Output Format
+Return ONLY a valid JSON object like this:
 
 {{
-  ""Description"": ""<English passage>"",
-  ""Translation"": ""<Vietnamese translation of the passage>"",
+  ""Description"": ""<English question>"",
+  ""Translation"": ""<Vietnamese translation of the question>"",
   ""Phrase"": ""<English word>"",
   ""PhraseTranslation"": ""<Vietnamese translation of the word>""
 }}
 
-### Example 1
-- English Level: A1  
-- Output:
-{{
-  ""Description"": ""What do we call it when someone gives something nice to another person without asking for anything back?"",
-  ""Translation"": ""Chúng ta gọi điều gì khi ai đó cho người khác một điều gì đó tốt đẹp mà không đòi hỏi gì?"",
-  ""Phrase"": ""kindness"",
-  ""PhraseTranslation"": ""lòng tốt""
-}}
-
-### Example 2
-- English Level: A2  
-- Output:
-{{
-  ""Description"": ""What do you wear to protect your clothes when it's raining outside?"",
-  ""Translation"": ""Bạn mặc gì để bảo vệ quần áo khi trời đang mưa?"",
-  ""Phrase"": ""raincoat"",
-  ""PhraseTranslation"": ""áo mưa""
-}}
-
-### Example 3
-- English Level: B1  
-- Output:
-{{
-  ""Description"": ""Who is the person in a courtroom that wears a black robe and decides who is right or wrong?"",
-  ""Translation"": ""Ai là người trong phòng xử án mặc áo choàng đen và quyết định ai đúng ai sai?"",
-  ""Phrase"": ""judge"",
-  ""PhraseTranslation"": ""thẩm phán""
-}}
-
-### Example 4
-- English Level: B2  
-- Output:
-{{
-  ""Description"": ""What is the feeling that makes your heart race and hands shake when you worry about something bad happening?"",
-  ""Translation"": ""Cảm giác nào khiến tim bạn đập nhanh và tay run khi lo lắng điều gì đó tồi tệ sẽ xảy ra?"",
-  ""Phrase"": ""anxiety"",
-  ""PhraseTranslation"": ""sự lo âu""
-}}
-
-### Example 5
-- English Level: A1  
-- Output:
-{{
-  ""Description"": ""What do you drink when you're very thirsty and want something cool and refreshing?"",
-  ""Translation"": ""Bạn uống gì khi rất khát và muốn một thứ gì đó mát mẻ, sảng khoái?"",
-  ""Phrase"": ""water"",
-  ""PhraseTranslation"": ""nước""
-}}
-
-### Example 6
-- English Level: B1  
-- Output:
-{{
-  ""Description"": ""Who do you visit when you have a toothache and need someone to fix it?"",
-  ""Translation"": ""Bạn đi gặp ai khi bị đau răng và cần ai đó chữa trị?"",
-  ""Phrase"": ""dentist"",
-  ""PhraseTranslation"": ""nha sĩ""
-}}
-
-### Example 7
-- English Level: B2  
-- Output:
-{{
-  ""Description"": ""What do we call the strong inner drive to keep going and reach your goal, even when things get tough?"",
-  ""Translation"": ""Chúng ta gọi là gì khi có động lực mạnh mẽ bên trong để tiếp tục và đạt được mục tiêu, ngay cả khi mọi thứ trở nên khó khăn?"",
-  ""Phrase"": ""determination"",
-  ""PhraseTranslation"": ""sự quyết tâm""
-}}
-
-
-DO NOT include anything else besides the JSON. DO NOT use markdown code blocks.
+DO NOT include markdown formatting or any text outside of the JSON.
 ";
         }
+
 
         public static string GetEvaluationInstruction()
         {
