@@ -8,8 +8,8 @@
     "next": "Bước tiếp theo",
     "confirm": "Xác nhận đăng ký",
     "api": {
-      "content": "Đầu tiên, bạn cần có Gemini API Key. Nhấn vào nút 'Key' bên dưới để lấy API Key miễn phí từ Google.",
-      "getKey": "Key",
+      "content": "Đầu tiên, bạn cần có Gemini API Key để đăng ký. Nhấn vào nút 'Lấy Key' bên dưới để lấy API Key miễn phí từ Google.",
+      "getKey": "Lấy Key",
       "placeholder": "Nhập API key của bạn",
       "loading": "Đang tải...",
       "error": {
@@ -171,5 +171,28 @@
   },
   "error": {
     "retry": "Thử lại"
+  },
+  "welcome": {
+    "title": "Học tiếng anh cùng eMastery",
+    "description": "@ Powered by Gemini AI.",
+    "cta": "Bắt đầu ngay"
+  },
+  "features": {
+    "dictionary": {
+      "title": "Tra cứu từ điển",
+      "description": "Tra cứu từ vựng cùng với những thông tin chi tiết và bổ ích như cách phát âm, giải nghĩa, ngữ pháp, mẹo ghi nhớ và hơn thế nữa."
+    },
+    "writing": {
+      "title": "Luyện viết",
+      "description": "Nâng cao kỹ năng viết của bạn với các bài tập có hướng dẫn và phản hồi được cá nhân hóa."
+    },
+    "quiz": {
+      "title": "Giải đố tiếng anh",
+      "description": "Kiểm tra kiến thức từ vựng của bạn với các câu đố hấp dẫn, có khả năng tùy chỉnh theo trình độ của bạn."
+    },
+    "chatbot": {
+      "title": "Trợ lý AI",
+      "description": "Trò chuyện với AI của chúng tôi, hỗ trợ quá trình học tập và giải đáp thắc mắc của bạn một cách nhanh chóng."
+    }
   }
 }

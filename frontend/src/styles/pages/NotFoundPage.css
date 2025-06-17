@@ -1,0 +1,21 @@
+.notfoundpage {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background-color: black;
+  gap: 4em;
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.notfoundpage__container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}

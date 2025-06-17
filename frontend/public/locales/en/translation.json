@@ -8,8 +8,8 @@
     "next": "Next step",
     "confirm": "Confirm subscribe",
     "api": {
-      "content": "To begin, you must have a Gemini API Key. Hit the 'Key' button below to acquire your free API Key from Google.",
-      "getKey": "Key",
+      "content": "To begin, you need a Gemini API Key to subscribe. Click the 'Get Key' button below to obtain a free API Key from Google.",
+      "getKey": "Get Key",
       "placeholder": "Your Gemini API key",
       "loading": "Loading...",
       "error": {
@@ -171,5 +171,28 @@
   },
   "error": {
     "retry": "Retry"
+  },
+  "welcome": {
+    "title": "Unlock Your English Potential with eMastery",
+    "description": "@ Powered by Gemini AI.",
+    "cta": "Get Started"
+  },
+  "features": {
+    "dictionary": {
+      "title": "Smart Dictionary",
+      "description": "Instantly look up words with detailed explanations, usage examples, and fun facts."
+    },
+    "writing": {
+      "title": "Writing Practice",
+      "description": "Enhance your writing skills with guided exercises and personalized feedback."
+    },
+    "quiz": {
+      "title": "Interactive Quizzes",
+      "description": "Test your knowledge with engaging puzzles that adapt to your skill level."
+    },
+    "chatbot": {
+      "title": "AI Assistant",
+      "description": "Chat with our friendly AI to practice conversation and get instant answers."
+    }
   }
 }

@@ -46,7 +46,9 @@
   width: 100%;
   font-size: 0.85rem;
   line-height: 1.5rem;
-  text-align: center;
+  text-align: justify;
+  text-align-last: center;
+  hyphens: auto;
   color: var(--card-foreground);
   transition: all 0.3s;
 }
