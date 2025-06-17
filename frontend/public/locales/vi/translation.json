@@ -1,7 +1,4 @@
 {
-  "greeting": {
-    "helloUser": "Xin chào, {{name}}"
-  },
   "subscribe": {
     "title": "Đăng ký",
     "loading": "Đang tải...",
@@ -87,9 +84,28 @@
     }
   },
   "home": {
-    "title": "Trang chủ",
-    "welcome": "Chào mừng bạn đến với trang chủ của chúng tôi!",
-    "explore": "Hãy thoải mái khám phá!"
+    "welcome": "Chúc bạn có một buổi học hiệu quả!",
+    "comingSoon": "Sắp ra mắt",
+    "developing": "Đang phát triển",
+    "features": {
+      "dictionaryDesc": "Tra cứu từ vựng, xem giải thích chi tiết và các ví dụ thực tế.",
+      "quizDesc": "Thử thách bản thân với các câu đố vui và kiểm tra kiến thức của bạn.",
+      "chatbotDesc": "Trò chuyện với trợ lý AI để luyện tập hội thoại và giải đáp thắc mắc.",
+      "writingDesc": "Cải thiện kỹ năng viết thông qua các bài tập và gợi ý.",
+      "developing": "Chúng tôi đang nghiên cứu phát triển một số chức năng khác để hỗ trợ học tiếng anh tốt hơn."
+    },
+    "stats": {
+      "title": "Thống kê nhanh",
+      "wordsSearched": "Số từ đã tra",
+      "quizzesTaken": "Số đáp án ở bài hiện tại"
+    },
+    "tip": {
+      "title": "Mẹo hay trong ngày",
+      "content": "Hãy thử sử dụng 3 từ mới bạn học được hôm nay trong một cuộc hội thoại. Lặp lại là chìa khóa để ghi nhớ!"
+    }
+  },
+  "greeting": {
+    "helloUser": "Chào mừng trở lại, {{name}}!"
   },
   "navMenu": {
     "contact": {

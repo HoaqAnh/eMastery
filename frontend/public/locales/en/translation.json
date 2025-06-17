@@ -1,7 +1,4 @@
 {
-  "greeting": {
-    "helloUser": "Hello, {{name}}"
-  },
   "subscribe": {
     "title": "Subscribe",
     "loading": "Loading...",
@@ -87,9 +84,28 @@
     }
   },
   "home": {
-    "title": "Home",
-    "welcome": "Welcome to our homepage!",
-    "explore": "Feel free to explore!"
+    "welcome": "Have a productive learning session!",
+    "comingSoon": "Coming soon",
+    "developing": "Developing",
+    "features": {
+      "dictionaryDesc": "Look up vocabulary, see detailed explanations, and real-world examples.",
+      "quizDesc": "Challenge yourself with fun quizzes and test your knowledge.",
+      "chatbotDesc": "Chat with the AI assistant to practice conversation and get answers.",
+      "writingDesc": "Improve writing skills through exercises and suggestions.",
+      "developing": "We are researching and developing additional features to better support English learning."
+    },
+    "stats": {
+      "title": "Quick Stats",
+      "wordsSearched": "Words Searched",
+      "quizzesTaken": "Answers Taken"
+    },
+    "tip": {
+      "title": "Tip of the Day",
+      "content": "Try to use 3 new words you learned today in a conversation. Repetition is the key to memorization!"
+    }
+  },
+  "greeting": {
+    "helloUser": "Welcome back, {{name}}!"
   },
   "navMenu": {
     "contact": {

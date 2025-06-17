@@ -22,7 +22,7 @@ type DictionaryTab =
 
 const Dictionary = (): JSX.Element => {
   const { t } = useTranslation();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<DictionaryTab>("meaning");
 
   const { registrationData } = useRegistration();
