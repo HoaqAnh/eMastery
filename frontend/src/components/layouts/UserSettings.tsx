@@ -116,7 +116,7 @@ const UserSettings = ({
                   i18n.language === "en" ? " active" : ""
                 }`}
                 onClick={() => changeLanguage("en")}
-                disabled={i18n.language === "en"}
+                // disabled={i18n.language === "en"}
                 type="button"
               >
                 <span>{t("settings.languageSettings.en", "Language")}</span>
@@ -126,7 +126,7 @@ const UserSettings = ({
                   i18n.language === "vi" ? " active" : ""
                 }`}
                 onClick={() => changeLanguage("vi")}
-                disabled={i18n.language === "vi"}
+                // disabled={i18n.language === "vi"}
                 type="button"
               >
                 <span>{t("settings.languageSettings.vi", "Language")}</span>

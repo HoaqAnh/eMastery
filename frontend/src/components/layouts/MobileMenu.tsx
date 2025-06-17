@@ -61,7 +61,7 @@ const MobileMenu = (): JSX.Element => {
         type="button"
       >
         {MenuIcon}
-        <span>{t("navMenu.features")}</span>
+        <span className="nav-menu__mobile--title">{t("navMenu.features")}</span>
       </button>
 
       <div

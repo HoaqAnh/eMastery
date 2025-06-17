@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Magnet from "@/components/common/Magnet";
 import UserSettings from "./UserSettings";
-import LanguageSwitcher from "./LanguageSwitcher";
 import DesktopFeatures from "./DesktopFeatures";
 import MobileMenu from "./MobileMenu";
 import ProfilePopup from "@/components/common/ProfilePopup";
@@ -39,12 +38,11 @@ const MainLayout = (): JSX.Element => {
             </div>
           </Magnet>
           <div className="nav-menu">
-            <MobileMenu />
             <DesktopFeatures />
           </div>
           <div className="nav-actions">
+            <MobileMenu />
             <ThemeSwitcher />
-            <LanguageSwitcher />
             <UserSettings
               onOpenProfilePopup={() => setIsProfilePopupOpen(true)}
             />
