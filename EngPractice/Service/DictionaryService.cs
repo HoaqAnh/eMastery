@@ -94,14 +94,12 @@ namespace EngPractice.Service
                         }
                     }
 
-                    string cleaned = CleanRawText(message);
+                    
 
-                    Console.WriteLine("===== ĐOẠN VĂN SAU KHI CLEAN =====");
-                    Console.WriteLine(cleaned);
                     return new TranslateWordResponse
                     {
                         Word = word,
-                        Explanation = CleanRawText(message)
+                        Explanation = message.Trim()
                     };
                 }
                 catch (HttpRequestException ex)
@@ -177,24 +175,5 @@ namespace EngPractice.Service
             return section.Substring(prefix.Length).Trim();
         }
 
-        public string CleanRawText(string raw)
-        {
-            if (string.IsNullOrWhiteSpace(raw)) return raw;
-
-            raw = raw.Replace("\\n", " ")
-                     .Replace("\\t", " ")
-                     .Replace("\\r", " ")
-                     .Replace("\\", "");
-
-            raw = Regex.Replace(raw, @"[*\-]+", "");
-
-            raw = Regex.Replace(raw, @"[ \t]{2,}", " ");        
-            raw = Regex.Replace(raw, @"\s*\n\s*", " ");         
-            raw = Regex.Replace(raw, @"\s+([.,;:!?])", "$1");   
-
-            
-
-            return raw.Trim();
-        }
     }
 }
