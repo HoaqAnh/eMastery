@@ -228,5 +228,21 @@
   "confirmation": {
     "cancel": "Hủy",
     "confirm": "Xác nhận"
+  },
+  "contact": {
+    "title": "Liên hệ & Phản hồi",
+    "name": "Tên của bạn",
+    "namePlaceholder": "Nhập tên của bạn...",
+    "message": "Nội dung phản hồi",
+    "messagePlaceholder": "Chúng tôi có thể giúp gì cho bạn?",
+    "send": "Gửi",
+    "sending": "Đang gửi...",
+    "success": "Cảm ơn bạn đã gửi phản hồi!",
+    "error": "Gửi thất bại",
+    "validation": {
+      "nameRequired": "Vui lòng nhập tên của bạn.",
+      "messageRequired": "Vui lòng nhập nội dung phản hồi.",
+      "messageLength": "Nội dung phản hồi cần ít nhất 10 ký tự."
+    }
   }
 }

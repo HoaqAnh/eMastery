@@ -9,7 +9,13 @@ import {
   MailIcon,
 } from "@components/common/Icons";
 
-const DesktopFeatures = (): JSX.Element => {
+interface DesktopFeaturesProps {
+  onOpenContactPopup: () => void;
+}
+
+const DesktopFeatures = ({
+  onOpenContactPopup,
+}: DesktopFeaturesProps): JSX.Element => {
   const { t } = useTranslation();
   const navigator = useNavigate();
   const location = useLocation();
@@ -35,11 +41,6 @@ const DesktopFeatures = (): JSX.Element => {
       icon: ChatBotIcon,
       text: t("navMenu.aiAssistant"),
     },
-    {
-      path: "/contact",
-      icon: MailIcon,
-      text: t("navMenu.contact.title"),
-    },
   ];
 
   return (
@@ -58,6 +59,15 @@ const DesktopFeatures = (): JSX.Element => {
           <span>{item.text}</span>
         </button>
       ))}
+      <button
+        className="nav-menu-item"
+        title={t("navMenu.contact.title")}
+        type="button"
+        onClick={onOpenContactPopup}
+      >
+        {MailIcon}
+        <span>{t("navMenu.contact.title")}</span>
+      </button>
     </div>
   );
 };

@@ -11,10 +11,19 @@ import {
   MenuIcon,
 } from "@components/common/Icons";
 
-const MobileMenu = (): JSX.Element => {
+interface MobileMenuProps {
+  onOpenContactPopup: () => void;
+}
+
+const MobileMenu = ({ onOpenContactPopup }: MobileMenuProps): JSX.Element => {
   const { t } = useTranslation();
   const navigator = useNavigate();
   const location = useLocation();
+
+  const handleOpenContact = () => {
+    onOpenContactPopup();
+    toggleDropdown();
+  };
 
   const {
     ref: dropdownRef,
@@ -103,7 +112,7 @@ const MobileMenu = (): JSX.Element => {
                 className="nav-menu__dropdown-item"
                 title={t("navMenu.contact.mail")}
                 type="button"
-                onClick={() => handleNavigate("/contact")}
+                onClick={handleOpenContact}
               >
                 {MailIcon}
                 <span>{t("navMenu.contact.mail")}</span>

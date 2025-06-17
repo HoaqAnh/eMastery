@@ -116,6 +116,19 @@
   box-shadow: 0 0 0 2px var(--ring);
 }
 
+.profile-popup__form-group textarea {
+  width: 100%;
+  outline: 0;
+  font-size: 0.9rem;
+  color: var(--card-foreground);
+  background: var(--input);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.8em 1em;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
 .profile-popup .form-error-message {
   color: var(--destructive);
   font-size: 0.8rem;

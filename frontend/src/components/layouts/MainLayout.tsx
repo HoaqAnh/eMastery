@@ -9,7 +9,7 @@ import DesktopFeatures from "./DesktopFeatures";
 import MobileMenu from "./MobileMenu";
 import ProfilePopup from "@/components/common/ProfilePopup";
 import ConfirmationPopup from "@/components/common/ConfirmationPopup";
-
+import ContactPopup from "@/features/contact/components/ContactPopup";
 import "@styles/layouts/Layout.css";
 import "@styles/components/NavActions.css";
 import "@styles/components/NavMenu.css";
@@ -19,6 +19,7 @@ const MainLayout = (): JSX.Element => {
   const navigator = useNavigate();
   const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
   const [isLogoutPopupOpen, setIsLogoutPopupOpen] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   const handleLogoutConfirm = () => {
     localStorage.clear();
@@ -34,6 +35,11 @@ const MainLayout = (): JSX.Element => {
       <ProfilePopup
         isOpen={isProfilePopupOpen}
         onClose={() => setIsProfilePopupOpen(false)}
+      />
+
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => setIsContactPopupOpen(false)}
       />
 
       <ConfirmationPopup
@@ -59,10 +65,14 @@ const MainLayout = (): JSX.Element => {
             </div>
           </Magnet>
           <div className="nav-menu">
-            <DesktopFeatures />
+            <DesktopFeatures
+              onOpenContactPopup={() => setIsContactPopupOpen(true)}
+            />
           </div>
           <div className="nav-actions">
-            <MobileMenu />
+            <MobileMenu
+              onOpenContactPopup={() => setIsContactPopupOpen(true)}
+            />
             <ThemeSwitcher />
             <UserSettings
               onOpenProfilePopup={() => setIsProfilePopupOpen(true)}
