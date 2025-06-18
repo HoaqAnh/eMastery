@@ -1,54 +1,53 @@
-# eMastery - Ứng dụng hỗ trợ học Tiếng Anh (Powered by Gemini AI)
+# eMastery - English Learning Support Application (Powered by Gemini AI)
 
-eMastery là một ứng dụng web được hỗ trợ bởi **Gemini AI**, mang đến trải nghiệm học tập thông minh và hiện đại theo xu hướng. Ứng dụng giúp người dùng cải thiện kỹ năng ngôn ngữ thông qua các công cụ học tập độc đáo.
+ eMastery is a web application powered by **Gemini AI**, offering a smart and modern learning experience. The application helps users improve their language skills through unique learning tools.
 
-## Tính năng chính
+ ## Main Features
 
-* **Chatbot:** Giao tiếp và luyện tập tiếng Anh với AI, giải đáp và trợ giúp học tiếng Anh thông minh.
-* **Từ điển Anh-Việt:** Tra cứu từ vựng, xem giải thích chi tiết, phiên âm và nghe phát âm.
-* **Giải đố:** Tạo các câu đố từ vựng theo trình độ và cấp độ do người dùng lựa chọn.
-* **Đa ngôn ngữ:** Giao diện hỗ trợ cả Tiếng Việt và Tiếng Anh.
-* **Tùy chỉnh giao diện:** Cho phép người dùng chuyển đổi giữa giao diện Sáng (Light) và Tối (Dark).
-* **Liên hệ:** Biểu mẫu liên hệ để người dùng có thể gửi phản hồi hoặc yêu cầu hỗ trợ.
+ * **Chatbot:** Communicate and practice English with an AI that provides intelligent answers and assistance for English learning.
+ * **English-Vietnamese Dictionary:** Look up vocabulary, view detailed explanations, phonetics, and listen to pronunciations.
+ * **Quizzes:** Generate vocabulary quizzes based on the user's selected proficiency and level.
+ * **Multi-language:** The interface supports both Vietnamese and English.
+ * **Theme Customization:** Allows users to switch between Light and Dark themes.
+ * **Contact:** A contact form for users to send feedback or request support.
 
-## Giao diện
+ ## Interface
 
-| **Giao diện Chào mừng & Đăng ký** | **Giao diện Chính** |
-| :---: | :---: |
-| ![Giao diện Chào mừng](docs/images/welcome.png) | ![Giao diện Trang chủ](docs/images/dashboard.png) |
-| *Trang Chào mừng* | *Trang Chủ* |
-| ![Giao diện Nhập apikey](docs/images/apikey.png) | ![Giao diện Từ điển](docs/images/dictionary.png) |
-| *Bước 1: Nhập API Key* | *Trang Từ điển* |
-| ![Giao diện Nhập tên](docs/images/fullname.png) | ![Giao diện Đố vui](docs/images/quiz.png) |
-| *Bước 2: Nhập Tên* | *Trang Đố vui* |
-| ![Giao diện Nhập thông tin khác](docs/images/info.png) | ![Giao diện Chatbot](docs/images/chatbot.png) |
-| *Bước 3: Nhập thông tin khác* | *Trang Chatbot* |
+ | **Welcome & Onboarding Screens** | **Main Interface** |
+ | :---: | :---: |
+ | ![Welcome Screen](docs/images/welcome.png) | ![Dashboard Screen](docs/images/dashboard.png) |
+ | *Welcome Page* | *Homepage* |
+ | ![API Key Input Screen](docs/images/apikey.png) | ![Dictionary Screen](docs/images/dictionary.png) |
+ | *Step 1: Enter API Key* | *Dictionary Page* |
+ | ![Full Name Input Screen](docs/images/fullname.png) | ![Quiz Screen](docs/images/quiz.png) |
+ | *Step 2: Enter Your Name* | *Quiz Page* |
+ | ![Additional Info Input Screen](docs/images/info.png) | ![Chatbot Screen](docs/images/chatbot.png) |
+ | *Step 3: Enter Other Information* | *Chatbot Page* |
 
-## Công nghệ sử dụng
+ ## Technologies Used
 
-### **Frontend (Giao diện người dùng)**
-* **Framework:** [ReactJS](https://reactjs.org/) (sử dụng [Vite](https://vitejs.dev/))
-* **Ngôn ngữ:** [TypeScript](https://www.typescriptlang.org/)
-* **Quản lý trạng thái:** React Hooks & Context API
-* **Routing:** [React Router](https://reactrouter.com/)
-* **Styling:** CSS3 thuần
-* **Đa ngôn ngữ:** [i18next](https://www.i18next.com/)
+ ### **Frontend (User Interface)**
+ * **Framework:** [ReactJS](https://reactjs.org/) (using [Vite](https://vitejs.dev/))
+ * **Language:** [TypeScript](https://www.typescriptlang.org/)
+ * **State Management:** React Hooks & Context API
+ * **Routing:** [React Router](https://reactrouter.com/)
+ * **Styling:** Pure CSS3
+ * **Multi-language:** [i18next](https://www.i18next.com/)
 
-### **Backend (Máy chủ)**
-* **Framework:** [.NET 8](https://dotnet.microsoft.com/)
-* **Ngôn ngữ:** C#
-* **API:** RESTful API
+ ### **Backend (Server)**
+ * **Framework:** [.NET 8](https://dotnet.microsoft.com/)
+ * **Language:** C#
+ * **API:** RESTful API
 
-## Thành viên
+ ## Team Members
 
-| Tên thành viên | Nhiệm vụ chính |
-| :--- | :--- |
-| [Hoàng Anh](https://github.com/HoaqAnh) | Thiết kế Giao diện (UI/UX), phát triển Frontend. |
-| [Thắng Nguyễn](https://github.com/imthq1) | Phát triển Backend, AI Model Fine-Tuning. |
-| [Nguyễn Đức Thiện](https://github.com/nguyenducthienlq1) | Phát triển Backend, AI Model Fine-Tuning. |
-| [Lee Hovng G.Đại](https://github.com/PeterHovng) | Contribute |
+ | Member Name | Main Role |
+ | :--- | :--- |
+ | [Hoang Anh](https://github.com/HoaqAnh) | UI/UX Design, Frontend Development. |
+ | [Thang Nguyen](https://github.com/imthq1) | Backend Development, AI Model Fine-Tuning. |
+ | [Nguyen Duc Thien](https://github.com/nguyenducthienlq1) | Backend Development, AI Model Fine-Tuning. |
+ | [Lee Hovng G.Dai](https://github.com/PeterHovng) | Contributor |
 
+ ## License
 
-## Giấy phép
-
-Dự án này được cấp phép theo **Giấy phép MIT**. Xem chi tiết tại tệp [LICENSE](LICENSE).
+ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
