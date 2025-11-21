@@ -6,7 +6,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['https://e-mastery.vercel.app', 'http://localhost:5173'],
+    origin: [
+      'http://localhost:5173',
+      'https://e-mastery.vercel.app',
+      /\.vercel\.app$/,
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
