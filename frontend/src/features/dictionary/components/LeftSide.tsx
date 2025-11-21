@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 
 interface LeftSideProps {
   word: string;
-  pronunciation: string;
-  summary: string;
+  pronunciation: string | null;
+  summary: string | null;
 }
 
 const LeftSide = ({
@@ -66,12 +66,8 @@ const LeftSide = ({
   };
 
   const getButtonTitle = () => {
-    if (isLoading) {
-      return t("dictionary.loadingAudio");
-    }
-    if (isCoolingDown) {
-      return t("dictionary.cooldown");
-    }
+    if (isLoading) return t("dictionary.loadingAudio");
+    if (isCoolingDown) return t("dictionary.cooldown");
     return t("dictionary.playAudio");
   };
 
@@ -83,6 +79,7 @@ const LeftSide = ({
           <p>{word}</p>
         </div>
       </div>
+
       <div className="dictionary__leftside-pronunciation">
         <div className="dictionary__leftside-title">
           <button
@@ -97,17 +94,20 @@ const LeftSide = ({
         </div>
         <div className="dictionary__leftside-content markdown-content">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {pronunciation}
+            {pronunciation || "N/A"}
           </ReactMarkdown>
         </div>
       </div>
+
       <div className="dictionary__leftside-summary">
         <div className="dictionary__leftside-title">
           {StarIcon}
           <p>{t("dictionary.summary")}</p>
         </div>
         <div className="dictionary__leftside-content markdown-content">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{summary}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {summary || "N/A"}
+          </ReactMarkdown>
         </div>
       </div>
     </div>

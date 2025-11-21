@@ -18,8 +18,8 @@ export interface ChatbotRequest {
 }
 
 export interface ChatbotResponse {
-  messageInMarkdown: string;
-  suggestions: string[];
+  MessageInMarkdown: string;
+  Suggestions: string[];
 }
 
 export const sendChatMessageService = async (

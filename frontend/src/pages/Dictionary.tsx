@@ -3,7 +3,9 @@ import toast, { Toaster } from "react-hot-toast";
 import Input from "@/features/dictionary/components/Input";
 import { useTranslation } from "react-i18next";
 import LeftSide from "@/features/dictionary/components/LeftSide";
-import Container from "@/features/dictionary/components/Container";
+import Container, {
+  type DictionaryTab,
+} from "@/features/dictionary/components/Container";
 import { useRegistration } from "@/context/RegistrationContext";
 import { useDictionary } from "@/features/dictionary/hooks/useDictionary";
 import Error from "@/components/common/Error";
@@ -12,13 +14,6 @@ import ContainerSkeleton from "@/features/dictionary/components/ContainerSkeleto
 import { useSearchHistory } from "@/features/dictionary/hooks/useSearchHistory";
 import HistoryPopup from "@/features/dictionary/components/HistoryPopup";
 import "@styles/pages/Dictionary.css";
-
-type DictionaryTab =
-  | "meaning"
-  | "grammarUsage"
-  | "phrasesAndIdioms"
-  | "synonymsAndAntonyms"
-  | "funFactsAndTips";
 
 const Dictionary = (): JSX.Element => {
   const { t } = useTranslation();
@@ -33,6 +28,7 @@ const Dictionary = (): JSX.Element => {
 
   const handleSearch = (word: string) => {
     const validWordRegex = /^[a-zA-Z]+$/;
+
     if (!validWordRegex.test(word)) {
       toast.error(t("dictionary.error.valid"));
       return;
@@ -72,13 +68,13 @@ const Dictionary = (): JSX.Element => {
       );
     }
 
-    if (data && data.explanation.meaning) {
+    if (data && data.explanation) {
       return (
         <>
           <LeftSide
             word={data.word}
-            pronunciation={data.explanation.pronunciation || "N/A"}
-            summary={data.explanation.summary || "N/A"}
+            pronunciation={data.explanation.pronunciation}
+            summary={data.explanation.summary}
           />
           <Container
             data={data.explanation}

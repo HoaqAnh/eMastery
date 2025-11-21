@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 
-interface GoogleUser {
-  id: string;
-  name: string;
-  email: string | null;
-  picture: string;
-}
+// interface UserInfoGoogle {
+//   id: string;
+//   fullName: string;
+//   email: string | null;
+//   picture: string;
+// }
 
 interface BackendAuthResponse {
   success: boolean;
-  message?: string;
-  user?: GoogleUser;
+  message: string;
+  fullName: string;
 }
 
 interface UseGoogleCallbackReturn {
@@ -49,7 +49,7 @@ export const useGoogleCallback = (): UseGoogleCallbackReturn => {
         setAuthData(null);
 
         const baseUrl = import.meta.env.VITE_API_BASE_URL;
-        const callbackEndpoint = "/auth/google/callback";
+        const urlEndpoint = "/auth/google-login";
 
         if (!baseUrl) {
           setError("Lỗi cấu hình: VITE_API_BASE_URL chưa được đặt.");
@@ -57,21 +57,27 @@ export const useGoogleCallback = (): UseGoogleCallbackReturn => {
           return;
         }
 
-        const url = `${baseUrl}${callbackEndpoint}?code=${encodeURIComponent(
-          code
-        )}`;
+        const url = `${baseUrl}${urlEndpoint}`;
 
         try {
-          const response = await fetch(url, { method: "GET" });
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ code: code }),
+            credentials: "include",
+          });
           const responseData = await response.json();
 
           if (response.ok) {
-            setAuthData({ success: true, user: responseData });
+            setAuthData(responseData);
           } else {
             const failResponse: BackendAuthResponse = {
               success: false,
               message:
                 responseData.message || `Lỗi ${response.status} từ server.`,
+              fullName: "",
             };
             setAuthData(failResponse);
             setError(failResponse.message || "Đã xảy ra lỗi không xác định.");
@@ -80,7 +86,7 @@ export const useGoogleCallback = (): UseGoogleCallbackReturn => {
           const errorMessage =
             "Không thể kết nối đến server hoặc đã xảy ra lỗi mạng.";
           setError(errorMessage);
-          setAuthData({ success: false, message: errorMessage });
+          setAuthData({ success: false, message: errorMessage, fullName: "" });
         } finally {
           setIsLoading(false);
         }

@@ -41,7 +41,7 @@ export const useChatbot = () => {
         const payload: ChatbotRequest = {
           conversation: {
             question: question,
-            chatHistory: historyForAPI
+            chatHistory: historyForAPI,
           },
 
           username: registrationData.fullName || "User",
@@ -57,7 +57,7 @@ export const useChatbot = () => {
 
         const botMessage: ChatMessage = {
           role: "model",
-          content: response.messageInMarkdown,
+          content: response.MessageInMarkdown,
         };
         setMessages((prevMessages) => [...prevMessages, botMessage]);
       } catch (err) {
