@@ -1,34 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { EmailService } from './email.service';
-import { CreateEmailDto } from './dto/create-email.dto';
-import { UpdateEmailDto } from './dto/update-email.dto';
+import { ContactRequestDto } from './dto/contact-request.dto';
+import type { Response } from 'express';
 
 @Controller('email')
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
-  create(@Body() createEmailDto: CreateEmailDto) {
-    return this.emailService.create(createEmailDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.emailService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.emailService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateEmailDto: UpdateEmailDto) {
-    return this.emailService.update(+id, updateEmailDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.emailService.remove(+id);
+  async send(@Body() dto: ContactRequestDto, @Res() res: Response) {
+    try {
+      await this.emailService.sendFeedback(dto.name, dto.message);
+      return res.status(HttpStatus.OK).json('Gửi góp ý thành công.');
+    } catch (error) {
+      return res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .json(`Lỗi gửi email: ${error.message}`);
+    }
   }
 }

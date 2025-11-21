@@ -1,26 +1,29 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDictionaryDto } from './dto/create-dictionary.dto';
-import { UpdateDictionaryDto } from './dto/update-dictionary.dto';
+import { GoogleGenAI } from '@google/genai';
+import { DictionaryPrompts } from './dictionary.constants';
+import { TranslateWordDto } from './dto/translate-word.dto';
 
 @Injectable()
 export class DictionaryService {
-  create(createDictionaryDto: CreateDictionaryDto) {
-    return 'This action adds a new dictionary';
-  }
+  async translate(dto: TranslateWordDto) {
+    try {
+      const ai = new GoogleGenAI({ apiKey: dto.ApiKey });
+      const prompt = DictionaryPrompts.translate(dto.word);
 
-  findAll() {
-    return `This action returns all dictionary`;
-  }
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        config: {
+          responseMimeType: 'application/json',
+          temperature: 0.5,
+        },
+      });
 
-  findOne(id: number) {
-    return `This action returns a #${id} dictionary`;
-  }
-
-  update(id: number, updateDictionaryDto: UpdateDictionaryDto) {
-    return `This action updates a #${id} dictionary`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} dictionary`;
+      const text = response.text || 'Có lỗi xảy ra ở phía máy chủ, vui lòng thử lại sau.';
+      return JSON.parse(text);
+    } catch (error) {
+      console.error('Dictionary Error:', error);
+      throw new Error('Không thể dịch từ này lúc này.');
+    }
   }
 }

@@ -1,34 +1,34 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { ReadingService } from './reading.service';
-import { CreateReadingDto } from './dto/create-reading.dto';
-import { UpdateReadingDto } from './dto/update-reading.dto';
+import { GenerateReadingDto } from './dto/generate-reading.dto';
+import { EvaluateGuessDto } from './dto/evaluate-guess.dto';
+import type { Response } from 'express';
 
 @Controller('reading')
 export class ReadingController {
   constructor(private readonly readingService: ReadingService) {}
 
-  @Post()
-  create(@Body() createReadingDto: CreateReadingDto) {
-    return this.readingService.create(createReadingDto);
+  @Post('generate')
+  async generate(@Body() dto: GenerateReadingDto, @Res() res: Response) {
+    try {
+      const result = await this.readingService.generatePassage(dto);
+      return res.status(HttpStatus.OK).json(result);
+    } catch (e) {
+      return res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .json({ message: e.message });
+    }
   }
 
-  @Get()
-  findAll() {
-    return this.readingService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.readingService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReadingDto: UpdateReadingDto) {
-    return this.readingService.update(+id, updateReadingDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.readingService.remove(+id);
+  @Post('evaluate')
+  async evaluate(@Body() dto: EvaluateGuessDto, @Res() res: Response) {
+    try {
+      const result = await this.readingService.evaluateGuess(dto);
+      return res.status(HttpStatus.OK).json(result);
+    } catch (e) {
+      return res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .json({ message: e.message });
+    }
   }
 }

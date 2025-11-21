@@ -1,34 +1,24 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Res, HttpStatus } from '@nestjs/common';
 import { DictionaryService } from './dictionary.service';
-import { CreateDictionaryDto } from './dto/create-dictionary.dto';
-import { UpdateDictionaryDto } from './dto/update-dictionary.dto';
+import { TranslateWordDto } from './dto/translate-word.dto';
+import type { Response } from 'express';
 
-@Controller('dictionary')
+@Controller('translate') // Route: /api/translate
 export class DictionaryController {
   constructor(private readonly dictionaryService: DictionaryService) {}
 
   @Post()
-  create(@Body() createDictionaryDto: CreateDictionaryDto) {
-    return this.dictionaryService.create(createDictionaryDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.dictionaryService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.dictionaryService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDictionaryDto: UpdateDictionaryDto) {
-    return this.dictionaryService.update(+id, updateDictionaryDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.dictionaryService.remove(+id);
+  async translate(@Body() dto: TranslateWordDto, @Res() res: Response) {
+    try {
+      const result = await this.dictionaryService.translate(dto);
+      return res.status(HttpStatus.OK).json({
+        Word: dto.word,
+        Explanation: result,
+      });
+    } catch (error) {
+      return res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .json({ error: error.message });
+    }
   }
 }

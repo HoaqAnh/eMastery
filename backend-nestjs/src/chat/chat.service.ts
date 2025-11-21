@@ -35,7 +35,7 @@ export class ChatService {
         },
       });
 
-      const text = response.text || '';
+      const text = response.text || 'Có lỗi xảy ra ở phía máy chủ, vui lòng thử lại sau.';
 
       return this.parseJsonResponse(text);
     } catch (error) {

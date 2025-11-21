@@ -1,26 +1,44 @@
 import { Injectable } from '@nestjs/common';
-import { CreateReadingDto } from './dto/create-reading.dto';
-import { UpdateReadingDto } from './dto/update-reading.dto';
+import { GoogleGenAI } from '@google/genai';
+import { ReadingPrompts } from './reading.constants';
+import { GenerateReadingDto } from './dto/generate-reading.dto';
+import { EvaluateGuessDto } from './dto/evaluate-guess.dto';
 
 @Injectable()
 export class ReadingService {
-  create(createReadingDto: CreateReadingDto) {
-    return 'This action adds a new reading';
+  async generatePassage(dto: GenerateReadingDto) {
+    const ai = new GoogleGenAI({ apiKey: dto.geminiApiKey });
+    const prompt = ReadingPrompts.getReadingWord(
+      dto.englishLevel,
+      dto.usedDescriptions,
+    );
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      config: { responseMimeType: 'application/json' },
+    });
+
+    return JSON.parse(
+      response.text || 'Có lỗi xảy ra ở phía máy chủ, vui lòng thử lại sau.',
+    );
   }
 
-  findAll() {
-    return `This action returns all reading`;
-  }
+  async evaluateGuess(dto: EvaluateGuessDto) {
+    const ai = new GoogleGenAI({ apiKey: dto.geminiApiKey });
+    const prompt = ReadingPrompts.getEvaluation(
+      dto.userGuess,
+      dto.correctPhrase,
+    );
 
-  findOne(id: number) {
-    return `This action returns a #${id} reading`;
-  }
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      config: { responseMimeType: 'application/json' },
+    });
 
-  update(id: number, updateReadingDto: UpdateReadingDto) {
-    return `This action updates a #${id} reading`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} reading`;
+    return JSON.parse(
+      response.text || 'Có lỗi xảy ra ở phía máy chủ, vui lòng thử lại sau.',
+    );
   }
 }

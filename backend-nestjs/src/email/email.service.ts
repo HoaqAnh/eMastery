@@ -1,26 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { CreateEmailDto } from './dto/create-email.dto';
-import { UpdateEmailDto } from './dto/update-email.dto';
+import { MailerService } from '@nestjs-modules/mailer';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class EmailService {
-  create(createEmailDto: CreateEmailDto) {
-    return 'This action adds a new email';
-  }
+  constructor(
+    private readonly mailerService: MailerService,
+    private readonly configService: ConfigService,
+  ) {}
 
-  findAll() {
-    return `This action returns all email`;
-  }
+  async sendFeedback(name: string, content: string) {
+    const adminEmail = this.configService.get<string>('ADMIN_EMAIL');
 
-  findOne(id: number) {
-    return `This action returns a #${id} email`;
-  }
-
-  update(id: number, updateEmailDto: UpdateEmailDto) {
-    return `This action updates a #${id} email`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} email`;
+    await this.mailerService.sendMail({
+      to: adminEmail,
+      subject: 'Góp ý từ người dùng (eMastery)',
+      html: `
+        <h2>Góp ý mới từ: ${name}</h2>
+        <p>${content.replace(/\n/g, '<br>')}</p>
+      `,
+    });
   }
 }
