@@ -1,12 +1,10 @@
-const serverlessExpress = require('@vendia/serverless-express');
-let server;
+const { createApp } = require('../dist/serverless');
 
-exports.handler = async (event, context) => {
-  if (!server) {
-    const { createApp } = require('../dist/serverless.js');
-    const app = await createApp();
-    server = serverlessExpress({ app });
+let app;
+
+module.exports = async (req, res) => {
+  if (!app) {
+    app = await createApp();
   }
-
-  return server(event, context);
+  app(req, res);
 };

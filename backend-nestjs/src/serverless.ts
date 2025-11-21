@@ -16,7 +16,6 @@ export async function createApp() {
   });
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-
   app.setGlobalPrefix('api');
 
   await app.init();
