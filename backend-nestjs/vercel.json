@@ -1,7 +1,9 @@
 {
   "version": 2,
   "functions": {
-    "api/index.ts": {}
+    "api/index.ts": {
+      "maxDuration": 10
+    }
   },
   "routes": [
     {
