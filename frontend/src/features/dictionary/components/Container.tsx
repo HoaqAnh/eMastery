@@ -11,9 +11,9 @@ import {
   ArrowDownIcon,
   ArrowUpIcon,
 } from "@/components/common/Icons";
-import { type Explanation } from "../services/dictionaryService";
+import { type Explanation } from "@features/dictionary/services/dictionaryService";
 
-type DictionaryTab =
+export type DictionaryTab =
   | "meaning"
   | "grammarUsage"
   | "phrasesAndIdioms"
@@ -36,57 +36,56 @@ const Container = ({
   setActiveTab,
 }: ContainerProps): JSX.Element => {
   const { t } = useTranslation();
+
   const contentToDisplay = data[activeTab] || t("dictionary.notFound.content");
+
+  const getButtonClass = (tabName: DictionaryTab) =>
+    `dictionary___item ${activeTab === tabName ? "active" : ""}`;
 
   return (
     <div className="dictionary__body-container">
       <div className="dictionary__body-container__actions">
         <button
-          className={`dictionary___item ${
-            activeTab === "meaning" ? "active" : ""
-          }`}
+          className={getButtonClass("meaning")}
           onClick={() => setActiveTab("meaning")}
         >
           {BookIcon}
           <p>{t("dictionary.meaning")}</p>
         </button>
+
         <button
-          className={`dictionary___item ${
-            activeTab === "grammarUsage" ? "active" : ""
-          }`}
+          className={getButtonClass("grammarUsage")}
           onClick={() => setActiveTab("grammarUsage")}
         >
           {DialogIcon}
           <p>{t("dictionary.grammarUsage")}</p>
         </button>
+
         <button
-          className={`dictionary___item ${
-            activeTab === "phrasesAndIdioms" ? "active" : ""
-          }`}
+          className={getButtonClass("phrasesAndIdioms")}
           onClick={() => setActiveTab("phrasesAndIdioms")}
         >
           {StarIcon}
           <p>{t("dictionary.phrasesAndIdioms")}</p>
         </button>
+
         <button
-          className={`dictionary___item ${
-            activeTab === "synonymsAndAntonyms" ? "active" : ""
-          }`}
+          className={getButtonClass("synonymsAndAntonyms")}
           onClick={() => setActiveTab("synonymsAndAntonyms")}
         >
           {CachedIcon}
           <p>{t("dictionary.synonymsAndAntonyms")}</p>
         </button>
+
         <button
-          className={`dictionary___item ${
-            activeTab === "funFactsAndTips" ? "active" : ""
-          }`}
+          className={getButtonClass("funFactsAndTips")}
           onClick={() => setActiveTab("funFactsAndTips")}
         >
           {LightbulbIcon}
           <p>{t("dictionary.funFactsAndTips")}</p>
         </button>
       </div>
+
       <button
         className={`dictionary___extend ${!isExpanded ? "collapsed" : ""}`}
         onClick={onToggleExpand}
@@ -96,6 +95,7 @@ const Container = ({
           {isExpanded ? t("dictionary.collapsed") : t("dictionary.expanded")}
         </p>
       </button>
+
       <div className="dictionary__body-container__main">
         <div
           className={`dictionary__body-container__content markdown-content  ${

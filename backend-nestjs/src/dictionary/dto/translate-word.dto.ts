@@ -8,5 +8,5 @@ export class TranslateWordDto {
 
   @IsString()
   @IsNotEmpty()
-  ApiKey: string;
+  apiKey: string;
 }

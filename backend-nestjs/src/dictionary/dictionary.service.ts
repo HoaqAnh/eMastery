@@ -7,7 +7,7 @@ import { TranslateWordDto } from './dto/translate-word.dto';
 export class DictionaryService {
   async translate(dto: TranslateWordDto) {
     try {
-      const ai = new GoogleGenAI({ apiKey: dto.ApiKey });
+      const ai = new GoogleGenAI({ apiKey: dto.apiKey });
       const prompt = DictionaryPrompts.translate(dto.word);
 
       const response = await ai.models.generateContent({

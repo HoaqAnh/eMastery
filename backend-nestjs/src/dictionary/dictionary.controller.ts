@@ -12,8 +12,8 @@ export class DictionaryController {
     try {
       const result = await this.dictionaryService.translate(dto);
       return res.status(HttpStatus.OK).json({
-        Word: dto.word,
-        Explanation: result,
+        word: dto.word,
+        explanation: result,
       });
     } catch (error) {
       return res
