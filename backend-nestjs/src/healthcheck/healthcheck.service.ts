@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 
 @Injectable()
 export class HealthcheckService {
   async checkApiKey(apiKey: string): Promise<boolean> {
     try {
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+      const ai = new GoogleGenAI({ apiKey: apiKey });
 
-      await model.generateContent({
+      await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
         contents: [{ role: 'user', parts: [{ text: 'Hi' }] }],
-        generationConfig: { maxOutputTokens: 40 },
+        config: { maxOutputTokens: 10 },
       });
 
       return true;
