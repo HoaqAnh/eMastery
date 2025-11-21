@@ -22,13 +22,9 @@ const SubscribeFlow = () => {
   } = useGoogleCallback();
 
   useEffect(() => {
-    if (
-      authData?.success &&
-      authData.user?.name &&
-      !registrationData.fullName
-    ) {
-      toast.success("Đăng nhập Google thành công!");
-      updateRegistrationData({ fullName: authData.user.name });
+    if (authData?.success && authData.fullName && !registrationData.fullName) {
+      toast.success(authData.message);
+      updateRegistrationData({ fullName: authData.fullName });
     } else if (authError) {
       toast.error(authError);
     }
