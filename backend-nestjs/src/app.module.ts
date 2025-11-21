@@ -5,6 +5,7 @@ import { DictionaryModule } from './dictionary/dictionary.module';
 import { ReadingModule } from './reading/reading.module';
 import { AuthModule } from './auth/auth.module';
 import { EmailModule } from './email/email.module';
+import { HealthcheckModule } from './healthcheck/healthcheck.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { EmailModule } from './email/email.module';
     ReadingModule,
     AuthModule,
     EmailModule,
+    HealthcheckModule,
   ],
 })
 export class AppModule {}
