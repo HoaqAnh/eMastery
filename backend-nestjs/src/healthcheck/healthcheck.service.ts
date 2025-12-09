@@ -6,9 +6,10 @@ export class HealthcheckService {
   async checkApiKey(apiKey: string): Promise<boolean> {
     try {
       const ai = new GoogleGenAI({ apiKey: apiKey });
-
+      const result = await ai.models.list();
+      console.log('Available Models:', result);
       await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
+        model: 'gemini-2.5-flash-lite',
         contents: [{ role: 'user', parts: [{ text: 'Hi' }] }],
         config: { maxOutputTokens: 10 },
       });
